@@ -4,7 +4,7 @@ import { StyleSheet, Text, View, Image } from "react-native";
 
 import { COLORS } from "../constants";
 import ListItem from "../components/ListItem";
-import ImageButt from "../assets/images/wallpaper_butt.jpg";
+import ImageButt from "../assets/images/foto4.jpg";
 import AppText from "../components/AppText";
 
 export default function App() {

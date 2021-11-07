@@ -29,8 +29,10 @@ import ListingScreen from "./screens/ListingsScreen";
 import ListingEditScreen from "./screens/ListingEditScreen";
 import CategoryPickerItem from "./components/CategoryPickerItem";
 import { AppFormField } from "./components/forms";
-import ViewImageScreen from './screens/ViewImageScreen'
-import ListingDetailScreen from './screens/ListingDetailScreen'
+import ViewImageScreen from "./screens/ViewImageScreen";
+import ListingDetailScreen from "./screens/ListingDetailScreen";
+import ImageInput from "./components/ImageInput";
+import ImageInputList from "./components/ImageInputList";
 
 const Stack = createStackNavigator();
 
@@ -50,8 +52,6 @@ const listings = [
 ];
 
 const App = () => {
-	const [category, setCategory] = useState();
-
 	return (
 		// <AppPicker/>
 

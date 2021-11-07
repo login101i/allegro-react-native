@@ -22,9 +22,9 @@ const SpanText = styled.span`
 const BorderAndTitle = (props) => {
   return (
     <div>
-      <Header>
-        <SpanText>{props.title || "Zobacz więcej"} </SpanText>
-      </Header>
+      <View>
+        <View>{props.title || "Zobacz więcej"} </View>
+      </View>
     </div>
   );
 };
