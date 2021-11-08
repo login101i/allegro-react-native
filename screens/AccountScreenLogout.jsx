@@ -29,35 +29,54 @@ const menuItems = [
   },
 ];
 
-function AccountScreenLogout() {
+function AccountScreenLogout({navigation}) {
   return (
-    <Screen>
-      <View style={styles.flexRow}>
-        <AppText title="Moje allegro" textColor="white" />
-        <Icon name={"facebook"} textColor={COLORS.lightGrey} />
-      </View>
-      <Text>Nawigacja zakupy lokalnie konto</Text>
-      <Image source={Banner} style={styles.banner} />
+		<Screen>
+			<View style={styles.flexRow}>
+				<AppText title="Moje allegro" textColor="white" />
+				<Icon name={"facebook"} textColor={COLORS.lightGrey} />
+			</View>
+			<Text>Nawigacja zakupy lokalnie konto</Text>
+			<Image source={Banner} style={styles.banner} />
 
-      <View style={{ paddingVertical: "10px" }}>
-        <AppText title=" Witaj w Allegro" widthh="100%" center textColor="white" icon iconName="hand" />
+			<View style={{ paddingVertical: "10px" }}>
+				<AppText
+					title=" Witaj w Allegro"
+					widthh="100%"
+					center
+					textColor="white"
+					icon
+					iconName="hand"
+				/>
 
-        <SimpleText smallText textAlign="center">
-          Zaloguj się i zobacz swoje zakupy, obserwowane oferty i powiadomienia. W Allegro jesteś u siebie!
-        </SimpleText>
-        <AppButton title="zaloguj się" buttonColor={COLORS.allegroColor} smallLetters="uppercase" />
-        <AppButton title="Załóż konto" buttonColor={"transparent"} textColor="linkColor" smallLetters="uppercase" />
-      </View>
+				<SimpleText smallText textAlign="center">
+					Zaloguj się i zobacz swoje zakupy, obserwowane oferty i powiadomienia.
+					W Allegro jesteś u siebie!
+				</SimpleText>
+				<AppButton
+					title="zaloguj się"
+					buttonColor={COLORS.allegroColor}
+					smallLetters="uppercase"
+					onPress={() => navigation.navigate("Login")}
+				/>
+				<AppButton
+					title="Załóż konto"
+					buttonColor={"transparent"}
+					textColor="linkColor"
+					smallLetters="uppercase"
+					onPress={() => navigation.navigate("Register")}
+				/>
+			</View>
 
-      {/* <View >
+			{/* <View >
         <ListItem title={"Maciej"} subTitle={"Kruszyniak"} image={require("../assetS/images/ethereum.png")} />
       </View>
       <View style={styles.container}>
         <FlatList data={menuItems} keyExtractor={(menuItem) => menuItem.title} ItemSeparatorComponent={ListItemSeparator} renderItem={({ item }) => <ListItem title={item.title} IconComponent={<Icon name={item.icon.name} backgroundColor={item.icon.backgroundColor} />} />} />
       </View>
       <ListItem title="Log Out" IconComponent={<Icon name="logout" backgroundColor="#ffe66d" />} /> */}
-    </Screen>
-  );
+		</Screen>
+	);
 }
 
 const styles = StyleSheet.create({

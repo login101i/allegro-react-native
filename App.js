@@ -18,7 +18,6 @@ import { NavigationContainer } from "@react-navigation/native";
 import LoginPage from "./screens/LoginScreen";
 import Card from "./components/Card";
 
-import Tabs from "./navigation/tabs";
 import ActivityIndicator from "./components/ActivityIndicator";
 import AppPicker from "./components/AppPicker";
 import ListItem from "./components/ListItem";
@@ -33,6 +32,8 @@ import ViewImageScreen from "./screens/ViewImageScreen";
 import ListingDetailScreen from "./screens/ListingDetailScreen";
 import ImageInput from "./components/ImageInput";
 import ImageInputList from "./components/ImageInputList";
+import AppNavigator from "./navigation/AppNavigator";
+import AuthNavigation from './navigation/AuthNavigation'
 
 const Stack = createStackNavigator();
 
@@ -53,38 +54,9 @@ const listings = [
 
 const App = () => {
 	return (
-		// <AppPicker/>
-
-		// <ActivityIndicator/>
-		// <>
-		//   <AccountScreenLogout />
-		// </>
-
-		// <Card title="tytuł" />
-		// <AppPicker
-		// 	selectedItem={category}
-		// 	onSelectItem={(item) => setCategory(item)}
-		// 	placeholder="Wpisz tutaj"
-		// 	icon="facebook"
-		// 	color="green"
-		// 	items={listings}
-		// />
-		<>
-			<ListingEditScreen />
-		</>
-
-		// <NavigationContainer>
-		//   <Stack.Navigator
-		//     screenOptions={{
-		//       headerShown: false,
-		//     }}
-		//     initialRouteName={"Start"}
-		//   >
-		//     <Stack.Screen name="Start" component={Tabs} />
-		//     <Stack.Screen name="CryptoDetail" component={Tabs} />
-		//     <Stack.Screen name="Transaction" component={Tabs} />
-		//   </Stack.Navigator>
-		// </NavigationContainer>
+		<NavigationContainer>
+			<AppNavigator />
+		</NavigationContainer>
 	);
 };
 

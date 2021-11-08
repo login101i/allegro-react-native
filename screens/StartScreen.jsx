@@ -1,16 +1,15 @@
-import React, { useState, useEffect } from "react";
-import { SafeAreaView, StyleSheet, View, Text, TouchableOpacity, Image, ImageBackground, Flatlist, ScrollView, TextInput } from "react-native";
-
-import { dummyData, COLORS, SIZES, FONTS, icons, images } from "../constants";
-
-import Category from "../components/Category";
-import BlackSpace from "../components/BlackSpace";
-import RoundedCategory from "../components/RoundedCategory";
-import BorderAndTitle from "../components/BorderAndTitle";
-import ProductContainer from "../components/ProductContainer";
-
+import React, { useEffect, useState } from "react";
+import { Image, ScrollView, StyleSheet, Text, TextInput, TouchableOpacity, View } from "react-native";
 import WeekOcasion1 from "../assets/images/WeekOcasion1.png";
 import WeekOcasion2 from "../assets/images/WeekOcasion2.png";
+import BlackSpace from "../components/BlackSpace";
+import Category from "../components/Category";
+import ProductContainer from "../components/ProductContainer";
+import RoundedCategory from "../components/RoundedCategory";
+import { COLORS, dummyData, icons, images, SIZES } from "../constants";
+
+
+
 
 const Start = ({ navigation }) => {
   function renderHeader() {
@@ -149,24 +148,31 @@ const Start = ({ navigation }) => {
     );
   }
 
+
+
   function renderCategories() {
+
+
     return (
-      <>
-        <ScrollView horizontal={true} showsHorizontalScrollIndicator={false} contentContainerStyle={styles.categoriesContainer}>
-          <Category icon={icons.transaction} text={"Elektronika"} borderColor={COLORS.red} />
-          <Category icon={icons.transaction} text={"Moda"} borderColor={COLORS.green} />
-          <Category icon={icons.transaction} text={"Dom I Ogród"} borderColor={COLORS.allegroColor} />
-          <Category icon={icons.transaction} text={"Supermarket"} borderColor={COLORS.yellow} />
-          <Category icon={icons.transaction} text={"Dziecko"} borderColor={COLORS.grrenBlue} />
-          <Category icon={icons.transaction} text={"Uroda"} borderColor={COLORS.pink} />
-          <Category icon={icons.transaction} text={"Zdrowie"} borderColor={COLORS.red} />
-          <Category icon={icons.transaction} text={"Kultura i rozrywka"} borderColor={COLORS.yellow} />
-          <Category icon={icons.transaction} text={"Sport i turystyka"} borderColor={COLORS.pink} />
-          <Category icon={icons.transaction} text={"Motoryzacja"} borderColor={COLORS.lightBlue} />
-        </ScrollView>
-        <Text style={styles.categoryTitle}>Kategorie</Text>
-      </>
-    );
+			<>
+				<ScrollView
+					horizontal={true}
+					showsHorizontalScrollIndicator={false}
+					contentContainerStyle={styles.categoriesContainer}
+				>
+					{dummyData.categories.map(({icon, categoryTitle, borderColor}) => (
+						<Category
+							icon={icon}
+							title={categoryTitle}
+							borderBottomColor={borderColor}
+              borderBottomWidth={6}
+						/>
+					))}
+				
+				</ScrollView>
+				<Text style={styles.categoryTitle}>Kategorie</Text>
+			</>
+		);
   }
 
   function renderBanner() {
@@ -194,7 +200,7 @@ const Start = ({ navigation }) => {
     const [minutes, setMinutes] = useState("-");
     const [seconds, setSeconds] = useState("-");
 
-    var countDownDate = new Date("Oct 31, 2021 23:00:00").getTime();
+    var countDownDate = new Date("November 12, 2021 08:00:00").getTime();
 
     const zero = "0";
 
@@ -246,7 +252,6 @@ const Start = ({ navigation }) => {
           <ProductContainer img={WeekOcasion1} discount={33} oldPrice={144} price={99} description={"To jest produkt z górnej półki"} />
         </ScrollView>
 
-        <BorderAndTitle title={"Przejdź do strefy okazji"} />
       </>
     );
   }

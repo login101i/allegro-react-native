@@ -1,4 +1,4 @@
-import Start from "./Start"
+import Start from "./StartScreen"
 import CryptoDetail from "./CryptoDetail"
 import Transaction from "./Transaction"
 
