@@ -10,6 +10,7 @@ import AppText from "../components/AppText";
 import Banner from "../assets/images/banner.png";
 import SimpleText from "../components/SimpleText";
 import AppButton from "../components/AppButton";
+import routes from '../navigation/routes'
 
 const menuItems = [
   {
@@ -57,14 +58,14 @@ function AccountScreenLogout({navigation}) {
 					title="zaloguj się"
 					buttonColor={COLORS.allegroColor}
 					smallLetters="uppercase"
-					onPress={() => navigation.navigate("Login")}
+					onPress={() => navigation.navigate(routes.LOGIN)}
 				/>
 				<AppButton
 					title="Załóż konto"
 					buttonColor={"transparent"}
 					textColor="linkColor"
 					smallLetters="uppercase"
-					onPress={() => navigation.navigate("Register")}
+					onPress={() => navigation.navigate(routes.REGISTER)}
 				/>
 			</View>
 

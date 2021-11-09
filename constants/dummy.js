@@ -484,7 +484,7 @@ export const categories = [
 		id: 4,
 		icon: randomIcon(),
 		borderColor: COLORS.allegroColor,
-		categoryTitle: "dDziecko",
+		categoryTitle: "Dziecko",
 	},
 	{
 		id: 5,

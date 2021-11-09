@@ -29,11 +29,12 @@ import ListingEditScreen from "./screens/ListingEditScreen";
 import CategoryPickerItem from "./components/CategoryPickerItem";
 import { AppFormField } from "./components/forms";
 import ViewImageScreen from "./screens/ViewImageScreen";
-import ListingDetailScreen from "./screens/ListingDetailScreen";
+import ListingDetailScreen from "./screens/ProductDetailsScreen";
 import ImageInput from "./components/ImageInput";
 import ImageInputList from "./components/ImageInputList";
 import AppNavigator from "./navigation/AppNavigator";
 import AuthNavigation from './navigation/AuthNavigation'
+import NavigationTheme from './navigation/navigationTheme'
 
 const Stack = createStackNavigator();
 
@@ -54,7 +55,7 @@ const listings = [
 
 const App = () => {
 	return (
-		<NavigationContainer>
+		<NavigationContainer theme={NavigationTheme}>
 			<AppNavigator />
 		</NavigationContainer>
 	);

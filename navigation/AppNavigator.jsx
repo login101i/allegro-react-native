@@ -12,6 +12,8 @@ import { COLORS, FONTS, icons, images, SIZES } from "../constants";
 import AppPicker from "../components/AppPicker";
 import FindScreen from '../screens/FindScreen';
 import AuthNavigation from "../navigation/AuthNavigation";
+import ListingsScreen from "../screens/ListingsScreen";
+import ProductsNavigator from '../navigation/ProductsNavigator'
 
 
 const Tab = createBottomTabNavigator();
@@ -35,7 +37,7 @@ const AppNavigator = () => {
 		>
 			<Tab.Screen
 				name="Szukaj"
-				component={FindScreen}
+				component={ProductsNavigator}
 				options={{
 					tabBarIcon: ({ focused }) => (
 						<View style={{ alignItems: "center", justifyContent: "center" }}>
@@ -120,7 +122,7 @@ const AppNavigator = () => {
 			/>
 			<Tab.Screen
 				name="Obserwuję"
-				component={Start}
+				component={ListingsScreen}
 				options={{
 					tabBarIcon: ({ focused }) => (
 						<View style={{ alignItems: "center", justifyContent: "center" }}>

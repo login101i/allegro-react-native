@@ -200,7 +200,7 @@ const Start = ({ navigation }) => {
     const [minutes, setMinutes] = useState("-");
     const [seconds, setSeconds] = useState("-");
 
-    var countDownDate = new Date("November 12, 2021 08:00:00").getTime();
+    var countDownDate = new Date("November 12, 2021 23:00:00").getTime();
 
     const zero = "0";
 
