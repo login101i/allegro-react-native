@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, View, Text, TouchableOpacity, Image } from "react-native";
 
 import { dummyData, COLORS, SIZES, FONTS, icons, images } from "../constants";
-import AppText from '../components/AppText'
+import AppText from "../components/AppText";
 
 const Category = ({
 	icon,
@@ -13,8 +13,8 @@ const Category = ({
 	borderLeftWidth,
 	containerStyle,
 	width = "25vw",
-	height = 90,
-	flexDirection = "column",
+	height = 80,
+	flexDirection = "column"
 }) => {
 	return (
 		<TouchableOpacity>
@@ -31,7 +31,7 @@ const Category = ({
 					flexDirection,
 					alignItems: "center",
 					justifyContent: "flex-start",
-					marginRight: 1,
+					marginRight: 1
 				}}
 			>
 				<Image
@@ -39,19 +39,22 @@ const Category = ({
 					style={[
 						{
 							tintColor: COLORS.lightGray,
-							width: 45,
-							height: 45,
-							padding: 14,
+							width: 35,
+							height: 35,
+							padding: 14
 						},
-						containerStyle,
+						containerStyle
 					]}
 				/>
 				<AppText
-         style={{ fontSize: SIZES.medium, color: COLORS.lightGray }}
-         title={title}
-         fontSize={14}
-         />
-				
+					style={{
+						fontSize: SIZES.medium,
+						color: COLORS.lightGray,
+						textAlign: "center"
+					}}
+					title={title}
+					fontSize={12}
+				/>
 			</View>
 		</TouchableOpacity>
 	);
@@ -61,8 +64,8 @@ const styles = StyleSheet.create({
 	container: {
 		flex: 1,
 		alignItems: "center",
-		justifyContent: "center",
-	},
+		justifyContent: "center"
+	}
 });
 
 export default Category;

@@ -2,11 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { COLORS } from "../constants";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
-import {Image} from 'react-native'
+import { StyleSheet } from "react-native";
 
 import SmartImage from "../assets/images/Smart.svg";
 import { TouchableWithoutFeedback } from "react-native-gesture-handler";
 import AppText from "./AppText";
+import AppTextInput from "./TextInput";
 
 const SectionContainer = styled.div`
 	display: flex;
@@ -60,15 +61,19 @@ const Smart = styled.img`
 
 const ImageContainer = styled.div`
 	height: 200px;
+	width: 200px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 `;
-// const Image = styled.img`
-// 	width: 100px;
-// 	object-fit: cover;
-// 	margin: 0 15px;
-// `;
+const Image = styled.img`
+	width: 90%;
+	object-fit: cover;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	max-height: 150px;
+`;
 
 const Description = styled.div`
 	text-decoration: uppercase;
@@ -83,15 +88,16 @@ const Text = styled.div`
 	margin-left: -10px;
 `;
 
-const ProductContainer = ({
-	imageUrl,
-	discount,
-	oldPrice,
-	price,
-	description,
-	productList = false,
-	onPress,
-}) => {
+const ProductContainer = ({ product, onPress, productList = false }) => {
+	const {
+		images,
+		name,
+		description,
+		oldPrice = "100",
+		newPrice = "99",
+		price,
+		discount = "0"
+	} = product;
 	if (productList) {
 		return (
 			<TouchableWithoutFeedback
@@ -99,14 +105,15 @@ const ProductContainer = ({
 					flexDirection: "row",
 					display: "flex",
 					height: "auto",
-					alignItems: "center",
+					alignItems: "center"
 				}}
 				onPress={onPress}
 			>
 				<ImageContainer>
-					<Image source={{ uri: imageUrl }} />
+					<Image src={images[0].url} />
 				</ImageContainer>
 				<SectionInfo>
+					<AppTextInput title={name} />
 					<Description>{description}</Description>
 
 					<FlexRow style={{ justifyContent: "left", alignItems: "center" }}>
@@ -130,25 +137,35 @@ const ProductContainer = ({
 		);
 	} else
 		return (
-			<SectionContainer>
-				<ImageContainer>
-					<Image source={{ uri: imageUrl }} />
-				</ImageContainer>
-				<SectionInfo>
-					<FlexRow style={{ justifyContent: "left", alignItems: "center" }}>
-						<Discount>-{discount} %</Discount>
-						<OldPrice>{oldPrice} zł</OldPrice>
-					</FlexRow>
-					<Price>{price} zł</Price>
-					<Description />
-					<FlexRow>
-						<Smart src={SmartImage} />
-						<Text>z kurierem</Text>
-					</FlexRow>
+			<TouchableWithoutFeedback
+				style={{
+					flexDirection: "row",
+					display: "flex",
+					height: "auto",
+					alignItems: "center"
+				}}
+				onPress={onPress}
+			>
+				<SectionContainer>
+					<ImageContainer>
+						<Image src={images[0].url} />
+					</ImageContainer>
+					<SectionInfo>
+						<FlexRow style={{ justifyContent: "left", alignItems: "center" }}>
+							<Discount>-{discount} %</Discount>
+							<OldPrice>{oldPrice} zł</OldPrice>
+						</FlexRow>
+						<Price>{price} zł</Price>
+						<Description />
+						<FlexRow>
+							<Smart src={SmartImage} />
+							<Text>z kurierem</Text>
+						</FlexRow>
 
-					<Description>{description}</Description>
-				</SectionInfo>
-			</SectionContainer>
+						<Description>{description.substring(0, 20) + "..."}</Description>
+					</SectionInfo>
+				</SectionContainer>
+			</TouchableWithoutFeedback>
 		);
 };
 

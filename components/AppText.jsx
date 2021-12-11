@@ -3,10 +3,21 @@ import { StyleSheet, Text, View } from "react-native";
 
 import defaultStyles from "../config/styles";
 import { COLORS } from "../constants";
-import Icon from '../components/Icon'
+import Icon from "../components/Icon";
 
-export default function AppText({ title, subTitle, textColor=COLORS.lightGray, center=false , widthh, icon, iconName, style, fontSize, ...otherProps }) {
-  return (
+export default function AppText({
+	title,
+	subTitle,
+	textColor = COLORS.lightGray,
+	center = false,
+	widthh,
+	icon,
+	iconName,
+	style,
+	fontSize,
+	...otherProps
+}) {
+	return (
 		<>
 			<View style={[styles.container, center ? styles.center : {}, style]}>
 				{title && (
@@ -15,7 +26,7 @@ export default function AppText({ title, subTitle, textColor=COLORS.lightGray, c
 							defaultStyles.text,
 							{ textTransform: "uppercase" },
 							{ color: textColor },
-							{ fontSize: fontSize },
+							{ fontSize: fontSize }
 						]}
 						{...otherProps}
 					>
@@ -37,20 +48,20 @@ export default function AppText({ title, subTitle, textColor=COLORS.lightGray, c
 }
 
 const styles = StyleSheet.create({
-  container: {
-    padding: 5,
-    flexDirection: "row",
-  },
+	container: {
+		padding: 5,
+		flexDirection: "row"
+	},
 
-  subtitleText: {
-    fontWeight: "200",
-    fontSize: 18,
-  },
-  center: {
-    alignItems: "center",
-    display:'flex',
-    flexDirection:'row',
-    alignItems:'center',
-    justifyContent:'center'
-  },
+	subtitleText: {
+		fontWeight: "200",
+		fontSize: 18
+	},
+	center: {
+		alignItems: "center",
+		display: "flex",
+		flexDirection: "row",
+		alignItems: "center",
+		justifyContent: "center"
+	}
 });

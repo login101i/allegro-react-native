@@ -1,20 +1,12 @@
-import React from 'react'
-import {
-	Image,
-	ScrollView,
-	StyleSheet,
-	Text,
-	TextInput,
-	TouchableOpacity,
-	View,
-} from "react-native";
+import React from "react";
+import { Text, View } from "react-native";
 
 const RegisterScreen = () => {
-    return (
-			<View>
-				<Text> Register</Text>
-			</View>
-		);
-}
+	return (
+		<View>
+			<Text> Register</Text>
+		</View>
+	);
+};
 
-export default RegisterScreen
+export default RegisterScreen;

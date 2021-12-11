@@ -1,8 +1,6 @@
 import React from "react";
 import { StyleSheet, View, Image, Text } from "react-native";
 
-import ListItem from "../components/ListItem";
-import ListItemSeparator from "../components/ListItemSeparator";
 import { COLORS } from "../constants";
 import Icon from "../components/Icon";
 import Screen from "./Screen";
@@ -10,28 +8,28 @@ import AppText from "../components/AppText";
 import Banner from "../assets/images/banner.png";
 import SimpleText from "../components/SimpleText";
 import AppButton from "../components/AppButton";
-import routes from '../navigation/routes'
+import routes from "../features/navigation/routes";
 
 const menuItems = [
-  {
-    title: "My Listings",
-    icon: {
-      name: "format-list-bulleted",
-      backgroundColor: COLORS.primary,
-    },
-  },
-  {
-    title: "My Messages",
-    icon: {
-      name: "email",
-      backgroundColor: COLORS.secondary,
-    },
-    targetScreen: "tutaj route",
-  },
+	{
+		title: "My Listings",
+		icon: {
+			name: "format-list-bulleted",
+			backgroundColor: COLORS.primary
+		}
+	},
+	{
+		title: "My Messages",
+		icon: {
+			name: "email",
+			backgroundColor: COLORS.secondary
+		},
+		targetScreen: "tutaj route"
+	}
 ];
 
-function AccountScreenLogout({navigation}) {
-  return (
+function AccountScreenLogout({ navigation }) {
+	return (
 		<Screen>
 			<View style={styles.flexRow}>
 				<AppText title="Moje allegro" textColor="white" />
@@ -81,18 +79,18 @@ function AccountScreenLogout({navigation}) {
 }
 
 const styles = StyleSheet.create({
-  flexRow: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-between",
-  },
-  banner: {
-    width: "100%",
-    height: 250,
-    objectFit: "cover",
-    marginVertical: 50,
-  },
+	flexRow: {
+		display: "flex",
+		flexDirection: "row",
+		alignItems: "center",
+		justifyContent: "space-between"
+	},
+	banner: {
+		width: "100%",
+		height: 250,
+		objectFit: "cover",
+		marginVertical: 50
+	}
 });
 
 export default AccountScreenLogout;
