@@ -1,53 +1,101 @@
-import React from "react";
+import React, { useState, useContext, useEffect } from "react";
 import { StyleSheet, Text, View, Image, ScrollView } from "react-native";
 import Slider from "../../../components/Sider";
+import { Button } from "react-native-paper";
+import styled from "styled-components/native";
 
 import { COLORS } from "../../../constants";
 import AppText from "../../../components/AppText";
 import Header from "../../../components/Header";
-import ProductDetailsInfo from "../components/ProductPriceInfo";
+import ProductDetailsInfo from "../components/ProductDetailsInfo";
 import ProductPriceInfo from "../components/ProductPriceInfo";
 import AddToCart from "../../../components/AddToCart";
+import BlackSpace from "../../../components/BlackSpace";
+import ModalCart from "../components/Modal";
+
+import { CartContext } from "../../../services/cart/CartContext";
 
 export default function App({ navigation, route }) {
+	const [number, setNumber] = useState(1);
+	const [resetNumber, setResetNumber] = useState();
+	const [modal, setModal] = useState(false);
 	const { product } = route.params;
-	console.log(product.images[0].url);
+	// console.log(product.images[0].url);
 
-	const productExample = {
-		name: "SanDisk Ultra 128GB SDXC UHS-I Memory Card up to 80MB/s",
-		price: "45.89",
-		description:
-			"Ultra-fast cards (2) to take better pictures and Full HD videos (1) with your compact to mid-range point-and-shoot cameras and camcorders. With SanDisk Ultra SDXC UHS-I cards you’ll benefit from faster downloads, high capacity, and better performance to capture and store 128GB (5) of high quality pictures and Full HD video (1). Take advantage of ultra-fast read speeds of up to 80MB/s (3) to save time moving photos and videos from the card to your computer. From a leader in flash memory storage, SanDisk Ultra SDXC UHS-I cards are compatible with SDHC and SDXC digital devices, and come with a 10-year limited warranty (6).",
-		ratings: 4.5,
-		images: [
-			{
-				public_id: "products/tzfsnrli3szrdnb4jgge",
-				url: "https://res.cloudinary.com/mckrus/image/upload/v1612208133/dsstreet/pol_il_Bluza-meska-z-nadrukiem-zolta-BX4919-32520_o0xzz7.jpg"
-			}
-		],
-		category: "Elektronika",
-		seller: "Ebay",
-		stock: 50,
-		numOfReviews: 32,
-		reviews: []
+	const ButtonsContainer = styled.View`
+		position: absolute;
+		bottom: 75px;
+		left: 0;
+		right: 0;
+		display: flex;
+		flex-direction: row;
+		border-top-color: ${COLORS.blackSpace},
+		border-top-width: 1px;
+		border-bottom-color:  ${COLORS.blackSpace},
+		border-bottom-width: 1px;
+		padding:5px;
+	`;
+
+	const { cart, addToCart } = useContext(CartContext);
+
+	const addToBasket = (product, nb) => {
+		addToCart(product, nb);
+		setModal(true);
+		setResetNumber(1);
+	};
+
+	const changeModal = () => {
+		setModal(!modal);
+		const random = Math.random();
+		setResetNumber(random);
+	};
+
+	const policzIle = (ilosc) => {
+		setNumber(ilosc);
 	};
 
 	return (
-		<ScrollView style={[{ backgroundColor: COLORS.backgroundColor }]}>
-			<Header goBack={() => navigation.navigate("StartScreen")} />
+		<>
+			<ScrollView style={[{ backgroundColor: COLORS.backgroundColor }]}>
+				<Header goBack={() => navigation.navigate("StartScreen")} />
 
-			<Slider
+				{/* <Slider
 				style={{ paddingTop: 56, backgroundColor: "white" }}
 				images={product.images}
-			/>
-			<ProductDetailsInfo />
-			<ProductPriceInfo />
-			<AddToCart />
+			/> */}
 
-			<View style={[{ backgroundColor: COLORS.backgroundColor, flex: 1 }]}>
-				<AppText title="Tytuł" />
-				<AppText title="Cena" />
-			</View>
-		</ScrollView>
+				<ProductDetailsInfo product={product} />
+				<ProductPriceInfo product={product} />
+				<AddToCart
+					product={product}
+					funkcja={policzIle}
+					resetNumber={resetNumber}
+					modal={modal}
+				/>
+				<BlackSpace />
+				<ModalCart product={product} modal={modal} changeModal={changeModal} />
+
+				<View style={[{ backgroundColor: COLORS.backgroundColor, flex: 1 }]}>
+					<AppText title="Tytuł" />
+					<AppText title="Cena" />
+				</View>
+			</ScrollView>
+			<ButtonsContainer>
+				<Button
+					style={{ width: "50%", backgroundColor: COLORS.backgroundColor }}
+					onPress={() => console.log("Pressed")}
+					color={COLORS.linkColor}
+				>
+					KUPUJĘ I PŁACĘ
+				</Button>
+				<Button
+					style={{ width: "50%", backgroundColor: COLORS.allegroColor }}
+					mode="contained"
+					onPress={() => addToBasket(product, number)}
+				>
+					DO KOSZYKA
+				</Button>
+			</ButtonsContainer>
+		</>
 	);
 }

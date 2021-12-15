@@ -7,7 +7,7 @@ import { Image, Text, TouchableOpacity, View } from "react-native";
 import { COLORS, dummyData, icons, images, SIZES } from "../constants";
 
 // const Icons = styled.View`
-// 	display: flex;
+// 	display: flex;slid
 // 	align-items: center;
 // 	justify-content: center;
 // `;

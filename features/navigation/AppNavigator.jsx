@@ -6,6 +6,7 @@ import AuthNavigation from "./AuthNavigation";
 import ListingsScreen from "../../screens/ListingsScreen";
 import ProductsNavigator from "./StartNavigation";
 import TabBarIcon from "../../components/TabBarIcon";
+import Basket from "../../features/StartScreens/screens/Basket";
 
 import StartNavigation from "../../features/navigation/StartNavigation";
 
@@ -57,7 +58,7 @@ const AppNavigator = () => {
 
 			<Tab.Screen
 				name="Koszyk"
-				component={StartNavigation}
+				component={Basket}
 				options={{
 					tabBarIcon: ({ focused }) => (
 						<TabBarIcon

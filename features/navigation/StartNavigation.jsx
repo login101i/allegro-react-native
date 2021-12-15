@@ -18,7 +18,6 @@ const StartNavigation = () => (
 		headerMode="false"
 	>
 		<Stack.Screen name="StartScreen" component={StartScreen} />
-
 		<Stack.Screen name="ProductDetails" component={ProductDetailsScreen} />
 	</Stack.Navigator>
 );

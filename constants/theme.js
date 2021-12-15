@@ -29,40 +29,85 @@ export const COLORS = {
 	medium: "green",
 	grey: "grey",
 	fbColor: "#3b5998",
-	twitterColor: "#1DA1F2",
+	twitterColor: "#1DA1F2"
 };
 export const SIZES = {
-  // global sizes
-  base: 8,
-  medium: 11,
-  font: 14,
-  radius: 12,
-  padding: 24,
+	// global sizes
+	base: 8,
+	medium: 11,
+	font: 14,
+	radius: 12,
+	padding: 24,
 
-  // font sizes
-  h1: 30,
-  h2: 22,
-  h3: 16,
-  h4: 14,
-  body1: 30,
-  body2: 22,
-  body3: 16,
-  body4: 14,
-  body5: 12,
-  // app dimensions
-  width,
-  height,
+	// font sizes
+	h1: 30,
+	h2: 22,
+	h3: 16,
+	h4: 14,
+	body1: 30,
+	body2: 22,
+	body3: 16,
+	body4: 14,
+	body5: 12,
+	// app dimensions
+	width,
+	height
 };
 export const FONTS = {
-  h1: { fontFamily: "Roboto-Black", fontSize: SIZES.h1, lineHeight: 36, color: "white" },
-  h2: { fontFamily: "Roboto-Bold", fontSize: SIZES.h2, lineHeight: 30, color: "white" },
-  h3: { fontFamily: "Roboto-Bold", fontSize: SIZES.h3, lineHeight: 22, color: "white" },
-  h4: { fontFamily: "Roboto-Bold", fontSize: SIZES.h4, lineHeight: 22, color: "white" },
-  body1: { fontFamily: "Roboto-Regular", fontSize: SIZES.body1, lineHeight: 36, color: "white" },
-  body2: { fontFamily: "Roboto-Regular", fontSize: SIZES.body2, lineHeight: 30, color: "white" },
-  body3: { fontFamily: "Roboto-Regular", fontSize: SIZES.body3, lineHeight: 22, color: "white" },
-  body4: { fontFamily: "Roboto-Regular", fontSize: SIZES.body4, lineHeight: 22, color: "white" },
-  body5: { fontFamily: "Roboto-Regular", fontSize: SIZES.body5, lineHeight: 12, color: "white" },
+	h1: {
+		fontFamily: "Roboto-Black",
+		fontSize: SIZES.h1,
+		lineHeight: 36,
+		color: "white"
+	},
+	h2: {
+		fontFamily: "Roboto-Bold",
+		fontSize: SIZES.h2,
+		lineHeight: 30,
+		color: "white"
+	},
+	h3: {
+		fontFamily: "Roboto-Bold",
+		fontSize: SIZES.h3,
+		lineHeight: 22,
+		color: "white"
+	},
+	h4: {
+		fontFamily: "Roboto-Bold",
+		fontSize: SIZES.h4,
+		lineHeight: 22,
+		color: "white"
+	},
+	body1: {
+		fontFamily: "Roboto-Regular",
+		fontSize: SIZES.body1,
+		lineHeight: 36,
+		color: "white"
+	},
+	body2: {
+		fontFamily: "Roboto-Regular",
+		fontSize: SIZES.body2,
+		lineHeight: 30,
+		color: "white"
+	},
+	body3: {
+		fontFamily: "Roboto-Regular",
+		fontSize: SIZES.body3,
+		lineHeight: 22,
+		color: "white"
+	},
+	body4: {
+		fontFamily: "Roboto-Regular",
+		fontSize: SIZES.body4,
+		lineHeight: 22,
+		color: "white"
+	},
+	body5: {
+		fontFamily: "Roboto-Regular",
+		fontSize: SIZES.body5,
+		lineHeight: 12,
+		color: "white"
+	}
 };
 
 const appTheme = { COLORS, SIZES, FONTS };

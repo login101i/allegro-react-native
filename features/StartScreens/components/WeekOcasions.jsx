@@ -4,7 +4,7 @@ import { ScrollView, StyleSheet } from "react-native";
 import { COLORS } from "../../../constants";
 
 import ProductContainer from "../../../components/ProductContainer";
-import { ProductsContext } from "../../../services/products/ProductsContex";
+import { ProductsContext } from "../../../services/products/ProductsContext";
 
 const WeekOcasions = ({ navigation }) => {
 	const { products } = useContext(ProductsContext);
