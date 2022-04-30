@@ -17,6 +17,7 @@ export default function AppTextInput({
 	color = COLORS.white,
 	size = 44,
 	width = "100%",
+	title,
 	...otherProps
 }) {
 	return (

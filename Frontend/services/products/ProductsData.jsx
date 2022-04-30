@@ -88,7 +88,7 @@ export const productsData = [
 				url: "https://res.cloudinary.com/mckrus/image/upload/v1612208127/dsstreet/pol_il_Spodnie-meskie-dresowe-ciemnoszare-UX2848-32628_i11eix.jpg"
 			}
 		],
-		category: "Elektronika",
+		category: "Supermarket",
 		seller: "Amazon",
 		stock: 122,
 		numOfReviews: 2671,
@@ -106,7 +106,7 @@ export const productsData = [
 				url: "https://res.cloudinary.com/mckrus/image/upload/v1612208141/dsstreet/pol_il_Spodnie-meskie-jeansowe-czarne-UX2849-32653_ihh4fq.jpg"
 			}
 		],
-		category: "Elektronika",
+		category: "Supermarket",
 		seller: "Amazon",
 		stock: 1123,
 		numOfReviews: 6,
@@ -124,7 +124,7 @@ export const productsData = [
 				url: "https://res.cloudinary.com/mckrus/image/upload/v1612208127/dsstreet/pol_il_Spodnie-meskie-dresowe-ciemnoszare-UX2848-32628_i11eix.jpg"
 			}
 		],
-		category: "Elektronika",
+		category: "Supermarket",
 		seller: "Amazon",
 		stock: 131,
 		numOfReviews: 222,
@@ -142,7 +142,7 @@ export const productsData = [
 				url: "https://res.cloudinary.com/mckrus/image/upload/v1612208133/dsstreet/pol_il_Bluza-meska-z-nadrukiem-zolta-BX4919-32520_o0xzz7.jpg"
 			}
 		],
-		category: "Elektronika",
+		category: "Supermarket",
 		seller: "Amazon",
 		stock: 0,
 		numOfReviews: 56,
@@ -182,7 +182,7 @@ export const productsData = [
 				url: "https://res.cloudinary.com/shopit/image/upload/v1606231282/products/bshmuo9qisfhz4azvnsd.jpg"
 			}
 		],
-		category: "Elektronika",
+		category: "Supermarket",
 		seller: "Kauffman's Fruit Farm & Market",
 		stock: 500,
 		numOfReviews: 1,

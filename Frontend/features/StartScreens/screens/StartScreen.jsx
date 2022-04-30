@@ -24,20 +24,21 @@ const ContainerView = styled.View`
 const StartScreen = ({ navigation }) => {
   return (
     <ContainerView>
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <Header />
-        <SpecialAdvert />
         <HeaderTabs />
         <SearchInput navigation={navigation} />
         <Categories />
         <Space />
         <Banner />
         <Space />
-        <SpecialAdvert />
         <RoundedCategories />
         <Space />
         <Timer />
-        <WeekOcasions navigation={navigation} />
+        <WeekOcasions navigation={navigation} direction="row" />
+        <Space />
+        <WeekOcasions navigation={navigation} filter="Supermarket" />
+        <SpecialAdvert />
         <Space height="70px" />
       </ScrollView>
     </ContainerView>

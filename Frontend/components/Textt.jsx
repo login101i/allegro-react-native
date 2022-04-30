@@ -1,24 +1,20 @@
 import React from "react";
-import styled from "styled-components";
+import styled from "styled-components/native";
 
-import { View } from "react-native";
+import { View, Text } from "react-native";
 
-const TextContainer = styled.div`
+const TextContainer = styled.Text`
   font-size: 14px;
   font-size: ${(props) => props.size}px;
-
+  margin: 0px 5px;
   color: ${(props) => (props.color ? props.color : "black")};
   font-weight: ${(props) => (props.bold ? "900" : "600")};
-  // padding: 2px;
   white-space: pre-wrap;
   border-width: 100%;
-  font-weight: ${(props) => (props.bold ? "500" : "200")};
-  // white-space: ${(props) => (props.wrap ? "wrap" : "nowrap")};
+  white-space: ${(props) => (props.wrap ? "wrap" : "nowrap")};
   margin-top: ${(props) => props.marginTop};
   border-bottom: ${(props) => props.borderBottom && "1px solid lightGrey"};
-  padding: ${(props) => props.borderBottom && "8px"};
   text-align: ${(props) => (props.textAlign ? "center" : "left")};
-  background: ${(props) => (props.background ? props.background : "")};
   border-radius: ${(props) => (props.background ? "4px" : "")};
   width: ${(props) => (props.fullWidth ? "100%" : "auto")};
 
@@ -31,14 +27,15 @@ const TextContainer = styled.div`
   }
 `;
 
-const SubTitle = styled.div`
+const SubTitle = styled.Text`
   font-size: 14px;
-  padding: 0px 6px;
   display: flex;
   flex-wrap: wrap;
   white-space: wrap;
   color: ${(props) => (props.color ? props.color : "darkGrey")};
   justify-content: ${(props) => (props.textAlign ? props.textAlign : "left")};
+  white-space: ${(props) => (props.wrap ? "wrap" : "nowrap")};
+  white-space: pre-wrap;
 `;
 
 export const Textt = ({
@@ -56,7 +53,9 @@ export const Textt = ({
   textAlign,
   style,
   background,
-  fullWidth
+  fullWidth,
+  borderBottomColor,
+  borderBottomWidth
 }) => {
   return (
     <TextContainer
@@ -71,14 +70,18 @@ export const Textt = ({
       textAlign={textAlign}
       style={style}
       background={background}
+      borderBottomColor={borderBottomColor}
+      borderBottomWidth={borderBottomWidth}
     >
-      {title}
-      {children}
-      {subTitle && (
-        <SubTitle color={color} textAlign={textAlign}>
-          {subTitle}
-        </SubTitle>
-      )}
+      <Text>
+        {title}
+        {children}
+        {subTitle && (
+          <SubTitle color={color} textAlign={textAlign}>
+            {subTitle}
+          </SubTitle>
+        )}
+      </Text>
     </TextContainer>
   );
 };

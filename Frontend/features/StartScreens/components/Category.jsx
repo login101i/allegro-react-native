@@ -8,57 +8,61 @@ import { Textt, Flex } from "../../../components";
 const CategoryContainer = styled.View`
 height:${(props) => props.height};
 width:${(props) => props.width};
- border-bottom-width:${(props) => props.borderBottomWidth};
+border-bottom-width:${(props) => props.borderBottomWidth};
 border-bottom-color:${(props) => props.borderBottomColor};
-
 height:${(props) => props.height}
 diplay:flex;
 flex-direction:${(props) => (props.flexDirection ? "column" : "row")}
 justify-content: flex-start;
 align-items:center;
+margin:0px 1px;
 `;
 
 const Category = ({
-	icon,
-	title,
-	borderBottomColor,
-	borderBottomWidth,
-	borderLeftColor,
-	borderLeftWidth,
-	containerStyle,
-	width = "25vw",
-	height = 80,
-	flexDirection = "column"
+  icon,
+  title,
+  borderBottomColor,
+  borderBottomWidth,
+  borderLeftColor,
+  borderLeftWidth,
+
+  width = "25vw",
+  height = "auto",
+  flexDirection = "column"
 }) => {
-	return (
-		<TouchableOpacity>
-			<CategoryContainer
-				flexDirection={flexDirection}
-				borderBottomColor={borderBottomColor}
-				borderBottomWidth={borderBottomWidth}
-				borderLeftColor={borderLeftColor}
-				borderLeftWidth={borderLeftWidth}
-				width={width}
-				height={height}
-			>
-				<Image
-					source={icon}
-					style={[
-						{
-							tintColor: COLORS.lightGray,
-							width: 35,
-							height: 35,
-							padding: 14
-						},
-						containerStyle
-					]}
-				/>
-				<Textt size={12} color="gray">
-					{title}
-				</Textt>
-			</CategoryContainer>
-		</TouchableOpacity>
-	);
+  return (
+    <TouchableOpacity>
+      <Flex
+        column
+        align
+        borderBottomColor={borderBottomColor}
+        borderBottomWidth={borderBottomWidth}
+        style={{ paddingBottom: "10px", margin: "1px" }}
+      >
+        <CategoryContainer
+          flexDirection={flexDirection}
+          borderLeftColor={borderLeftColor}
+          borderLeftWidth={borderLeftWidth}
+          width={width}
+          height={height}
+        >
+          <Image
+            source={icon}
+            style={{
+              tintColor: COLORS.lightGray,
+              width: 35,
+              height: 35,
+              padding: 5,
+              marginBottom: 10
+            }}
+          />
+        </CategoryContainer>
+        <Textt align size={9} color="gray" bold>
+          {title}
+        </Textt>
+      </Flex>
+    </TouchableOpacity>
+  );
 };
 
 export default Category;
