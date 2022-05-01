@@ -22,7 +22,7 @@ const RoundedCategory = ({ image, text }) => {
   return (
     <ImgContainer>
       <StyledImage source={image} />
-      <Textt size={14} color={COLORS.grey} wrap textAlign>
+      <Textt size={14}  wrap textAlign>
         {text}
       </Textt>
     </ImgContainer>

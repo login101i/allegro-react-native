@@ -7,7 +7,8 @@ const TextContainer = styled.Text`
   font-size: 14px;
   font-size: ${(props) => props.size}px;
   margin: 0px 5px;
-  color: ${(props) => (props.color ? props.color : "black")};
+  color: ${(props) =>
+    props.color ? props.color : props.theme.colors.textColor};
   font-weight: ${(props) => (props.bold ? "900" : "600")};
   white-space: pre-wrap;
   border-width: 100%;

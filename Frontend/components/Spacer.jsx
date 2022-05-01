@@ -3,13 +3,6 @@ import styled, { useTheme } from "styled-components/native";
 
 import { View, Text } from "react-native";
 
-const TopLarge = styled.View`
-	margin-top: ${(props) => props.theme.space[3]};
-`;
-
-const TopMedium = styled.View`
-	margin-top: ${(props) => props.theme.space[2]};
-`;
 
 const sizes = {
 	small: 1,

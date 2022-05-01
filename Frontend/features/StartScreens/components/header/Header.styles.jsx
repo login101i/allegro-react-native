@@ -1,8 +1,7 @@
 import React from "react";
 import styled from "styled-components/native";
 import { TouchableOpacity, Image } from "react-native";
-import { COLORS } from "../../../../constants/theme";
-
+import { colors } from "../../../../infrasctructure/theme";
 export const Container = styled.View`
   padding: 5px 20px;
   width: 100%;
@@ -10,7 +9,7 @@ export const Container = styled.View`
 
 export const StyledOpacity = styled(TouchableOpacity)`
   width: auto;
-  height: 35px;
-  tintcolor: ${COLORS.lightGray};
+
+  tintcolor: ${colors.lightGray};
   margin-left: 25px;
 `;

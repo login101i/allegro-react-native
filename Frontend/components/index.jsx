@@ -7,6 +7,8 @@ import { AppButton } from "./AppButton";
 import { SafeArea } from "./SafeArea";
 import { LogoLoader } from "./LogoLoader";
 import { Slider } from "./Slider";
+import { Spacer } from "./Spacer";
+import {Text} from './Text'
 
 export {
   Flex,
@@ -17,5 +19,7 @@ export {
   AppButton,
   SafeArea,
   LogoLoader,
-  Slider
+  Slider,
+  Spacer,
+  Text
 };

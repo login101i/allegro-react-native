@@ -1,8 +1,8 @@
 import React from "react";
-import { StyleSheet, View, Text, TouchableOpacity, Image } from "react-native";
+import { StyleSheet, View, TouchableOpacity, Image } from "react-native";
 import styled from "styled-components/native";
 
-import { COLORS, SIZES } from "../../../constants/theme";
+import { colors, SIZES } from "../../../infrasctructure/theme";
 import { Textt, Flex } from "../../../components";
 
 const CategoryContainer = styled.View`
@@ -49,7 +49,7 @@ const Category = ({
           <Image
             source={icon}
             style={{
-              tintColor: COLORS.lightGray,
+              tintColor: colors.darkGray,
               width: 35,
               height: 35,
               padding: 5,

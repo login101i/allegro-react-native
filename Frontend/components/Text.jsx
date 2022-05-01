@@ -42,23 +42,22 @@ const label = (theme) => `
 `;
 
 const variants = {
-	label,
-	caption,
-	error,
-	hint,
-	body,
-
-	title,
-	big
+  label,
+  caption,
+  error,
+  hint,
+  body,
+  title,
+  big
 };
 
 export const Text = styled.Text`
-	${({ theme }) => defaultTextStyles(theme)}
-	${({ variant, theme }) => variants[variant](theme)}
-    color: ${(props) => props.theme.colors.white};
-	padding-right: ${(props) => props.theme.space[2]};
+  ${({ theme }) => defaultTextStyles(theme)}
+  ${({ variant, theme }) => variants[variant](theme)}
+    color: ${(props) => props.theme.colors.textColor};
+  padding-right: ${(props) => props.theme.space[2]};
 `;
 
 Text.defaultProps = {
-	variant: "body"
+  variant: "body"
 };

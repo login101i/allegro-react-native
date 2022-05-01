@@ -48,13 +48,15 @@ const ProductContainer = ({ product = {}, onPress, direction = "column" }) => {
                 {price} zł
               </Textt>
               <Textt />
-              <Flex>
-                <ImageComponent
-                  img={require("../assets/images/smart.png")}
-                  size={16}
-                />
-                <Textt> z kurierem</Textt>
-              </Flex>
+              {price >= 40 && (
+                <Flex>
+                  <ImageComponent
+                    img={require("../assets/images/smart.png")}
+                    size={16}
+                  />
+                  <Textt> z kurierem</Textt>
+                </Flex>
+              )}
               <Textt size={8} wrap>
                 {name}
               </Textt>

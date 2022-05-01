@@ -2,9 +2,7 @@ import React from "react";
 import styled from "styled-components/native";
 import { Image} from "react-native";
 
-export const Container = styled.View`
-	padding: 5px 20px;
-`;
+
 
 export const TabContainer = styled.View`
 	width: auto;

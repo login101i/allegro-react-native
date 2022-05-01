@@ -12,6 +12,7 @@ import Timer from "../components/timer/Timer";
 import WeekOcasions from "../components/weekOcasions/WeekOcasions";
 import HeaderTabs from "../components/headerTabs/HeaderTabs";
 import SpecialAdvert from "../components/specialAdvert/SpecialAdvert";
+import { Spacer } from "../../../components";
 
 const ContainerView = styled.View`
   display: flex;
@@ -27,7 +28,9 @@ const StartScreen = ({ navigation }) => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <Header />
         <HeaderTabs />
+      
         <SearchInput navigation={navigation} />
+
         <Categories />
         <Space />
         <Banner />
