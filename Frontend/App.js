@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import { ThemeProvider } from "styled-components/native";
 
 import { NavigationContainer } from "@react-navigation/native";
@@ -10,9 +10,9 @@ import { CartContextProvider } from "./services/cart/CartContext";
 import { useFonts, Lato_400Regular } from "@expo-google-fonts/lato";
 import { Oswald_400Regular } from "@expo-google-fonts/oswald";
 import { Flex, LogoLoader } from "./components";
-
+import axios from "axios";
 const App = () => {
-  const [load, setLoad] = React.useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
   let [oswaldLoaded] = useFonts({
     Oswald_400Regular
@@ -21,11 +21,20 @@ const App = () => {
     Lato_400Regular
   });
 
-  setTimeout(() => {
-    setLoad(false);
-  }, 400);
+  const fetchProducts = async () => {
+    try {
+      setIsLoading(true);
+      const { data } = await axios.get(`http://localhost:8000/api/products`);
 
-  if (!oswaldLoaded || !latoLoaded || load) {
+      setIsLoading(false);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+  useEffect(() => {
+    fetchProducts();
+  }, []);
+  if (!oswaldLoaded || !latoLoaded || isLoading) {
     return (
       <Flex align center flexOne>
         <LogoLoader

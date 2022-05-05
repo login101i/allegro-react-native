@@ -7,7 +7,7 @@ const Container = styled.View`
   justify-content: ${(props) =>
     props.center ? "center" : props.space ? "space-between" : ""};
   align-items: ${(props) => (props.align ? "center" : "left")};
-  margin: 4px 3px;
+  margin: 0px 3px;
   width: ${(props) => (props.width ? props.width : "auto")};
   border-top: ${(props) => (props.borderTop ? "1px solid lightGrey " : "")};
   color: ${(props) => (props.color ? props.color : "black")};
@@ -16,6 +16,7 @@ const Container = styled.View`
     props.borderBottomWidth ? props.borderBottomWidth : ""};
   border-bottom-color: ${(props) =>
     props.borderBottomColor ? props.borderBottomColor : ""};
+  background-color: white;
 `;
 
 export const Flex = ({

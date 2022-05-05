@@ -57,7 +57,7 @@ const Category = ({
             }}
           />
         </CategoryContainer>
-        <Textt align size={9} color="gray" bold>
+        <Textt align size={9} color={colors.darkGray} bold>
           {title}
         </Textt>
       </Flex>

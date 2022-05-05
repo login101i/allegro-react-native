@@ -26,7 +26,10 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
-const server = app.listen(process.env.PORT, () => {
+const http = require("http").createServer(app);
+
+
+http.listen(process.env.PORT, () => {
   console.log(
     `Server działa na porcie ${process.env.PORT} w statusie ${process.env.NODE_ENV} `
       .green.bold

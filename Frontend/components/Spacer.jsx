@@ -8,7 +8,7 @@ const sizes = {
 	small: 1,
 	large: 2,
 	medium: 3,
-	big: 5
+	big: 4
 };
 
 const positionVariant = {

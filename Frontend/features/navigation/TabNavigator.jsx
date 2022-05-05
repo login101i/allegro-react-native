@@ -9,7 +9,7 @@ import AuthNavigation from "./AuthNavigation";
 import ListingsScreen from "../../screens/ListingsScreen";
 import ProductsNavigator from "./StartNavigation";
 import Basket from "../basket/Basket";
-import { COLORS } from "../../constants";
+import { colors } from "../../infrasctructure/theme";
 import StartNavigation from "./StartNavigation";
 
 const Tab = createBottomTabNavigator();
@@ -56,7 +56,7 @@ const TabNavigator = () => {
       screenOptions={createScreenOptions}
       tabBarOptions={{
         showLabel: true,
-        activeTintColor: COLORS.allegroColor,
+        activeTintColor: colors.allegroColor,
         inactiveTintColor: "gray",
         style: {
           position: "absolute",

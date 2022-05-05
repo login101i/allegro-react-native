@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components/native";
 import { Image } from "react-native";
 import { Textt } from "../components";
-import { COLORS } from "../constants";
+import { colors } from "../infrasctructure/theme";
 
 const ImgContainer = styled.View`
   display: flex;
@@ -22,7 +22,7 @@ const RoundedCategory = ({ image, text }) => {
   return (
     <ImgContainer>
       <StyledImage source={image} />
-      <Textt size={14}  wrap textAlign>
+      <Textt size={14} wrap textAlign color={colors.darkGray}>
         {text}
       </Textt>
     </ImgContainer>

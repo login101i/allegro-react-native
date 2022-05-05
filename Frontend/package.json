@@ -67,6 +67,5 @@
     "metro-react-native-babel-preset": "^0.64.0",
     "react-test-renderer": "17.0.1"
   },
-  "private": true,
-  "proxy": "http://192.168.43.178:19006/api/v1/"
+  "private": true
 }

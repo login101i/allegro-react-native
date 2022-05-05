@@ -28,9 +28,7 @@ const StartScreen = ({ navigation }) => {
       <ScrollView showsVerticalScrollIndicator={false}>
         <Header />
         <HeaderTabs />
-      
         <SearchInput navigation={navigation} />
-
         <Categories />
         <Space />
         <Banner />
@@ -38,9 +36,9 @@ const StartScreen = ({ navigation }) => {
         <RoundedCategories />
         <Space />
         <Timer />
-        <WeekOcasions navigation={navigation} direction="row" />
+        <WeekOcasions navigation={navigation} direction="row" filter="Pupil" />
         <Space />
-        <WeekOcasions navigation={navigation} filter="Supermarket" />
+        <WeekOcasions navigation={navigation} filter="Perfumy" />
         <SpecialAdvert />
         <Space height="70px" />
       </ScrollView>

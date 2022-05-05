@@ -8,7 +8,9 @@ import { SafeArea } from "./SafeArea";
 import { LogoLoader } from "./LogoLoader";
 import { Slider } from "./Slider";
 import { Spacer } from "./Spacer";
-import {Text} from './Text'
+import { Text } from "./Text";
+import { HeaderIcons } from "./HeaderTabs";
+import { FilterHeader } from "./FilterHeader";
 
 export {
   Flex,
@@ -21,5 +23,7 @@ export {
   LogoLoader,
   Slider,
   Spacer,
-  Text
+  Text,
+  HeaderIcons,
+  FilterHeader
 };

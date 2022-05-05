@@ -18,7 +18,7 @@ const TextContainer = styled.Text`
   text-align: ${(props) => (props.textAlign ? "center" : "left")};
   border-radius: ${(props) => (props.background ? "4px" : "")};
   width: ${(props) => (props.fullWidth ? "100%" : "auto")};
-
+  text-transform: ${(props) => (props.upperCase ? "uppercase" : "")};
   &:hover {
     color: ${(props) => props.hovered && "var(--linkColor)"};
     cursor: ${(props) => props.hovered && "pointer"};
@@ -40,7 +40,7 @@ const SubTitle = styled.Text`
 `;
 
 export const Textt = ({
-  title,
+  title="",
   size,
   marginTop,
   bold,
@@ -56,7 +56,8 @@ export const Textt = ({
   background,
   fullWidth,
   borderBottomColor,
-  borderBottomWidth
+  borderBottomWidth,
+  upperCase
 }) => {
   return (
     <TextContainer
@@ -73,6 +74,7 @@ export const Textt = ({
       background={background}
       borderBottomColor={borderBottomColor}
       borderBottomWidth={borderBottomWidth}
+      upperCase={upperCase}
     >
       <Text>
         {title}

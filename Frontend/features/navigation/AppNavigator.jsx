@@ -1,100 +1,61 @@
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
-import { COLORS, icons } from "../../constants";
+import { icons } from "../../constants";
+import { colors } from "../../infrasctructure/theme";
 import AuthNavigation from "./AuthNavigation";
 import ListingsScreen from "../../screens/ListingsScreen";
 import ProductsNavigator from "./StartNavigation";
 import TabBarIcon from "../../components/TabBarIcon";
 import Basket from "../../features/StartScreens/screens/Basket";
+import { Ionicons } from "@expo/vector-icons";
 
 import StartNavigation from "../../features/navigation/StartNavigation";
+import CreateProductScreen from "../../features/createProduct/CreateProductScreen";
 
 const Tab = createBottomTabNavigator();
+
+const TAB_ICON = {
+  Start: "md-home",
+  Szukaj: "md-search",
+  Koszyk: "md-basket",
+  Obserwuję: "md-star",
+  Moje_Allegro: "md-settings"
+};
+
+const createScreenOptions = ({ route }) => {
+  const iconName = TAB_ICON[route.name];
+  const size = 25;
+  return {
+    tabBarIcon: ({ focused }) => (
+      <Ionicons
+        name={iconName}
+        size={size}
+        color={focused ? colors.allegroColor : colors.darkGray}
+      />
+    )
+  };
+};
 
 const AppNavigator = () => {
   return (
     <Tab.Navigator
+      screenOptions={createScreenOptions}
       tabBarOptions={{
-        showLabel: false,
+        showLabel: true,
+        activeTintColor: colors.allegroColor,
+        inactiveTintColor: colors.darkGray,
         style: {
-          position: "absolute",
-          bottom: 0,
-          left: 0,
-          right: 0,
-          elevation: 0,
-          backgroundColor: COLORS.backgroundColor,
-          height: 70,
-          paddingBottom: 10
+          marginBottom: 5
         }
       }}
     >
-      <Tab.Screen
-        name="Start"
-        component={StartNavigation}
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <TabBarIcon
-              barTitle={"Start"}
-              icon={icons.home}
-              focused={focused}
-            />
-          )
-        }}
-      />
-      <Tab.Screen
-        name="Szukaj"
-        component={ProductsNavigator}
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <TabBarIcon
-              barTitle={"Szukaj"}
-              icon={icons.settings}
-              focused={focused}
-            />
-          )
-        }}
-      />
+      <Tab.Screen name="Start" component={StartNavigation} />
+      <Tab.Screen name="Szukaj" component={CreateProductScreen} />
 
-      <Tab.Screen
-        name="Koszyk"
-        component={Basket}
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <TabBarIcon
-              barTitle={"Koszyk"}
-              icon={icons.star}
-              focused={focused}
-            />
-          )
-        }}
-      />
-      <Tab.Screen
-        name="Obserwuję"
-        component={ListingsScreen}
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <TabBarIcon
-              barTitle={"Obserwuję"}
-              icon={icons.star}
-              focused={focused}
-            />
-          )
-        }}
-      />
-      <Tab.Screen
-        name="Moje Allegro"
-        component={AuthNavigation}
-        options={{
-          tabBarIcon: ({ focused }) => (
-            <TabBarIcon
-              barTitle={"Moje allegro"}
-              icon={icons.settings}
-              focused={focused}
-            />
-          )
-        }}
-      />
+      <Tab.Screen name="Koszyk" component={Basket} />
+      <Tab.Screen name="Obserwuję" component={ListingsScreen} />
+      <Tab.Screen name="Moje_Allegro" component={AuthNavigation} />
     </Tab.Navigator>
   );
 };

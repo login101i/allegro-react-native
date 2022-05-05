@@ -11,18 +11,27 @@ import {
 } from "./ProductContainer.styles";
 
 const ProductContainer = ({ product = {}, onPress, direction = "column" }) => {
+
   const {
-    images,
     name,
+    price,
     description,
+    ratings,
+    images,
+    category,
+    seller,
+    stock,
+
+    img,
+
     oldPrice = "100",
     newPrice = "99",
-    price,
+
     discount = "0"
   } = product;
 
   return (
-    <Flex>
+    <Flex style={{ marginTop: "10px" }}>
       <TouchableWithoutFeedback onPress={onPress}>
         {product ? (
           <Flex
@@ -34,7 +43,7 @@ const ProductContainer = ({ product = {}, onPress, direction = "column" }) => {
             <ImageContainer>
               <CustomImage
                 source={{
-                  uri: images[0].url
+                  uri: img[0]?.url
                 }}
                 style={{ width: "100%", height: "100%" }}
               />

@@ -3,7 +3,7 @@ import { StyleSheet, CheckBox } from "react-native";
 
 import * as Yup from "yup";
 
-import { COLORS } from "../../constants";
+import { colors } from "../../infrasctructure/theme";
 import {AppButton} from "../../components";
 import { Flex, Textt } from "../../components";
 
@@ -55,7 +55,7 @@ const LoginScreen = () => {
 					/>
 					<SubmitButton
 						title="zaloguj się"
-						buttonColor={COLORS.backgroundColorFaded}
+						buttonColor={colors.backgroundColorFaded}
 						smallLetters="uppercase"
 					/>
 				</AppForm>
@@ -65,18 +65,18 @@ const LoginScreen = () => {
 					iconName="facebook"
 					title="Zaloguj się przez Facebook"
 					TexttColor="white"
-					buttonColor={COLORS.fbColor}
+					buttonColor={colors.fbColor}
 				/>
 				<AppButton
 					iconName="google"
 					title="Zaloguj się przez Google"
-					color={COLORS.darkGray}
+					color={colors.darkGray}
 				/>
 				<Flex space>
-					<Textt color={COLORS.linkColor} size={16}>
+					<Textt color={colors.linkColor} size={16}>
 						Zarejestruj się{" "}
 					</Textt>
-					<Textt color={COLORS.linkColor} size={16}>
+					<Textt color={colors.linkColor} size={16}>
 						Nie pamiętam hasła
 					</Textt>
 				</Flex>

@@ -1,31 +1,27 @@
-import React from "react";
-import { View, Text, Image } from "react-native";
+// import React from "react";
+// import { View, Text, Image } from "react-native";
 
-import { COLORS, icons, FONTS } from "../constants";
+// import { COLORS, icons, FONTS } from "../constants";
+// import { colors } from "../infrasctructure/theme";
+// import { Flex, Textt } from "../components";
 
-export const TabBarIcon = ({ barTitle, icon, focused }) => {
-	return (
-		<View style={{ alignItems: "center", justifyContent: "center" }}>
-			<Image
-				source={icon}
-				resizeMode="contain"
-				style={{
-					width: 30,
-					height: 30,
-					tintColor: focused ? COLORS.allegroColor : COLORS.lightGray
-				}}
-			/>
-			<Text
-				style={{
-					color: focused ? COLORS.allegroColor : COLORS.lightGray,
-					...FONTS.body5
-				}}
-			>
-				{" "}
-				{barTitle}
-			</Text>
-		</View>
-	);
-};
+// export const TabBarIcon = ({ barTitle, icon, focused }) => {
+//   return (
+//     <Flex align column>
+//       <Image
+//         source={icon}
+//         resizeMode="contain"
+//         style={{
+//           width: 25,
+//           height: 25,
+//           tintColor: focused ? colors.allegroColor : colors.darkGray
+//         }}
+//       />
+//       <Textt color={focused ? colors.allegroColor : colors.darkGray}>
+//         {barTitle}
+//       </Textt>
+//     </Flex>
+//   );
+// };
 
-export default TabBarIcon;
+// export default TabBarIcon;
