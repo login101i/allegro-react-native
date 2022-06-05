@@ -1,38 +1,44 @@
-import React from "react";
+import React, { useContext } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-
-import { icons } from "../../constants";
 import { colors } from "../../infrasctructure/theme";
 import AuthNavigation from "./AuthNavigation";
 import ListingsScreen from "../../screens/ListingsScreen";
-import ProductsNavigator from "./StartNavigation";
-import TabBarIcon from "../../components/TabBarIcon";
-import Basket from "../../features/StartScreens/screens/Basket";
-import { Ionicons } from "@expo/vector-icons";
-
+import Basket from "../StartScreens/screens/Basket.screen/Basket.screen";
+import { CustomIcon } from "../../components";
 import StartNavigation from "../../features/navigation/StartNavigation";
 import CreateProductScreen from "../../features/createProduct/CreateProductScreen";
+import HomeIcon from "@mui/icons-material/Home";
+import SearchIcon from "@mui/icons-material/Search";
+import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
+import StarIcon from "@mui/icons-material/Star";
+import PersonIcon from "@mui/icons-material/Person";
+import { CartContext } from "../../services/cart/CartContext";
 
 const Tab = createBottomTabNavigator();
 
-const TAB_ICON = {
-  Start: "md-home",
-  Szukaj: "md-search",
-  Koszyk: "md-basket",
-  Obserwuję: "md-star",
-  Moje_Allegro: "md-settings"
-};
-
 const createScreenOptions = ({ route }) => {
-  const iconName = TAB_ICON[route.name];
-  const size = 25;
+  const { cart } = useContext(CartContext);
+
+  const TAB_ICON = {
+    Start: { icon: HomeIcon },
+    Szukaj: { icon: SearchIcon },
+    Koszyk: { icon: ShoppingBasketIcon, badgeContent: cart.length },
+    Obserwuję: { icon: StarIcon },
+    Moje_Allegro: { icon: PersonIcon }
+  };
+
+  const iconName = TAB_ICON[route.name].icon;
+  const badgeContent=TAB_ICON[route.name].badgeContent
   return {
     tabBarIcon: ({ focused }) => (
-      <Ionicons
-        name={iconName}
-        size={size}
-        color={focused ? colors.allegroColor : colors.darkGray}
-      />
+      <>
+        <CustomIcon
+          size={27}
+          icon={iconName}
+          color={focused ? colors.allegroColor : colors.darkGray}
+          badgeContent={badgeContent}
+        />
+      </>
     )
   };
 };
@@ -54,6 +60,7 @@ const AppNavigator = () => {
       <Tab.Screen name="Szukaj" component={CreateProductScreen} />
 
       <Tab.Screen name="Koszyk" component={Basket} />
+
       <Tab.Screen name="Obserwuję" component={ListingsScreen} />
       <Tab.Screen name="Moje_Allegro" component={AuthNavigation} />
     </Tab.Navigator>

@@ -133,7 +133,7 @@ export default function ListingScreen({ navigation }) {
 								price={item.price}
 								description={item.description}
 								ratings={item.ratings}
-								image={item.images[0].img}
+								image={item.img[0].img}
 								category={item.category}
 								seller={item.seller}
 								stock={item.stock}

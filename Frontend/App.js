@@ -25,7 +25,6 @@ const App = () => {
     try {
       setIsLoading(true);
       const { data } = await axios.get(`http://localhost:8000/api/products`);
-
       setIsLoading(false);
     } catch (err) {
       console.log(err);

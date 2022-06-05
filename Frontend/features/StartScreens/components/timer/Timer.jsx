@@ -9,7 +9,10 @@ const Timer = () => {
   const [minutes, setMinutes] = useState(<Textt>0</Textt>);
   const [seconds, setSeconds] = useState(<Textt>0</Textt>);
 
-  var countDownDate = new Date("May 2, 2022 23:00:00").getTime();
+  const day=new Date().getDate()
+  const month=new Date().getMonth()+1
+
+  var countDownDate = new Date(`${month} ${day}, 2022 23:00:00`).getTime();
 
   const counDownFunction = () => {
     setInterval(() => {

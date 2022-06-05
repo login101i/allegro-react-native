@@ -2,32 +2,30 @@ import React, { useState, useContext, useEffect } from "react";
 import { View, Image, ScrollView } from "react-native";
 import { Button } from "react-native-paper";
 
-import { COLORS } from "../../../constants";
-import Header from "../../../components/Header";
-import ProductDetailsInfo from "../components/ProductDetailsInfo";
-import ProductPriceInfo from "../components/ProductPriceInfo";
-import AddToCart from "../../../components/AddToCart";
-import Space from "../../../components/BlackSpace";
-import ModalCart from "../components/Modal";
-import { Textt, Flex, AppButton, Slider } from "../../../components";
+import { COLORS } from "../../../../constants";
+import Header from "../../../../components/Header";
+import ProductDetailsInfo from "../../components/ProductDetailsInfo";
+import ProductPriceInfo from "../../components/ProductPriceInfo";
+import AddToCart from "../../../../components/AddRemoveFromCart";
+import Space from "../../../../components/BlackSpace";
+import ModalCart from "../../components/Modal";
+import { Textt, Flex, AppButton, Slider } from "../../../../components";
 
-import { CartContext } from "../../../services/cart/CartContext";
-import { ButtonsContainer } from "./ProductDetailsScreen.styles";
+import { CartContext } from "../../../../services/cart/CartContext";
+import {
+  ButtonsContainer,
+  CustomScrollView
+} from "./ProductDetailsScreen.styles";
 
-export default function App({ navigation, route }) {
+const ProductDetailsScreen = ({ navigation, route }) => {
   const [number, setNumber] = useState(1);
-
   const [countSlider, setCountSlider] = useState(0);
-  console.log(
-    "🚀 ~ file: ProductDetailsScreen.jsx ~ line 22 ~ App ~ countSlider",
-    countSlider
-  );
   const [resetNumber, setResetNumber] = useState();
   const [modal, setModal] = useState(false);
+
   const { product } = route.params;
 
-  const { cart, addToCart } = useContext(CartContext);
-  console.log(cart.length);
+  const { cart, addToCart, sum } = useContext(CartContext);
 
   const addToBasket = (product, nb) => {
     addToCart(product, nb);
@@ -47,9 +45,9 @@ export default function App({ navigation, route }) {
 
   return (
     <>
-      <ScrollView>
+      <CustomScrollView modal={modal}>
         <Header goBack={() => navigation.navigate("StartScreen")} />
-        <Slider images={product.images} setCountSlider={setCountSlider} />
+        <Slider images={product.img} setCountSlider={setCountSlider} />
         <ProductDetailsInfo product={product} countSlider={countSlider} />
         <ProductPriceInfo product={product} />
         <AddToCart
@@ -59,13 +57,12 @@ export default function App({ navigation, route }) {
           modal={modal}
         />
         <Space height="100px" />
-        <ModalCart product={product} modal={modal} changeModal={changeModal} />
 
         <Flex>
           <Textt title="Tytuł" />
           <Textt title="Cena" />
         </Flex>
-      </ScrollView>
+      </CustomScrollView>
 
       <ButtonsContainer>
         <Flex space>
@@ -85,7 +82,10 @@ export default function App({ navigation, route }) {
             width="40%"
           />
         </Flex>
+        <ModalCart product={product} modal={modal} changeModal={changeModal} />
       </ButtonsContainer>
     </>
   );
-}
+};
+
+export default ProductDetailsScreen;

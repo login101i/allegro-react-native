@@ -5,7 +5,8 @@
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
-    "eject": "expo eject"
+    "eject": "expo eject",
+    "test": "jest"
   },
   "dependencies": {
     "@emotion/core": "^11.0.0",
@@ -13,6 +14,7 @@
     "@emotion/styled": "latest",
     "@expo-google-fonts/lato": "^0.2.2",
     "@expo-google-fonts/oswald": "^0.2.2",
+    "@mui/icons-material": "^5.8.2",
     "@mui/material": "latest",
     "@react-native-async-storage/async-storage": "^1.15.14",
     "@react-native-community/masked-view": "^0.1.11",
@@ -39,6 +41,7 @@
     "react-dom": "17.0.1",
     "react-native": "0.64.2",
     "react-native-awesome-alerts": "^1.5.2",
+    "react-native-dropdown-picker": "^5.4.2",
     "react-native-elements": "^3.4.2",
     "react-native-expo-image-cache": "^4.1.0",
     "react-native-gesture-handler": "^1.10.3",
@@ -61,6 +64,7 @@
     "@babel/core": "^7.12.9",
     "@babel/runtime": "^7.12.5",
     "@react-native-community/eslint-config": "^2.0.0",
+    "@testing-library/dom": "^8.13.0",
     "babel-jest": "^26.6.3",
     "eslint": "7.14.0",
     "jest": "^26.6.3",

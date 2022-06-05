@@ -18,7 +18,6 @@ const MainContainer = styled.View`
 `;
 
 const Counter = styled.View`
-  background: grey;
   padding: 5px;
 `;
 
@@ -37,7 +36,7 @@ const ProductDetailsInfo = ({ product, countSlider }) => {
       <Flex>
         <Counter>
           <Textt>
-            {countSlider + 1}/ {product.images.length}
+            {countSlider + 1}/ {product.img.length}
           </Textt>
         </Counter>
       </Flex>

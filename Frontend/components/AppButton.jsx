@@ -39,13 +39,14 @@ export const AppButton = ({
   fontSize = "30",
   color,
   border,
-  width
+  width,
+  upperCase
 }) => {
   return (
     <ButtonContainer buttonColor={buttonColor} border={border} width={width}>
       <TouchableOpacity onPress={onPress}>
         <MaterialCommunityIcons name={iconName} color="white" size={25} />
-        <Textt color={color}>{title}</Textt>
+        <Textt color={color} upperCase={upperCase}>{title}</Textt>
       </TouchableOpacity>
     </ButtonContainer>
   );

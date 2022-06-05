@@ -5,7 +5,7 @@ import {
 } from "@react-navigation/stack";
 
 import StartScreen from "../StartScreens/screens/StartScreen";
-import ProductDetailsScreen from "../StartScreens/screens/ProductDetailsScreen";
+import ProductDetailsScreen from "../StartScreens/screens/ProductDetails.screen/ProductDetailsScreen";
 import SearchOutputScreen from "../../screens/SearchOutputScreen";
 import TabNavigator from "./TabNavigator";
 import { HeaderIcons } from "../../components";

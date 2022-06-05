@@ -1,27 +1,31 @@
 import React, { useEffect, useRef } from "react";
-import styled from "styled-components";
+import styled from "styled-components/native";
 
-import { Dimensions, ScrollView } from "react-native";
+import { Dimensions, ScrollView, Image, View } from "react-native";
 
 import SimpleImageSlider from "react-simple-image-slider";
+const CustomImage = styled(Image)`
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: green;
+  width: 70%;
+  height: 400px;
+  object-fit:contain;
+  z-index:-1;
+`;
+
+const ImageContainer = styled.View`
+  height: 400px;
+  width: 411px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+`;
 
 export const Slider = ({ images, setCountSlider }) => {
-  const Image = styled.img`
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  `;
-
-  const ImageContainer = styled.div`
-    height: 400px;
-    width: 411px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 20px;
-  `;
-
   var imagesArray = [];
 
   for (var i = 0; i < images.length; i++) {
@@ -42,7 +46,7 @@ export const Slider = ({ images, setCountSlider }) => {
     >
       {imagesArray.map((image) => (
         <ImageContainer key={image.url}>
-          <Image src={image.url} />
+          <CustomImage source={image.url} />
         </ImageContainer>
       ))}
     </ScrollView>

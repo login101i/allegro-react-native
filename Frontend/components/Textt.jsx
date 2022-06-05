@@ -14,7 +14,9 @@ const TextContainer = styled.Text`
   border-width: 100%;
   white-space: ${(props) => (props.wrap ? "wrap" : "nowrap")};
   margin-top: ${(props) => props.marginTop};
-  border-bottom: ${(props) => props.borderBottom && "1px solid lightGrey"};
+  border-bottom-width: ${(props) => props.borderBottom && "11px"};
+  border-bottom-color: ${(props) => props.borderBottom && "purple"};
+
   text-align: ${(props) => (props.textAlign ? "center" : "left")};
   border-radius: ${(props) => (props.background ? "4px" : "")};
   width: ${(props) => (props.fullWidth ? "100%" : "auto")};
@@ -40,7 +42,7 @@ const SubTitle = styled.Text`
 `;
 
 export const Textt = ({
-  title="",
+  title = "",
   size,
   marginTop,
   bold,

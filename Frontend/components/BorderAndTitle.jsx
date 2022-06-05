@@ -31,7 +31,7 @@ export const BorderAndTitle = (props) => {
     <>
       {props.border ? (
         <Flex center>
-          {" "}
+        
           <Header>
             <SpanText>{props.title || "Zobacz więcej"} </SpanText>
           </Header>
