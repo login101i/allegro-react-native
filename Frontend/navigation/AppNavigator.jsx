@@ -1,16 +1,12 @@
 import React from "react";
-import { View, Image, TouchableOpacity, Text, StyleSheet } from "react-native";
+import { View, Image, Text, StyleSheet } from "react-native";
 import {
 	createBottomTabNavigator,
-	BottomTabBar,
+
 } from "@react-navigation/bottom-tabs";
 
 import Start from "../screens/StartScreen";
-import LoginScreen from "../screens/LoginScreen";
-import AccountScreenLogout from "../screens/AccountScreenLogout";
 import { COLORS, FONTS, icons, images, SIZES } from "../constants";
-import AppPicker from "../components/AppPicker";
-import FindScreen from '../screens/FindScreen';
 import AuthNavigation from "../navigation/AuthNavigation";
 import ListingsScreen from "../screens/ListingsScreen";
 import ProductsNavigator from '../navigation/ProductsNavigator'
@@ -29,7 +25,7 @@ const AppNavigator = () => {
 					left: 0,
 					right: 0,
 					elevation: 0,
-					backgroundColor: COLORS.backgroundColor,
+					backgroundColor: "white",
 					height: 70,
 					paddingBottom: 10,
 				},

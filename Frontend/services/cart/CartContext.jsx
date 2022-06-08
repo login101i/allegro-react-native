@@ -1,18 +1,40 @@
 import React, { useState, useEffect, createContext } from "react";
 
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import { io } from "socket.io-client";
 
 export const CartContext = createContext();
 
 export const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
   const [sum, setSum] = useState(0);
-  const [cartStep, setCartStep]=useState(1)
+  const [cartStep, setCartStep] = useState(1);
 
+  // socket
+  const [socket, setSocket] = useState(null);
+
+  // useEffect(() => {
+  //   setSocket(io("http://localhost:5000"));
+  // }, []);
+
+  // socket notification
+  const [user, setUser] = useState("mackoZbogdanca");
+  const [notifications, setNotifications] = useState([]);
+
+
+  useEffect(() => {
+    socket?.emit("newUser", user);
+  }, [socket, user]);
+
+  useEffect(() => {
+    socket?.on("getNotification", (data) => {
+      setNotifications((prev) => [...prev, data]);
+    });
+  }, [socket]);
+  //
   const saveCart = async (cart) => {
     try {
       const jsonValue = JSON.stringify({ cart: cart });
-     
 
       await AsyncStorage.setItem("Your cart is ", jsonValue);
     } catch (e) {
@@ -68,7 +90,7 @@ export const CartContextProvider = ({ children }) => {
   };
 
   const handleCartStep = () => {
-    setCartStep(prevState=>prevState+1)
+    setCartStep((prevState) => prevState + 1);
     if (cartStep > 4) return;
   };
 
@@ -82,7 +104,9 @@ export const CartContextProvider = ({ children }) => {
         clearCart: clear,
         removeProduct,
         cartStep,
-		addCartStep:handleCartStep
+        addCartStep: handleCartStep,
+        socket,
+        user
       }}
     >
       {children}

@@ -1,6 +1,4 @@
 import React, { useState, useContext, useEffect } from "react";
-import { View, Image, ScrollView } from "react-native";
-import { Button } from "react-native-paper";
 
 import { COLORS } from "../../../../constants";
 import Header from "../../../../components/Header";
@@ -25,12 +23,18 @@ const ProductDetailsScreen = ({ navigation, route }) => {
 
   const { product } = route.params;
 
-  const { cart, addToCart, sum } = useContext(CartContext);
+  const {  addToCart,  socket, user } =
+    useContext(CartContext);
 
-  const addToBasket = (product, nb) => {
+  const addToBasket = (product, nb, type) => {
     addToCart(product, nb);
     setModal(true);
     setResetNumber(1);
+    socket.emit("sendNotification", {
+      senderName: user,
+      receiverName: user,
+      type
+    });
   };
 
   const changeModal = () => {
@@ -42,6 +46,8 @@ const ProductDetailsScreen = ({ navigation, route }) => {
   useEffect(() => {
     console.log(countSlider);
   }, [countSlider]);
+
+
 
   return (
     <>
@@ -77,7 +83,7 @@ const ProductDetailsScreen = ({ navigation, route }) => {
           <AppButton
             buttonColor={COLORS.allegroColor}
             color={COLORS.white}
-            onPress={() => addToBasket(product, number)}
+            onPress={() => addToBasket(product, number, 1)}
             title="Do koszyka"
             width="40%"
           />

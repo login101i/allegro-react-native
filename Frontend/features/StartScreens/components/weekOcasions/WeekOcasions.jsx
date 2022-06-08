@@ -24,7 +24,6 @@ const WeekOcasions = ({
 }) => {
   let { products, isLoading } = useContext(ProductsContext);
   if (productsByKeyword.length > 0) products = productsByKeyword;
-  console.log("🚀 ~ file: WeekOcasions.jsx ~ line 27 ~ products", products);
 
   const Separator = () => {
     return <Divider />;
@@ -47,7 +46,7 @@ const WeekOcasions = ({
                 )
                 .slice(0, 3)
         }
-        keyExtractor={(product) => product.name}
+        keyExtractor={(product) => product.title}
         // contentContainerStyle={{ marginTop: 20 }}
         ItemSeparatorComponent={Separator}
         renderItem={(product) =>

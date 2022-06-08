@@ -33,7 +33,7 @@ export const CustomIcon = ({
   icon,
   color = COLORS.black
 }) => {
-  const IconName = icon;
+  const IconName =icon ;
 
   return (
     <Icon>

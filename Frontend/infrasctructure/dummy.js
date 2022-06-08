@@ -667,13 +667,14 @@ export const tabInfo = [
 	}
 ];
 
+
 const dummyData = {
 	portfolio,
 	trendingCurrencies,
 	categoriesData,
 	transactionHistory,
 	chartOptions,
-	categories
+	categories,
 };
 
 export default dummyData;

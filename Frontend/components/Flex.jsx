@@ -44,7 +44,8 @@ export const Flex = ({
   borderBottomWidth,
   direction,
   flexEnd,
-  bbb = false
+  bbb ,
+  onClick
 }) => {
   return (
     <Container
@@ -62,6 +63,7 @@ export const Flex = ({
       flexEnd={flexEnd}
       bbb={bbb}
       style={style}
+      onClick={onClick}
     >
       {children}
     </Container>

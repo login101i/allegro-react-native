@@ -7,10 +7,12 @@ import AppNavigator from "./features/navigation/AppNavigator";
 import theme from "./infrasctructure/theme";
 import { ProductContextProvider } from "./services/products/ProductsContext";
 import { CartContextProvider } from "./services/cart/CartContext";
+import { AuthenticationContextProvider } from "./services/authentication/AuthenticationContext";
 import { useFonts, Lato_400Regular } from "@expo-google-fonts/lato";
 import { Oswald_400Regular } from "@expo-google-fonts/oswald";
 import { Flex, LogoLoader } from "./components";
 import axios from "axios";
+
 const App = () => {
   const [isLoading, setIsLoading] = useState(false);
 
@@ -30,9 +32,11 @@ const App = () => {
       console.log(err);
     }
   };
+
   useEffect(() => {
     fetchProducts();
   }, []);
+
   if (!oswaldLoaded || !latoLoaded || isLoading) {
     return (
       <Flex align center flexOne>
@@ -51,11 +55,13 @@ const App = () => {
   return (
     <ThemeProvider theme={theme}>
       <ProductContextProvider>
-        <CartContextProvider>
-          <NavigationContainer>
-            <AppNavigator />
-          </NavigationContainer>
-        </CartContextProvider>
+        <AuthenticationContextProvider>
+          <CartContextProvider>
+            <NavigationContainer>
+              <AppNavigator />
+            </NavigationContainer>
+          </CartContextProvider>
+        </AuthenticationContextProvider>
       </ProductContextProvider>
     </ThemeProvider>
   );

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { colors } from "../../infrasctructure/theme";
 import AuthNavigation from "./AuthNavigation";
@@ -13,37 +13,39 @@ import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
 import StarIcon from "@mui/icons-material/Star";
 import PersonIcon from "@mui/icons-material/Person";
 import { CartContext } from "../../services/cart/CartContext";
+import { io } from "socket.io-client";
 
 const Tab = createBottomTabNavigator();
 
-const createScreenOptions = ({ route }) => {
-  const { cart } = useContext(CartContext);
-
-  const TAB_ICON = {
-    Start: { icon: HomeIcon },
-    Szukaj: { icon: SearchIcon },
-    Koszyk: { icon: ShoppingBasketIcon, badgeContent: cart.length },
-    Obserwuję: { icon: StarIcon },
-    Moje_Allegro: { icon: PersonIcon }
-  };
-
-  const iconName = TAB_ICON[route.name].icon;
-  const badgeContent=TAB_ICON[route.name].badgeContent
-  return {
-    tabBarIcon: ({ focused }) => (
-      <>
-        <CustomIcon
-          size={27}
-          icon={iconName}
-          color={focused ? colors.allegroColor : colors.darkGray}
-          badgeContent={badgeContent}
-        />
-      </>
-    )
-  };
-};
-
 const AppNavigator = () => {
+  const { cart, notification } = useContext(CartContext);
+
+  const createScreenOptions = ({ route }) => {
+    const TAB_ICON = {
+      Start: { icon: HomeIcon, socket: notification },
+      Szukaj: { icon: SearchIcon, socket: notification },
+      Koszyk: { icon: ShoppingBasketIcon, badgeContent: cart.length },
+      Obserwuję: { icon: StarIcon, socket: notification },
+      Moje_Allegro: { icon: PersonIcon, socket: notification }
+    };
+
+    const iconName = TAB_ICON[route.name].icon;
+    const badgeContent = TAB_ICON[route.name].badgeContent;
+    const userNotification = TAB_ICON[route.name].socket;
+    return {
+      tabBarIcon: ({ focused }) => (
+        <>
+          <CustomIcon
+            size={27}
+            icon={iconName}
+            color={focused ? colors.allegroColor : colors.darkGray}
+            badgeContent={userNotification?.type}
+          />
+        </>
+      )
+    };
+  };
+
   return (
     <Tab.Navigator
       screenOptions={createScreenOptions}
@@ -58,9 +60,7 @@ const AppNavigator = () => {
     >
       <Tab.Screen name="Start" component={StartNavigation} />
       <Tab.Screen name="Szukaj" component={CreateProductScreen} />
-
       <Tab.Screen name="Koszyk" component={Basket} />
-
       <Tab.Screen name="Obserwuję" component={ListingsScreen} />
       <Tab.Screen name="Moje_Allegro" component={AuthNavigation} />
     </Tab.Navigator>
