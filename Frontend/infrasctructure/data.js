@@ -657,7 +657,7 @@ export const chartOptions = [
 const coin = require("../assets/images/bitcoin.png");
 const smart = require("../assets/images/smart.png");
 const pay = require("../assets/images/pay.png");
-export const tabInfo = [
+export const headerTabInfo = [
 	{ title: 4, image: coin, backgroundColor: COLORS.allegroColor },
 	{ title: "Jesteś", image: smart, backgroundColor: COLORS.lightBlue },
 	{

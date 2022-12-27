@@ -1,4 +1,4 @@
-import Start from "../features/StartScreens/screens/StartScreen";
+import Start from "../features/StartScreens/screens/StartScreen/StartScreen.component";
 import CryptoDetail from "./CryptoDetail";
 import Transaction from "./Transaction";
 import AccountScreenLogout from "../features/account/AccountScreen";

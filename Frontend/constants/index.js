@@ -1,4 +1,4 @@
-import dummyData from "../infrasctructure/dummy";
+import dummyData from "../infrasctructure/data";
 import icons from "./icons";
 import images from "./images";
 import theme, { COLORS, SIZES, FONTS } from "./theme";

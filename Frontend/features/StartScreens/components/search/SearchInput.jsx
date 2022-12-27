@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { Searchbar } from "react-native-paper";
-
 import { SearchContainer } from "./SearchInput.styles";
 
-const SearchInput = ({ navigation }) => {
+export const SearchInput = ({ navigation }) => {
   const [searchKeyword, setSearchKeyword] = useState("");
 
   const handleSearch = () => {
@@ -33,4 +32,3 @@ const SearchInput = ({ navigation }) => {
   );
 };
 
-export default SearchInput;

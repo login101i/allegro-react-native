@@ -1,9 +1,6 @@
-import React, { useState, createContext, useEffect } from "react";
-
-import { productsData } from "./ProductsData";
-
+import React, { useState, createContext, useEffect } from 'react';
+import axios from 'axios';
 export const ProductsContext = createContext();
-import axios from "axios";
 
 export const ProductContextProvider = ({ children }) => {
   const [products, setProducts] = useState([]);
@@ -13,7 +10,7 @@ export const ProductContextProvider = ({ children }) => {
   const fetchProducts = async () => {
     try {
       setIsLoading(true);
-      const { data } = await axios.get(`http://localhost:8000/api/products`);
+      const { data } = await axios.get('http://localhost:8000/api/products');
       setProducts(data.products);
       setIsLoading(false);
     } catch (err) {

@@ -12,7 +12,7 @@ export const Container = styled.View`
   width: 100%;
 `;
 
-export const HeaderIcons = () => {
+export const HeaderTabs = () => {
   // const [state, setState] = useContext(AuthContext);
 
   const navigation = useNavigation();

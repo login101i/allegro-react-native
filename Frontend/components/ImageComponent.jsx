@@ -1,5 +1,5 @@
-import React from "react";
-import styled from "styled-components";
+import React from 'react';
+import styled from 'styled-components';
 
 const ImageContainer = styled.div`
   display: flex;
@@ -8,10 +8,10 @@ const ImageContainer = styled.div`
 `;
 
 const Image = styled.img`
-  object-fit: contain;
+  object-fit: cover;
   cursor: pointer;
   max-height: 250px;
-  height: ${(props) => (props.size ? props.size + "px" : "auto")};
+  height: ${(props) => (props.size ? props.size + 'px' : 'auto')};
   margin-left: 2px;
 `;
 

@@ -1,8 +1,5 @@
-import React from "react";
 import styled from "styled-components/native";
 import { Image} from "react-native";
-
-
 
 export const TabContainer = styled.View`
 	width: auto;

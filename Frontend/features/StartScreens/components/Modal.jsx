@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components/native";
-import { Ionicons } from "@expo/vector-icons";
-import { useNavigation } from "@react-navigation/native";
+import React, { useState, useEffect } from 'react';
+import styled from 'styled-components/native';
+import { Ionicons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
 
-import { COLORS } from "../../../constants/theme";
+import { COLORS } from '../../../constants/theme';
 
-import ProductContainer from "../../../components/ProductContainer";
-import { Textt, Flex, AppButton } from "../../../components";
-import { ButtonsContainer } from "../screens/ProductDetails.screen/ProductDetailsScreen.styles";
+import ProductContainer from '../../../components/ProductContainer/ProductContainer';
+import { Textt, Flex, AppButton } from '../../../components';
+import { ButtonsContainer } from '../screens/ProductDetails.screen/ProductDetailsScreen.styles';
 
 const ModalContainer = styled.View`
   width: 100%;
@@ -59,19 +59,12 @@ const ModalCart = ({ product, modal, changeModal }) => {
           <ProductContainer product={product} />
           <ButtonsContainer>
             <Flex space>
-              <AppButton
-                width="40%"
-                buttonColor={COLORS.white}
-                onPress={changeModal}
-                color={COLORS.linkColor}
-                title="Kupuj dalej"
-                uppercase
-              />
+              <AppButton width="40%" buttonColor={COLORS.white} onPress={changeModal} color={COLORS.linkColor} title="Kupuj dalej" uppercase />
 
               <AppButton
                 buttonColor={COLORS.allegroColor}
                 color={COLORS.white}
-                onPress={() => navigation.navigate("Koszyk")}
+                onPress={() => navigation.navigate('Koszyk')}
                 title="Idź do koszyka"
                 width="40%"
                 uppercase

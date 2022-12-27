@@ -1,16 +1,12 @@
-import React from "react";
-import { View, Image, Text, StyleSheet } from "react-native";
-import {
-	createBottomTabNavigator,
+import React from 'react';
+import { View, Image, Text, StyleSheet } from 'react-native';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-} from "@react-navigation/bottom-tabs";
-
-import Start from "../screens/StartScreen";
-import { COLORS, FONTS, icons, images, SIZES } from "../constants";
-import AuthNavigation from "../navigation/AuthNavigation";
-import ListingsScreen from "../screens/ListingsScreen";
-import ProductsNavigator from '../navigation/ProductsNavigator'
-
+import Start from '../screens/StartScreen';
+import AuthNavigation from '../navigation/AuthNavigation';
+import ListingsScreen from '../screens/ListingsScreen';
+import ProductsNavigator from '../navigation/ProductsNavigator';
+import { COLORS, FONTS, icons, images, SIZES } from '../constants';
 
 const Tab = createBottomTabNavigator();
 
@@ -20,26 +16,26 @@ const AppNavigator = () => {
 			tabBarOptions={{
 				showLabel: false,
 				style: {
-					position: "absolute",
+					position: 'absolute',
 					bottom: 0,
 					left: 0,
 					right: 0,
 					elevation: 0,
-					backgroundColor: "white",
+					backgroundColor: 'white',
 					height: 70,
 					paddingBottom: 10,
 				},
 			}}
 		>
 			<Tab.Screen
-				name="Szukaj"
+				name='Szukaj'
 				component={ProductsNavigator}
 				options={{
 					tabBarIcon: ({ focused }) => (
-						<View style={{ alignItems: "center", justifyContent: "center" }}>
+						<View style={{ alignItems: 'center', justifyContent: 'center' }}>
 							<Image
 								source={icons.settings}
-								resizeMode="contain"
+								resizeMode='contain'
 								style={{
 									width: 30,
 									height: 30,
@@ -52,7 +48,7 @@ const AppNavigator = () => {
 									fontSize: SIZES.h4,
 								}}
 							>
-								{" "}
+								{' '}
 								Szukaj
 							</Text>
 						</View>
@@ -61,14 +57,14 @@ const AppNavigator = () => {
 			/>
 
 			<Tab.Screen
-				name="Start"
+				name='Start'
 				component={Start}
 				options={{
 					tabBarIcon: ({ focused }) => (
-						<View style={{ alignItems: "center", justifyContent: "center" }}>
+						<View style={{ alignItems: 'center', justifyContent: 'center' }}>
 							<Image
 								source={icons.home}
-								resizeMode="contain"
+								resizeMode='contain'
 								style={{
 									width: 30,
 									height: 30,
@@ -81,7 +77,7 @@ const AppNavigator = () => {
 									...FONTS.body5,
 								}}
 							>
-								{" "}
+								{' '}
 								Start
 							</Text>
 						</View>
@@ -89,14 +85,14 @@ const AppNavigator = () => {
 				}}
 			/>
 			<Tab.Screen
-				name="Koszyk"
+				name='Koszyk'
 				component={Start}
 				options={{
 					tabBarIcon: ({ focused }) => (
-						<View style={{ alignItems: "center", justifyContent: "center" }}>
+						<View style={{ alignItems: 'center', justifyContent: 'center' }}>
 							<Image
 								source={icons.star}
-								resizeMode="contain"
+								resizeMode='contain'
 								style={{
 									width: 30,
 									height: 30,
@@ -109,7 +105,7 @@ const AppNavigator = () => {
 									...FONTS.body5,
 								}}
 							>
-								{" "}
+								{' '}
 								Koszyk
 							</Text>
 						</View>
@@ -117,14 +113,14 @@ const AppNavigator = () => {
 				}}
 			/>
 			<Tab.Screen
-				name="Obserwuję"
+				name='Obserwuję'
 				component={ListingsScreen}
 				options={{
 					tabBarIcon: ({ focused }) => (
-						<View style={{ alignItems: "center", justifyContent: "center" }}>
+						<View style={{ alignItems: 'center', justifyContent: 'center' }}>
 							<Image
 								source={icons.star}
-								resizeMode="contain"
+								resizeMode='contain'
 								style={{
 									width: 30,
 									height: 30,
@@ -137,7 +133,7 @@ const AppNavigator = () => {
 									...FONTS.body5,
 								}}
 							>
-								{" "}
+								{' '}
 								Obserwuję
 							</Text>
 						</View>
@@ -145,20 +141,20 @@ const AppNavigator = () => {
 				}}
 			/>
 			<Tab.Screen
-				name="Moje Allegro"
+				name='Moje Allegro'
 				component={AuthNavigation}
 				options={{
 					tabBarIcon: ({ focused }) => (
 						<View
 							style={{
-								alignItems: "center",
-								justifyContent: "center",
-								width: "50px",
+								alignItems: 'center',
+								justifyContent: 'center',
+								width: '50px',
 							}}
 						>
 							<Image
 								source={images.ethereum}
-								resizeMode="cover"
+								resizeMode='cover'
 								style={{
 									width: 30,
 									height: 30,
@@ -169,12 +165,12 @@ const AppNavigator = () => {
 							<Text
 								style={{
 									color: focused ? COLORS.allegroColor : COLORS.lightGray,
-									display: "flex",
-									textAlign: "center",
+									display: 'flex',
+									textAlign: 'center',
 									...FONTS.body5,
 								}}
 							>
-								{" "}
+								{' '}
 								Moje Allegro
 							</Text>
 						</View>

@@ -1,6 +1,5 @@
-import styled from "styled-components/native";
-import { View, Text, Image, TouchableHighlight } from "react-native";
-
+import styled from 'styled-components/native';
+import { View, Text, Image, TouchableHighlight } from 'react-native';
 
 export const Discount = styled.Text`
   background: #0f7b1e;
@@ -11,6 +10,8 @@ export const Discount = styled.Text`
   display: flex;
   align-items: center;
   justify-content: center;
+  color: white;
+  padding: 2px;
 `;
 export const OldPrice = styled.Text`
   color: black;
@@ -19,18 +20,23 @@ export const OldPrice = styled.Text`
 `;
 
 export const ImageContainer = styled.View`
-  height: 180px;
+  height: 300px;
   width: 180px;
   display: flex;
   align-items: center;
- 
-`;
-export const CustomImage = styled.Image`
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
   display: flex;
   align-items: center;
   justify-content: center;
-  max-height: 150px;
+  margin: 5px;
+  border: 2px solid green;
+`;
+export const CustomImage = styled.Image`
+  width: 100%;
+  max-width: 100%;
+  height: 100% !important;
+  object-fit: fill;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid orange;
 `;

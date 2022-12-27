@@ -1,17 +1,16 @@
 import React, { useContext } from "react";
-import { Flex, Textt, Text } from "../../../../components";
-import { StyledOpacity, Container } from "./Header.styles";
+import { Flex, Text } from "../../../../components";
 import { Ionicons } from "@expo/vector-icons";
 import { colors } from "../../../../infrasctructure/theme";
 import { AuthenticationContext } from "../../../../services/authentication/AuthenticationContext";
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import styled from "styled-components/native";
-import navigationTheme from "../../../../infrasctructure/navigationTheme";
 import { useNavigation } from "@react-navigation/native";
-const Header = () => {
+
+import { StyledOpacity, Container } from "./Header.styles";
+
+const Header = ({navigation}) => {
   const { state, setState } = useContext(AuthenticationContext);
 
-  const navigation = useNavigation();
   const headerIcons = [
     { iconName: "md-home" },
     { iconName: "md-basket" },

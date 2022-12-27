@@ -1,7 +1,6 @@
-import React, { useState, useEffect, createContext } from "react";
-
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { io } from "socket.io-client";
+import React, { useState, useEffect, createContext } from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+// import { io } from 'socket.io-client';
 
 export const CartContext = createContext();
 
@@ -11,34 +10,32 @@ export const CartContextProvider = ({ children }) => {
   const [cartStep, setCartStep] = useState(1);
 
   // socket
-  const [socket, setSocket] = useState(null);
+  // const [socket, setSocket] = useState(null);
 
   // useEffect(() => {
   //   setSocket(io("http://localhost:5000"));
   // }, []);
 
   // socket notification
-  const [user, setUser] = useState("mackoZbogdanca");
+  const [user, setUser] = useState('defaultUser');
   const [notifications, setNotifications] = useState([]);
 
+  // useEffect(() => {
+  //   socket?.emit('newUser', user);
+  // }, [socket, user]);
 
-  useEffect(() => {
-    socket?.emit("newUser", user);
-  }, [socket, user]);
-
-  useEffect(() => {
-    socket?.on("getNotification", (data) => {
-      setNotifications((prev) => [...prev, data]);
-    });
-  }, [socket]);
+  // useEffect(() => {
+  //   socket?.on('getNotification', (data) => {
+  //     setNotifications((prev) => [...prev, data]);
+  //   });
+  // }, [socket]);
   //
   const saveCart = async (cart) => {
     try {
       const jsonValue = JSON.stringify({ cart: cart });
-
-      await AsyncStorage.setItem("Your cart is ", jsonValue);
+      await AsyncStorage.setItem('Your cart is ', jsonValue);
     } catch (e) {
-      console.log("Storage error", e);
+      console.log('Storage error', e);
     }
   };
 
@@ -67,9 +64,7 @@ export const CartContextProvider = ({ children }) => {
   };
 
   const removeProduct = (itemToRemove) => {
-    const newCart = cart.filter(
-      (product) => product.item.name !== itemToRemove.name
-    );
+    const newCart = cart.filter((product) => product.item.name !== itemToRemove.name);
     setCart(newCart);
     console.log(newCart);
   };
@@ -99,14 +94,13 @@ export const CartContextProvider = ({ children }) => {
       value={{
         cart,
         sum,
+        user,
+        cartStep,
         addToCart: add,
         removeFromCart: remove,
         clearCart: clear,
         removeProduct,
-        cartStep,
-        addCartStep: handleCartStep,
-        socket,
-        user
+        addCartStep: handleCartStep
       }}
     >
       {children}

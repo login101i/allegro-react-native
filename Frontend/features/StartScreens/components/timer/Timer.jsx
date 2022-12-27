@@ -1,29 +1,31 @@
-import React, { useState, useEffect } from "react";
-
-import { View } from "react-native";
-import { Flex, Textt } from "../../../../components";
-import { StyledNumber } from "./Timer.styles";
+import React, { useState, useEffect } from 'react';
+import { Container, TimeContainer, TimeItem, Colon } from './Timer.styles';
+import { Flex, Textt } from '../../../../components';
 
 const Timer = () => {
-  const [hours, setHours] = useState(<Textt>0</Textt>);
-  const [minutes, setMinutes] = useState(<Textt>0</Textt>);
-  const [seconds, setSeconds] = useState(<Textt>0</Textt>);
+  const [hours, setHours] = useState('-');
+  const [minutes, setMinutes] = useState('-');
+  const [seconds, setSeconds] = useState('-');
 
-  const day=new Date().getDate()
-  const month=new Date().getMonth()+1
+  const zero = '0';
+  const currentMonth = new Date().getMonth() + 1;
+  const currentDay = new Date().getDate();
+  const dateToEnd = `${currentMonth} ${currentDay + 1}, 2022 12:00:00`;
 
-  var countDownDate = new Date(`${month} ${day}, 2022 23:00:00`).getTime();
+  const [endDate, setEndDate] = useState(dateToEnd);
+  let countDownDate = new Date(endDate).getTime();
 
-  const counDownFunction = () => {
+  useEffect(() => {
+    countDownFunction();
+  }, [minutes, hours]);
+
+  const countDownFunction = () => {
     setInterval(() => {
       var now = new Date().getTime();
-      var timeleft = countDownDate - now;
-
-      const hours = Math.floor(
-        (timeleft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)
-      );
-      const minutes = Math.floor((timeleft % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((timeleft % (1000 * 60)) / 1000);
+      var timeLeft = countDownDate - now;
+      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
 
       setHours(hours);
       setMinutes(minutes);
@@ -31,64 +33,20 @@ const Timer = () => {
     }, 1000);
   };
 
-  useEffect(() => {
-    counDownFunction();
-  }, []);
-
   return (
-    <Flex column align>
+    <Container>
       <Textt size={21}>Weekendowe okazje kończą się za:</Textt>
-      <Flex center>
-        <View>
-          {hours < 10 ? (
-            <StyledNumber>0</StyledNumber>
-          ) : (
-            <StyledNumber> {hours.toString().charAt(0)}</StyledNumber>
-          )}
-        </View>
-        <View>
-          {hours >= 10 ? (
-            <StyledNumber> {hours.toString().charAt(1)}</StyledNumber>
-          ) : (
-            <StyledNumber> {hours.toString().charAt(0)}</StyledNumber>
-          )}
-        </View>
-
-        <StyledNumber> :</StyledNumber>
-
-        <View>
-          {minutes < 10 ? (
-            <StyledNumber>0</StyledNumber>
-          ) : (
-            <StyledNumber> {minutes.toString().charAt(0)}</StyledNumber>
-          )}
-        </View>
-        <View>
-          {minutes >= 10 ? (
-            <StyledNumber> {minutes.toString().charAt(1)}</StyledNumber>
-          ) : (
-            <StyledNumber> {minutes.toString().charAt(0)}</StyledNumber>
-          )}
-        </View>
-        <View>
-          <StyledNumber> :</StyledNumber>
-        </View>
-        <View>
-          {seconds < 10 ? (
-            <StyledNumber>0</StyledNumber>
-          ) : (
-            <StyledNumber> {seconds.toString().charAt(0)}</StyledNumber>
-          )}
-        </View>
-        <View>
-          {seconds >= 10 ? (
-            <StyledNumber> {seconds.toString().charAt(1)}</StyledNumber>
-          ) : (
-            <StyledNumber> {seconds.toString().charAt(0)}</StyledNumber>
-          )}
-        </View>
-      </Flex>
-    </Flex>
+      <TimeContainer>
+        <TimeItem>{hours < 10 ? zero : hours.toString().charAt(0)}</TimeItem>
+        <TimeItem>{hours >= 10 ? hours.toString().charAt(1) : hours.toString().charAt(0)}</TimeItem>
+        <Colon>:</Colon>
+        <TimeItem>{minutes < 10 ? zero : minutes.toString().charAt(0)}</TimeItem>
+        <TimeItem>{minutes >= 10 ? minutes.toString().charAt(1) : minutes.toString().charAt(0)}</TimeItem>
+        <Colon>:</Colon>
+        <TimeItem>{seconds < 10 ? zero : seconds.toString().charAt(0)}</TimeItem>
+        <TimeItem>{seconds >= 10 ? seconds.toString().charAt(1) : seconds.toString().charAt(0)}</TimeItem>
+      </TimeContainer>
+    </Container>
   );
 };
 

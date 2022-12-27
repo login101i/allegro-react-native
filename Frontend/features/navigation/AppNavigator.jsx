@@ -1,19 +1,18 @@
-import React, { useContext, useState, useEffect } from "react";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { colors } from "../../infrasctructure/theme";
-import AuthNavigation from "./AuthNavigation";
-import ListingsScreen from "../../screens/ListingsScreen";
-import Basket from "../StartScreens/screens/Basket.screen/Basket.screen";
-import { CustomIcon } from "../../components";
-import StartNavigation from "../../features/navigation/StartNavigation";
-import CreateProductScreen from "../../features/createProduct/CreateProductScreen";
-import HomeIcon from "@mui/icons-material/Home";
-import SearchIcon from "@mui/icons-material/Search";
-import ShoppingBasketIcon from "@mui/icons-material/ShoppingBasket";
-import StarIcon from "@mui/icons-material/Star";
-import PersonIcon from "@mui/icons-material/Person";
-import { CartContext } from "../../services/cart/CartContext";
-import { io } from "socket.io-client";
+import React, { useContext } from 'react';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { colors } from '../../infrasctructure/theme';
+import AuthNavigation from './AuthNavigation';
+import ListingsScreen from '../../screens/ListingsScreen';
+import Basket from '../StartScreens/screens/Basket.screen/Basket.screen';
+import { CustomIcon } from '../../components';
+import StartNavigation from '../../features/navigation/StartNavigation';
+import CreateProductScreen from '../../features/createProduct/CreateProductScreen';
+import HomeIcon from '@mui/icons-material/Home';
+import SearchIcon from '@mui/icons-material/Search';
+import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+import StarIcon from '@mui/icons-material/Star';
+import PersonIcon from '@mui/icons-material/Person';
+import { CartContext } from '../../services/cart/CartContext';
 
 const Tab = createBottomTabNavigator();
 
@@ -35,12 +34,7 @@ const AppNavigator = () => {
     return {
       tabBarIcon: ({ focused }) => (
         <>
-          <CustomIcon
-            size={27}
-            icon={iconName}
-            color={focused ? colors.allegroColor : colors.darkGray}
-            badgeContent={userNotification?.type}
-          />
+          <CustomIcon size={27} icon={iconName} color={focused ? colors.allegroColor : colors.darkGray} badgeContent={userNotification?.type} />
         </>
       )
     };

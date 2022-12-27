@@ -1,9 +1,9 @@
-import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 
-import defaultStyles from "../config/styles";
-import { COLORS } from "../constants";
-import Icon from "../components/Icon";
+import defaultStyles from '../config/styles';
+import { COLORS } from '../constants';
+import Icon from '../components/Icon';
 
 export default function AppText({
 	title,
@@ -22,12 +22,7 @@ export default function AppText({
 			<View style={[styles.container, center ? styles.center : {}, style]}>
 				{title && (
 					<Text
-						style={[
-							defaultStyles.text,
-							{ textTransform: "uppercase" },
-							{ color: textColor },
-							{ fontSize: fontSize }
-						]}
+						style={[defaultStyles.text, { textTransform: 'uppercase' }, { color: textColor }, { fontSize: fontSize }]}
 						{...otherProps}
 					>
 						{title}
@@ -35,10 +30,7 @@ export default function AppText({
 				)}
 				{icon && <Icon size={50} name={iconName} color={COLORS.yellow} />}
 				{subTitle && (
-					<Text
-						style={[styles.subtitleText, { color: COLORS[textColor] }]}
-						{...otherProps}
-					>
+					<Text style={[styles.subtitleText, { color: COLORS[textColor] }]} {...otherProps}>
 						{subTitle}
 					</Text>
 				)}
@@ -50,18 +42,18 @@ export default function AppText({
 const styles = StyleSheet.create({
 	container: {
 		padding: 5,
-		flexDirection: "row"
+		flexDirection: 'row',
 	},
 
 	subtitleText: {
-		fontWeight: "200",
-		fontSize: 18
+		fontWeight: '200',
+		fontSize: 18,
 	},
 	center: {
-		alignItems: "center",
-		display: "flex",
-		flexDirection: "row",
-		alignItems: "center",
-		justifyContent: "center"
-	}
+		alignItems: 'center',
+		display: 'flex',
+		flexDirection: 'row',
+		alignItems: 'center',
+		justifyContent: 'center',
+	},
 });

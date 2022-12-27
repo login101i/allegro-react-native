@@ -1,12 +1,17 @@
 {
   "main": "node_modules/expo/AppEntry.js",
+  "name": "allegro_mobile",
   "scripts": {
-    "start": "expo start",
+    "start": " expo start",
     "android": "expo start --android",
     "ios": "expo start --ios",
     "web": "expo start --web",
     "eject": "expo eject",
-    "test": "jest"
+    "test": "jest",
+    "lint:check": "eslint ./frontend/**/*.js",
+    "lint:fix": "eslint src/**/*.ts --fix",
+    "prettier:check": "prettier --check src/**/*.{ts,json}",
+    "prettier:fix": "prettier --write src/**/*.{ts,json}"
   },
   "dependencies": {
     "@emotion/core": "^11.0.0",
@@ -23,6 +28,7 @@
     "@react-navigation/bottom-tabs": "^5.11.11",
     "@react-navigation/native": "^5.9.4",
     "@react-navigation/stack": "^5.14.5",
+    "@testing-library/react-native": "^11.0.0",
     "apisauce": "^1.1.2",
     "expo": "~43.0.0",
     "expo-blur": "^10.0.3",

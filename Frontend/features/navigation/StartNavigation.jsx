@@ -1,14 +1,13 @@
-import React, { useContext } from "react";
+import React from "react";
 import {
   createStackNavigator,
   TransitionPresets
 } from "@react-navigation/stack";
-
-import StartScreen from "../StartScreens/screens/StartScreen";
+import StartScreen from "../StartScreens/screens/StartScreen/StartScreen.component";
 import ProductDetailsScreen from "../StartScreens/screens/ProductDetails.screen/ProductDetailsScreen";
-import SearchOutputScreen from "../../screens/SearchOutputScreen";
-import { HeaderIcons } from "../../components";
-import { AuthenticationContext } from "../../services/authentication/AuthenticationContext";
+import {SearchOutputScreen} from "../../screens/SearchOutputScreen";
+import { HeaderTabs } from "../../components";
+
 
 const StartStack = createStackNavigator();
 
@@ -17,7 +16,6 @@ const StartNavigation = () => {
   return (
     <StartStack.Navigator
       mode="modal"
-      // headerMode="none"
       screenOptions={{
         ...TransitionPresets.ModalPresentationIOS,
         headerShown: true
@@ -38,7 +36,7 @@ const StartNavigation = () => {
         component={SearchOutputScreen}
         options={{
           headerBackTitle: "Back",
-          headerRight: () => <HeaderIcons />
+          headerRight: () => <HeaderTabs />
         }}
       />
     </StartStack.Navigator>
