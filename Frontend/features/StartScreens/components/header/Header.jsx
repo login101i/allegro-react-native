@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Flex, Textt } from '../../../../components';
 import { colors } from '../../../../infrasctructure/theme';
 import { AuthenticationContext } from '../../../../services/authentication/AuthenticationContext';
@@ -10,6 +10,7 @@ const Header = ({ navigation }) => {
   const { state, setState } = useContext(AuthenticationContext);
   const headerIcons = [{ iconName: 'android-messages' }, { iconName: 'bell-ring-outline' }, { iconName: 'city-variant-outline' }];
 
+  useEffect(() => {}, [state.user]);
   return (
     <Container>
       <Flex align space>

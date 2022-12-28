@@ -13,5 +13,7 @@ border: ${(props) => (props.border ? props.border : 'none')}
 margin-vertical:6px;
 cursor:pointer;
 background-color:${(props) => (props.buttonColor ? props.buttonColor : 'transparent')}
+width:100%;
+min-width:300px;
 
 `;

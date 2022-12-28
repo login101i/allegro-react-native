@@ -19,9 +19,10 @@ import { SpaceVariant } from './SpaceVariant/SpaceVariant';
 import { ProductContainer } from './ProductContainer/ProductContainer';
 import { TextVariants } from './TextVariants/TextVariants';
 import { TabBarIcon } from './TabBarIcon/TabBarIcon';
-import {ListItem} from './ListItem/ListItem'
-import {RoundedCategory} from './RoundedCategory/RoundedCategory'
-
+import { ListItem } from './ListItem/ListItem';
+import { RoundedCategory } from './RoundedCategory/RoundedCategory';
+import { AppTextInput } from './TextInput/TextInput';
+import { ActivityIndicator } from './ActivityIndicator/ActivityIndicator';
 export {
   Flex,
   Textt,
@@ -44,5 +45,7 @@ export {
   SpaceVariant,
   TextVariants,
   TabBarIcon,
-  RoundedCategory
+  RoundedCategory,
+  AppTextInput,
+  ActivityIndicator
 };
