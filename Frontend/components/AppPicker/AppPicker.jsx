@@ -5,7 +5,7 @@ import { COLORS } from '../../constants';
 import defaultStyles from '../../config/styles';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import { AppButton } from '..';
-import SimpleText from '../SimpleText';
+import { Textt } from '..';
 import Screen from '../../screens/Screen';
 import PickerItem from '../PickerItem';
 import { Container, ArrowDownIcon } from './AppPicker.styles';
@@ -34,9 +34,9 @@ export const AppPicker = ({
         <Container>
           {icon && <MaterialCommunityIcons name={icon} color={color} size={size} />}
           {selectedItem ? (
-            <SimpleText textColor={defaultStyles.COLORS.darkGray}>{selectedItem.label}</SimpleText>
+            <Textt textColor={defaultStyles.COLORS.darkGray}>{selectedItem.label}</Textt>
           ) : (
-            <SimpleText textColor={defaultStyles.COLORS.darkGray}>placeholder here</SimpleText>
+            <Textt textColor={defaultStyles.COLORS.darkGray}>placeholder here</Textt>
           )}
           <ArrowDownIcon>
             <MaterialCommunityIcons name="chevron-down" color={COLORS.dark} size={32} />

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ScrollView } from 'react-native';
 
-import {Space} from '../../../../components';
+import { Space } from '../../../../components';
 import Header from '../../components/header/Header';
 import { SearchInput } from '../../components/search/SearchInput';
 import Categories from '../../components/categories/Categories';
@@ -14,6 +14,7 @@ import SpecialAdvert from '../../components/specialAdvert/SpecialAdvert';
 import { ScrollViewContainer, ContainerView, BannerContainer, SmartBanner, BannerButton } from './StartScreen.styles';
 import SmartBannerImg2 from '../../../../assets/images/smartBanner2.png';
 import { MonetyAllegroAdv } from '../../components/MonetyAllegroAdv/MonetyAllegroAdv';
+import { colors } from '../../../../infrasctructure/theme';
 
 const StartScreen = ({ navigation }) => {
   const [isPaypalShow, setIsPaypalShow] = useState(true);
@@ -51,17 +52,17 @@ const StartScreen = ({ navigation }) => {
         <HeaderTabs />
         {!isSearchVisible && <SearchInput navigation={navigation} isSearchVisible={isSearchVisible} />}
         <Categories />
-        <Space />
+        <Space backgroundColor={colors.lightGray} />
         <Banner />
-        <Space />
+        <Space backgroundColor={colors.lightGray} />
         <RoundedCategories />
-        <Space />
+        <Space backgroundColor={colors.lightGray} />
         <Timer />
         <WeekOccasions navigation={navigation} direction="row" filter="Pupil" />
-        <Space />
+        <Space backgroundColor={colors.lightGray} />
         <WeekOccasions navigation={navigation} direction="row" filter="Perfumy" />
         <SpecialAdvert />
-        <Space height="70px" />
+        <Space backgroundColor={colors.lightGray} height="70px" />
         <BannerContainer>
           <SmartBanner source={SmartBannerImg2} />
           <BannerButton>Więcej</BannerButton>

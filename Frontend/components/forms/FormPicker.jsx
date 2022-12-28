@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { useFormikContext } from "formik";
 
-import AppPicker from "../AppPicker";
+import { AppPicker } from "../AppPicker/AppPicker";
 import ErrorMessage from "./ErrorMessage";
 
 export default function FormPicker({

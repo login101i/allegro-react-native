@@ -3,10 +3,10 @@ import { StyleSheet, Text, View, FlatList, ScrollView } from 'react-native';
 import Constants from 'expo-constants';
 
 import { COLORS } from '../constants';
-import AppButton from '../components/AppButton';
-import Card from '../components/Card';
+// import AppButton from '../components/AppButton';
+// import Card from '../components/Card';
 import Screen from '../screens/Screen';
-import SimpleText from '../components/SimpleText';
+// import SimpleText from '../components/SimpleText';
 import { ProductContainer, ActivityIndicator } from '../components';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import productsApi from '../api/listings';

@@ -1,10 +1,9 @@
 import React from 'react';
 import { StyleSheet, Text, Image, View } from 'react-native';
 import { TouchableHighlight, TouchableOpacity } from 'react-native-gesture-handler';
-import ItemListSeparator from '../ListItemSeparator';
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 
-import SimpleText from '../SimpleText';
+import { Textt } from '..';
 
 import { render } from 'react-dom';
 import { COLORS } from '../../constants';
@@ -20,11 +19,11 @@ export const ListItem = ({ title, subTitle, image, IconComponent, onPress, rende
           {image && <Image source={image} style={styles.image} />}
           <View style={styles.nameDetails}>
             <View style={styles.name}>
-              <SimpleText numberOfLines={1}>{title}</SimpleText>
+              <Textt numberOfLines={1}>{title}</Textt>
               {subTitle && (
-                <SimpleText textColor={textColor} numberOfLines={3}>
+                <Textt textColor={textColor} numberOfLines={3}>
                   {subTitle}
-                </SimpleText>
+                </Textt>
               )}
             </View>
           </View>

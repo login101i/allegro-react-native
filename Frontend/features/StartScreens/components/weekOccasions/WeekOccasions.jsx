@@ -30,7 +30,6 @@ const WeekOccasions = ({ navigation, filter = '', direction = 'column', keyword 
         showsHorizontalScrollIndicator={false}
         data={productsByKeyword.length > 0 ? products : products.filter((p) => p.category.toLowerCase() === filter.toLowerCase())}
         keyExtractor={(product) => product.title}
-        // contentContainerStyle={{ marginTop: 20 }}
         ItemSeparatorComponent={Separator}
         renderItem={(product) =>
           isLoading ? (

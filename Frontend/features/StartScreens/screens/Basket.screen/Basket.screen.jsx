@@ -2,7 +2,7 @@ import React, { useState, useContext, useEffect } from "react";
 import { StyleSheet, Text, View, ScrollView, CheckBox } from "react-native";
 import styled from "styled-components/native";
 import { COLORS } from "../../../../constants";
-import Header from "../../../../components/Header";
+import Header from "../../components/header/Header";
 import { Flex, AppButton } from "../../../../components";
 import { CartContext } from "../../../../services/cart/CartContext";
 import BasketItem from "./components/BasketItem/BasketItem";
@@ -21,7 +21,7 @@ export default function App({ navigation, route }) {
   `;
 
   const { cart, addCartStep, cartStep } = useContext(CartContext);
- 
+
 
   return (
     <>

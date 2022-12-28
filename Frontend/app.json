@@ -1,21 +1,20 @@
 {
   "expo": {
-    "name": "allegroMobile",
-    "slug": "allegroMobile",
+    "name": "Allegro Mobile",
+    "slug": "Allegro-Mobile",
+    "description": "Allegro mobile jako Twój pierwszy sklep",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/favicon.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/icon.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#ff5a00"
     },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": true
     },

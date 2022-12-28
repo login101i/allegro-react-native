@@ -4,10 +4,8 @@ import { AppButton } from './AppButton/AppButton';
 import { SafeArea } from './SafeArea/SafeArea';
 import { LogoLoader } from './LogoLoader/LogoLoader';
 import { Slider } from './Slider/Slider';
-import { Spacer } from './Spacer';
-import { Text } from './Text';
 import { FilterHeader } from './FilterHeader';
-import { AppPicker } from './AppPicker/AppPicker';
+// import { AppPicker } from './AppPicker/AppPicker';
 import { BorderAndTitle } from './BorderAndTitle/BorderAndTitle';
 import { Card } from './Card/Card';
 import { CustomIcon } from './CustomIcon/CustomIcon';
@@ -33,12 +31,10 @@ export {
   SafeArea,
   LogoLoader,
   Slider,
-  Spacer,
-  Text,
   HeaderTabs,
   FilterHeader,
   ProductContainer,
-  AppPicker,
+  // AppPicker,
   Card,
   SimpleText,
   Space,
@@ -47,5 +43,6 @@ export {
   TabBarIcon,
   RoundedCategory,
   AppTextInput,
-  ActivityIndicator
+  ActivityIndicator,
+  ListItem
 };
