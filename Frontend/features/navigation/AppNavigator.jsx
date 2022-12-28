@@ -7,13 +7,13 @@ import Basket from '../StartScreens/screens/Basket.screen/Basket.screen';
 import { CustomIcon } from '../../components';
 import StartNavigation from '../../features/navigation/StartNavigation';
 import CreateProductScreen from '../../features/createProduct/CreateProductScreen';
-import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import StarIcon from '@mui/icons-material/Star';
 import PersonIcon from '@mui/icons-material/Person';
 import { CartContext } from '../../services/cart/CartContext';
-
+import { TabBarIcon } from '../../components';
+import { AccountIcon, CheckoutIcon, HomeIcon, MapIcon, SettingsIcon } from '../../assets/icons/icons';
 const Tab = createBottomTabNavigator();
 
 const AppNavigator = () => {
@@ -21,11 +21,11 @@ const AppNavigator = () => {
 
   const createScreenOptions = ({ route }) => {
     const TAB_ICON = {
-      Start: { icon: HomeIcon, socket: notification },
-      Szukaj: { icon: SearchIcon, socket: notification },
-      Koszyk: { icon: ShoppingBasketIcon, badgeContent: cart.length },
-      Obserwuję: { icon: StarIcon, socket: notification },
-      Moje_Allegro: { icon: PersonIcon, socket: notification }
+      Start: { icon: HomeIcon },
+      Szukaj: { icon: MapIcon },
+      Koszyk: { icon: CheckoutIcon },
+      Obserwuję: { icon: SettingsIcon },
+      Moje_Allegro: { icon: AccountIcon }
     };
 
     const iconName = TAB_ICON[route.name].icon;
@@ -34,7 +34,12 @@ const AppNavigator = () => {
     return {
       tabBarIcon: ({ focused }) => (
         <>
-          <CustomIcon size={27} icon={iconName} color={focused ? colors.allegroColor : colors.darkGray} badgeContent={userNotification?.type} />
+          <TabBarIcon
+            size={27}
+            icon={iconName}
+            color={focused ? colors.allegroColor : colors.darkGray}
+            badgeContent={userNotification?.type}
+          />
         </>
       )
     };
@@ -52,7 +57,14 @@ const AppNavigator = () => {
         }
       }}
     >
-      <Tab.Screen name="Start" component={StartNavigation} />
+      <Tab.Screen
+        name="Start"
+        component={StartNavigation}
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ focused }) => <TabBarIcon icon={HomeIcon} focused={focused} />
+        }}
+      />
       <Tab.Screen name="Szukaj" component={CreateProductScreen} />
       <Tab.Screen name="Koszyk" component={Basket} />
       <Tab.Screen name="Obserwuję" component={ListingsScreen} />

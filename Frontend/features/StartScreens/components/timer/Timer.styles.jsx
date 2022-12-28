@@ -1,6 +1,6 @@
 import styled from 'styled-components/native';
 
-import { COLORS } from '../../../../constants';
+import { colors } from '../../../../infrasctructure/theme';
 
 export const Container = styled.View`
   display: flex;
@@ -9,7 +9,7 @@ export const Container = styled.View`
   margin: 20px 0px;
 `;
 export const StyledNumber = styled.Text`
-  color: ${COLORS.allegroColor};
+  color: ${colors.allegroColor};
   font-size: 24px;
   font-weight: 600;
 `;
@@ -23,7 +23,7 @@ export const TimeContainer = styled.View`
   flex-direction: row;
   margin: 15px 0px;
 `;
-export const TimeItem = styled.View`
+export const TimeItem = styled.Text`
   height: 36px;
   width: 24px;
   background-color: #ff5a00;

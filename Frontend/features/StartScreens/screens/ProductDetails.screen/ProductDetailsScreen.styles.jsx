@@ -1,7 +1,7 @@
-import styled from "styled-components/native";
-import { ScrollView, View } from "react-native";
+import styled from 'styled-components/native';
+import { ScrollView, View } from 'react-native';
 
-import { COLORS } from "../../../../constants";
+import { COLORS } from '../../../../constants';
 
 export const ButtonsContainer = styled.View`
   position: absolute;
@@ -14,9 +14,10 @@ export const ButtonsContainer = styled.View`
 `;
 
 export const CustomScrollView = styled.View`
-  background-color: ${(props) => (props.modal ? "grey" : "")};
+  background-color: ${(props) => (props.modal ? 'grey' : '')};
   opacity: 0.8;
   pointer: none;
   left: 0;
   top: 0;
+  height: 100vh;
 `;

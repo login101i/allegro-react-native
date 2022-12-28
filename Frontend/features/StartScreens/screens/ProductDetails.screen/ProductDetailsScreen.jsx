@@ -1,13 +1,13 @@
 import React, { useState, useContext, useEffect } from 'react';
 
 import { COLORS } from '../../../../constants';
-import Header from '../../../../components/Header';
+import Header from '../../components/header/Header';
 import ProductDetailsInfo from '../../components/ProductDetailsInfo';
 import ProductPriceInfo from '../../components/ProductPriceInfo';
 import AddToCart from '../../../../components/AddRemoveFromCart/AddRemoveFromCart';
-import Space from '../../../../components/BlackSpace';
+// import { Space } from '../../../../components';
 import ModalCart from '../../components/Modal';
-import { Textt, Flex, AppButton, Slider } from '../../../../components';
+import { Textt, Flex, AppButton, Slider, Space } from '../../../../components';
 
 import { CartContext } from '../../../../services/cart/CartContext';
 import { ButtonsContainer, CustomScrollView } from './ProductDetailsScreen.styles';

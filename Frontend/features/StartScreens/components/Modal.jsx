@@ -5,7 +5,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import { COLORS } from '../../../constants/theme';
 
-import ProductContainer from '../../../components/ProductContainer/ProductContainer';
+import { ProductContainer } from '../../../components';
 import { Textt, Flex, AppButton } from '../../../components';
 import { ButtonsContainer } from '../screens/ProductDetails.screen/ProductDetailsScreen.styles';
 
@@ -59,7 +59,14 @@ const ModalCart = ({ product, modal, changeModal }) => {
           <ProductContainer product={product} />
           <ButtonsContainer>
             <Flex space>
-              <AppButton width="40%" buttonColor={COLORS.white} onPress={changeModal} color={COLORS.linkColor} title="Kupuj dalej" uppercase />
+              <AppButton
+                width="40%"
+                buttonColor={COLORS.white}
+                onPress={changeModal}
+                color={COLORS.linkColor}
+                title="Kupuj dalej"
+                uppercase
+              />
 
               <AppButton
                 buttonColor={COLORS.allegroColor}

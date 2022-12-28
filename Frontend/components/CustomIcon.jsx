@@ -1,7 +1,8 @@
-import React from "react";
-import styled from "styled-components/native";
-import { Badge } from "react-native-paper";
-import { COLORS } from "../constants/theme";
+import React from 'react';
+import styled from 'styled-components/native';
+import { Badge } from 'react-native-paper';
+import { COLORS } from '../constants/theme';
+import { Text } from 'react-native';
 
 const Icon = styled.View`
   color: grey;
@@ -19,7 +20,7 @@ const StyledBadge = styled(Badge)`
   padding: 0px 4px;
   right: 0px;
   top: 10px;
-  color: "white";
+  color: 'white';
   width: 10px;
   height: 10px;
   border-radius: 5px;
@@ -27,30 +28,26 @@ const StyledBadge = styled(Badge)`
   position: absolute;
 `;
 
-export const CustomIcon = ({
-  badgeContent,
-  size = 30,
-  icon,
-  color = COLORS.black
-}) => {
-  const IconName =icon ;
+export const CustomIcon = ({ badgeContent, size = 30, icon, color = COLORS.black }) => {
+  const IconName = icon;
 
   return (
-    <Icon>
-      {badgeContent ? (
-        <IconName style={{ fontSize: `${size}px`, color: `${color}` }}>
-          {" "}
-          <StyledBadge badgeContent={badgeContent} />
-        </IconName>
-      ) : (
-        <IconName
-          style={{
-            fontSize: `${size}px`,
-            color: `${color}`,
-            textAlign: "center"
-          }}
-        />
-      )}
-    </Icon>
+    <Text>Icon Bottom Tab</Text>
+    // <Icon>
+    //   {badgeContent ? (
+    //     <IconName style={{ fontSize: `${size}px`, color: `${color}` }}>
+    //       {" "}
+    //       <StyledBadge badgeContent={badgeContent} />
+    //     </IconName>
+    //   ) : (
+    //     <IconName
+    //       style={{
+    //         fontSize: `${size}px`,
+    //         color: `${color}`,
+    //         textAlign: "center"
+    //       }}
+    //     />
+    //   )}
+    // </Icon>
   );
 };

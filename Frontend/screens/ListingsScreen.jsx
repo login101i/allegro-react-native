@@ -8,7 +8,7 @@ import Card from '../components/Card';
 import Screen from '../screens/Screen';
 import SimpleText from '../components/SimpleText';
 import ActivityIndicator from '../components/ActivityIndicator/ActivityIndicator';
-import ProductContainer from '../components/ProductContainer/ProductContainer';
+import { ProductContainer } from '../components';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
 import productsApi from '../api/listings';
 import useApi from '../hooks/useApi';
@@ -30,7 +30,8 @@ export default function ListingScreen({ navigation }) {
       ages: [
         {
           img: 'https://a.allegroimg.com/s720/11d457/b569dce84356a783f560983642e9/Kawa-ziarnista-Segafredo-Caffe-Crema-Dolce-1-kg',
-          thumbnail: 'https://a.allegroimg.com/s720/11a0ed/3f4d09734e1788d18d7a4cf1e4a3/Kawa-ziarnista-Segafredo-Caffe-Crema-Dolce-1-kg-Marka-Segafredo',
+          thumbnail:
+            'https://a.allegroimg.com/s720/11a0ed/3f4d09734e1788d18d7a4cf1e4a3/Kawa-ziarnista-Segafredo-Caffe-Crema-Dolce-1-kg-Marka-Segafredo',
           _id: '618d282bd934b25a6c8b07ab'
         }
       ],

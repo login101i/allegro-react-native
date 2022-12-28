@@ -1,17 +1,17 @@
-import React, { useState, useContext, useReducer } from "react";
-import { StyleSheet, CheckBox, TouchableHighlight } from "react-native";
+import React, { useState, useContext, useReducer } from 'react';
+import { StyleSheet, CheckBox, TouchableHighlight } from 'react-native';
 
-import * as Yup from "yup";
+import * as Yup from 'yup';
 
-import { colors } from "../../../infrasctructure/theme";
-import { AppButton, LogoLoader } from "../../../components";
-import { Flex, Textt } from "../../../components";
+import { colors } from '../../../infrasctructure/theme';
+import { AppButton, LogoLoader } from '../../../components';
+import { Flex, Textt } from '../../../components';
 
-import { AppForm, SubmitButton, AppFormField } from "../../../components/forms";
-import { AuthenticationContext } from "../../../services/authentication/AuthenticationContext";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import axios from "axios";
-import { LoginScreenHeader } from "./components/LoginScreenHeader";
+import { AppForm, SubmitButton, AppFormField } from '../../../components/forms';
+import { AuthenticationContext } from '../../../services/authentication/AuthenticationContext';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import axios from 'axios';
+import { LoginScreenHeader } from './components/LoginScreenHeader';
 
 const LoginScreen = ({ navigation }) => {
   const [isSelected, setSelection] = useState(false);
@@ -20,28 +20,25 @@ const LoginScreen = ({ navigation }) => {
   const { user, saveUser, setState, state } = useContext(AuthenticationContext);
 
   const validationSchema = Yup.object().shape({
-    email: Yup.string().required().label("Email"),
-    password: Yup.string().min(5).required().label("Password")
+    email: Yup.string().required().label('Email'),
+    password: Yup.string().min(5).required().label('Password')
   });
 
   const handleLogin = async (values) => {
     try {
       setIsLoading(true);
-      const { data } = await axios.post(
-        `http://localhost:8000/api/login`,
-        values
-      );
+      const { data } = await axios.post(`http://localhost:8000/api/login`, values);
 
       setState({
         ...state,
         user: data.user || null,
         token: data.token || null
       });
-      await AsyncStorage.setItem("@auth", JSON.stringify(data));
+      await AsyncStorage.setItem('@auth', JSON.stringify(data));
 
       setTimeout(() => {
         setIsLoading(false);
-        navigation.navigate("StartScreen");
+        navigation.navigate('StartScreen');
       }, 3000);
     } catch (err) {
       console.log(err);
@@ -53,11 +50,11 @@ const LoginScreen = ({ navigation }) => {
       <Flex align center flexOne>
         <LogoLoader
           source={{
-            uri: "https://maciejewski.com/wp-content/uploads/allegro.png"
+            uri: 'https://maciejewski.com/wp-content/uploads/allegro.png'
           }}
           style={{
-            width: "200px",
-            height: "200px"
+            width: '200px',
+            height: '200px'
           }}
         />
       </Flex>
@@ -80,11 +77,7 @@ const LoginScreen = ({ navigation }) => {
         </Flex>
       </Flex>
       <Flex center column align width="80%">
-        <AppForm
-          validationSchema={validationSchema}
-          initialValues={{ email: "", password: "" }}
-          onSubmit={(values) => handleLogin(values)}
-        >
+        <AppForm validationSchema={validationSchema} initialValues={{ email: '', password: '' }} onSubmit={(values) => handleLogin(values)}>
           <Textt>Login lub e-mail</Textt>
           <AppFormField
             name="email"
@@ -95,34 +88,16 @@ const LoginScreen = ({ navigation }) => {
           />
 
           <Textt>Haslo</Textt>
-          <AppFormField
-            name="password"
-            secureTexttEntry
-            autoCapitalize="none"
-            TexttContentType="password"
-          />
-          <SubmitButton
-            title="zaloguj się"
-            buttonColor={colors.backgroundColorFaded}
-            smallLetters="uppercase"
-          />
+          <AppFormField name="password" secureTexttEntry autoCapitalize="none" TexttContentType="password" />
+          <SubmitButton title="zaloguj się" buttonColor={colors.backgroundColorFaded} smallLetters="uppercase" />
         </AppForm>
 
         <Textt>lub</Textt>
-        <AppButton
-          iconName="facebook"
-          title="Zaloguj się przez Facebook"
-          TexttColor="white"
-          buttonColor={colors.fbColor}
-        />
-        <AppButton
-          iconName="google"
-          title="Zaloguj się przez Google"
-          color={colors.darkGray}
-        />
+        <AppButton iconName="facebook" title="Zaloguj się przez Facebook" TexttColor="white" buttonColor={colors.fbColor} />
+        <AppButton iconName="google" title="Zaloguj się przez Google" color={colors.darkGray} />
         <Flex space>
           <Textt color={colors.linkColor} size={16}>
-            Zarejestruj się{" "}
+            Zarejestruj się{' '}
           </Textt>
           <Textt color={colors.linkColor} size={16}>
             Nie pamiętam hasła
@@ -130,8 +105,7 @@ const LoginScreen = ({ navigation }) => {
         </Flex>
 
         <Textt align wrap size={14}>
-          Logując się do Allego akceptujesz Regulamin w aktualnym brzmieniu
-          obowiązująym od dnia 25 paź 2021. Informacje o planowanych oraz
+          Logując się do Allego akceptujesz Regulamin w aktualnym brzmieniu obowiązująym od dnia 25 paź 2021. Informacje o planowanych oraz
           archiwalnych zmianach Regulaminu są dostępne na stronie.
         </Textt>
       </Flex>

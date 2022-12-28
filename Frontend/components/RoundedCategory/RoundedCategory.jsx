@@ -1,8 +1,9 @@
-import React from "react";
-import styled from "styled-components/native";
-import { Image } from "react-native";
-import { Textt } from "../components";
-import { colors } from "../infrasctructure/theme";
+import React from 'react';
+import styled from 'styled-components/native';
+import { Image } from 'react-native';
+import { Textt } from '../../components';
+import { colors } from '../../infrasctructure/theme';
+import { Text } from 'react-native';
 
 const ImgContainer = styled.View`
   display: flex;
@@ -18,7 +19,7 @@ const StyledImage = styled(Image)`
   height: 88px;
 `;
 
-const RoundedCategory = ({ image, text }) => {
+export const RoundedCategory = ({ image, text }) => {
   return (
     <ImgContainer>
       <StyledImage source={image} />
@@ -28,5 +29,3 @@ const RoundedCategory = ({ image, text }) => {
     </ImgContainer>
   );
 };
-
-export default RoundedCategory;

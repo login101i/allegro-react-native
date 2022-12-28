@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ScrollView } from 'react-native';
 
-import Space from '../../../../components/BlackSpace';
+import {Space} from '../../../../components';
 import Header from '../../components/header/Header';
 import { SearchInput } from '../../components/search/SearchInput';
 import Categories from '../../components/categories/Categories';
@@ -11,16 +11,45 @@ import Timer from '../../components/timer/Timer';
 import WeekOccasions from '../../components/weekOccasions/WeekOccasions';
 import HeaderTabs from '../../components/headerTabs/HeaderTabs';
 import SpecialAdvert from '../../components/specialAdvert/SpecialAdvert';
-import { ContainerView, BannerContainer, SmartBanner, BannerButton } from './StartScreen.styles';
+import { ScrollViewContainer, ContainerView, BannerContainer, SmartBanner, BannerButton } from './StartScreen.styles';
 import SmartBannerImg2 from '../../../../assets/images/smartBanner2.png';
+import { MonetyAllegroAdv } from '../../components/MonetyAllegroAdv/MonetyAllegroAdv';
 
 const StartScreen = ({ navigation }) => {
+  const [isPaypalShow, setIsPaypalShow] = useState(true);
+  const [payPalMove, setPaypalMove] = useState(false);
+  const [isSearchVisible, setIsSearchVisible] = useState(null);
+
+  const handlePayPalMove = () => {
+    setPaypalMove(!payPalMove);
+    // navigation.navigate('Koszyk');
+    setIsSearchVisible(!isSearchVisible);
+  };
+
+  function handleScroll(event) {
+    setPaypalMove(false);
+    setIsPaypalShow(true);
+
+    if (event.nativeEvent.contentOffset.y < 80) {
+      setIsSearchVisible(false);
+    }
+    if (event.nativeEvent.contentOffset.y >= 201) {
+      setPaypalMove(true);
+      setIsSearchVisible(true);
+    }
+    if (event.nativeEvent.contentOffset.y >= 700) {
+      setPaypalMove(false);
+      setIsPaypalShow(false);
+    }
+  }
+
   return (
     <ContainerView>
-      <ScrollView showsVerticalScrollIndicator={false}>
+      {isSearchVisible && <SearchInput navigation={navigation} isSearchVisible={isSearchVisible} />}
+      <ScrollViewContainer showsVerticalScrollIndicator={false} onScroll={handleScroll}>
         <Header navigation={navigation} />
-        <HeaderTabs />
-        <SearchInput navigation={navigation} />
+        {/* <HeaderTabs /> */}
+        {!isSearchVisible && <SearchInput navigation={navigation} isSearchVisible={isSearchVisible} />}
         <Categories />
         <Space />
         <Banner />
@@ -35,9 +64,10 @@ const StartScreen = ({ navigation }) => {
         <Space height="70px" />
         <BannerContainer>
           <SmartBanner source={SmartBannerImg2} />
-          <BannerButton title="Więcej" />
+          <BannerButton>Więcej</BannerButton>
         </BannerContainer>
-      </ScrollView>
+      </ScrollViewContainer>
+      <MonetyAllegroAdv isPaypalShow={isPaypalShow} handlePayPalMove={handlePayPalMove} payPalMove={payPalMove} />
     </ContainerView>
   );
 };

@@ -3,7 +3,7 @@ import React from "react";
 import { StyleSheet, ScrollView } from "react-native";
 
 import { dummyData } from "../../../constants";
-import RoundedCategory from "../../../components/RoundedCategory";
+import {RoundedCategory} from "../../../components/RoundedCategory/RoundedCategory";
 
 const RoundedCategories = () => {
 	return (

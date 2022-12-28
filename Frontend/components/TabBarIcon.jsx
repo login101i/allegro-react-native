@@ -3,6 +3,7 @@
 
 // import { COLORS, icons, FONTS } from "../constants";
 // import { colors } from "../infrasctructure/theme";
+
 // import { Flex, Textt } from "../components";
 
 // export const TabBarIcon = ({ barTitle, icon, focused }) => {

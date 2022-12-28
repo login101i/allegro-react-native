@@ -4,7 +4,7 @@ import { Flex, Textt, LogoLoader, ImageComponent } from '..';
 import { Discount, OldPrice, CustomImage, ImageContainer } from './ProductContainer.styles';
 import Image from '../../assets/images/smart.png';
 
-const ProductContainer = ({ product = {}, onPress, direction = 'column' }) => {
+export const ProductContainer = ({ product = {}, onPress, direction = 'column' }) => {
   const {
     name,
     price,
@@ -69,4 +69,3 @@ const ProductContainer = ({ product = {}, onPress, direction = 'column' }) => {
   );
 };
 
-export default ProductContainer;

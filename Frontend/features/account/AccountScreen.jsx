@@ -12,8 +12,6 @@ import Banner from '../../components/Banner/Banner';
 function AccountScreenLogout({ navigation }) {
   return (
     <Screen>
-      <Banner image={BannerImg} />
-
       <Flex column align center flexOne>
         <Textt title=" Witaj w Allegro" />
 

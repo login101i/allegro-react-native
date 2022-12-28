@@ -15,6 +15,7 @@ const MainContainer = styled.View`
   border-bottom-color: grey;
   border-bottom-width: 2px;
   width: 100%;
+  border:2px solid green;
 `;
 
 const Counter = styled.View`

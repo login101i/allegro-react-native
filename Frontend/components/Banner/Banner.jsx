@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { bannerItems } from '../../utils/data';
 import { images } from '../../constants';
-import { Flex } from '../Flex';
+import { Flex } from '../../components';
 import { Carousel, Slide, ImgContainer, Image, Container, Dot } from './Banner.styles';
 import { Dimensions } from 'react-native';
 

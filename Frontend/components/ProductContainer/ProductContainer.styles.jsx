@@ -28,7 +28,6 @@ export const ImageContainer = styled.View`
   align-items: center;
   justify-content: center;
   margin: 5px;
-  border: 2px solid green;
 `;
 export const CustomImage = styled.Image`
   width: 100%;
@@ -38,5 +37,4 @@ export const CustomImage = styled.Image`
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid orange;
 `;
