@@ -1,10 +1,10 @@
 import React from 'react';
 import { ImageContainer, Image } from './ImageComponent.styles';
 
-export const ImageComponent = ({ img, size, style }) => {
+export const ImageComponent = ({ img, height, width, style }) => {
   return (
     <ImageContainer style={style}>
-      <Image src={img} size={size} />
+      <Image source={img} height={height} width={width} />
     </ImageContainer>
   );
 };

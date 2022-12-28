@@ -4,7 +4,7 @@ export const Container = styled.View`
   display: flex;
   flex-direction: ${(props) => (props.column ? 'column' : 'row')};
   align-items: ${(props) => (props.align ? 'center' : 'left')};
-  margin: 0px 3px;
+  margin: 0px 0px;
   width: ${(props) => (props.width ? props.width : 'auto')};
   // border-top: ${(props) => (props.borderTop ? '1px solid lightGrey ' : '')};
   color: ${(props) => (props.color ? props.color : 'black')};

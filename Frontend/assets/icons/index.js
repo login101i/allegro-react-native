@@ -5,5 +5,6 @@ const MapIcon = require('./star.png');
 const SettingsIcon = require('./settings.png');
 const BackArrowIcon = require('./back_arrow.png');
 const StarIcon = require('./star.png');
+const StarSVG = require('./star.js');
 
-export { HomeIcon, CheckoutIcon, AccountIcon, MapIcon, SettingsIcon, BackArrowIcon, StarIcon };
+export { HomeIcon, CheckoutIcon, AccountIcon, MapIcon, SettingsIcon, BackArrowIcon, StarIcon, StarSVG };

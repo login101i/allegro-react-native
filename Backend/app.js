@@ -23,7 +23,8 @@ const order= require('./routes/order')
 
 
 app.use('/api/', products)
-app.use('/api/', user)
+app.use('/api/', us
+er)
 app.use('/api/', order)
 
 

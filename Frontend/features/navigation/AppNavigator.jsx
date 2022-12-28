@@ -57,8 +57,6 @@ const AppNavigator = () => {
         }
       }}
     >
-      <Tab.Screen name="Moje_Allegro" component={AuthNavigation} />
-
       <Tab.Screen
         name="Start"
         component={StartNavigation}
@@ -70,6 +68,7 @@ const AppNavigator = () => {
       <Tab.Screen name="Szukaj" component={CreateProductScreen} />
       <Tab.Screen name="Koszyk" component={Basket} />
       <Tab.Screen name="Obserwuję" component={ListingsScreen} />
+      <Tab.Screen name="Moje_Allegro" component={AuthNavigation} />
     </Tab.Navigator>
   );
 };

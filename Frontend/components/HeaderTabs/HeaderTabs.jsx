@@ -3,7 +3,7 @@ import { View, TouchableOpacity, SafeAreaView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import { colors } from '../../infrasctructure/theme';
-import { Flex, Spacer } from '..';
+import { Flex, Space } from '..';
 import { Container } from './HeaderTabs.styles';
 
 export const HeaderTabs = () => {
@@ -11,23 +11,17 @@ export const HeaderTabs = () => {
   return (
     <SafeAreaView>
       <Container>
-        <Flex>
+        <Flex space width="120px">
           <TouchableOpacity onPress={() => console.log('navigate')}>
-            <Spacer position="right" size="big">
-              <Ionicons name="md-star" size={25} color={colors.darkGray} />
-            </Spacer>
+            <Ionicons name="md-star" size={25} color={colors.darkGray} />
           </TouchableOpacity>
 
           <TouchableOpacity onPress={() => console.log('navigate')}>
-            <Spacer position="right" size="big">
-              <Ionicons name="md-search" size={25} color={colors.darkGray} />
-            </Spacer>
+            <Ionicons name="md-search" size={25} color={colors.darkGray} />
           </TouchableOpacity>
 
           <TouchableOpacity onPress={() => console.log('navigate')}>
-            <Spacer>
-              <Ionicons name="md-camera" size={25} color={colors.darkGray} />
-            </Spacer>
+            <Ionicons name="md-camera" size={25} color={colors.darkGray} />
           </TouchableOpacity>
         </Flex>
       </Container>

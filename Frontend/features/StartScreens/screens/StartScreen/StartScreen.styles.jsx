@@ -10,6 +10,7 @@ export const ContainerView = styled.View`
   color: black;
   height: 100%;
   background-color: ${(props) => props.theme.colors.white};
+  padding-top: 10px;
 `;
 
 export const BannerContainer = styled.View`

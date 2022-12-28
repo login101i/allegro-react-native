@@ -1,12 +1,12 @@
 import React from 'react';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
-import { Flex, Textt, LogoLoader, ImageComponent } from '..';
-import { Discount, OldPrice, CustomImage, ImageContainer } from './ProductContainer.styles';
+import { Flex, Textt, LogoLoader, ImageComponent, Space } from '..';
+import { Discount, OldPrice, CustomImage, ImageContainer, GreatPrice, Rating, DescriptionContainer } from './ProductContainer.styles';
 import Image from '../../assets/images/smart.png';
 
-export const ProductContainer = ({ product = {}, onPress, direction = 'column' }) => {
+export const ProductContainer = ({ product = {}, onPress, direction = 'column', productsByKeyword }) => {
   const {
-    name,
+    title,
     price,
     description,
     ratings,
@@ -20,38 +20,79 @@ export const ProductContainer = ({ product = {}, onPress, direction = 'column' }
     discount = '0'
   } = product;
 
+  const ratingArray = Array.from(new Array(Math.floor(ratings)));
+  const remainStars = Array.from(new Array(5 - Math.floor(ratings)));
+
+  const date = new Date();
+  let hour = date.getHours();
+
   return (
-    <Flex style={{ marginTop: '10px' }}>
+    <>
+      <Space height="18px" />
       <TouchableWithoutFeedback onPress={onPress}>
         {product ? (
           <Flex
             style={{
-              flexDirection: direction === 'row' ? 'column' : 'row'
+              flexDirection: direction === 'row' ? 'column' : 'row',
+              height: productsByKeyword ? '210px' : '100%'
             }}
             width={direction === 'row' ? '200px' : '480px'}
           >
-            <ImageContainer>
+            <ImageContainer productsByKeyword={productsByKeyword}>
               <CustomImage source={{ uri: img[0]?.url }} />
             </ImageContainer>
-            <Flex column width={direction === 'row' ? '190px' : '270px'}>
+            <DescriptionContainer>
+              {productsByKeyword && (
+                <Flex column>
+                  {price < 121 && <GreatPrice>Super cena</GreatPrice>}
+                  <Textt upperCase wrap bold>
+                    {title}
+                  </Textt>
+                  <Flex align>
+                    <Rating>
+                      {ratingArray.map((_, i) => (
+                        <Textt key={`star-${i}`}>x</Textt>
+                      ))}
+                      {remainStars.map((_, i) => (
+                        <Textt key={`star-${i}`}>x</Textt>
+                      ))}
+                    </Rating>
+                    <Flex>
+                      {Math.floor(50 * Math.random())} <Textt>opini produktu</Textt>
+                    </Flex>
+                  </Flex>
+                  <Textt>{Math.floor(120 * Math.random())} osób kupiło ten produkt</Textt>
+                </Flex>
+              )}
+              <Space height="20px" />
+
               <Flex>
                 <Discount>-{discount} %</Discount>
                 <OldPrice>{oldPrice} zł</OldPrice>
               </Flex>
-              <Textt size={16} bold>
-                {price} zł
-              </Textt>
+              <Flex align>
+                <Textt size={16} bold>
+                  {price} zł
+                </Textt>
+                <ImageComponent img={Image} width="90px" />
+              </Flex>
+
               <Textt />
               {price >= 40 && (
-                <Flex>
-                  <ImageComponent img={Image} size={16} />
-                  <Textt> z kurierem</Textt>
+                <Flex column>
+                  <Textt>zapłać później z pay, sprawdź</Textt>
+                  <Flex>
+                    {hour < 20 && hour > 10 && <Textt bold>Kup do 20 : 00 - </Textt>}
+                    <Textt bold color="green">
+                      dostawa jutro
+                    </Textt>
+                  </Flex>
                 </Flex>
               )}
-              <Textt size={8} wrap>
-                {name}
-              </Textt>
-            </Flex>
+              {/* <Textt size={8} wrap>
+                {title}
+              </Textt> */}
+            </DescriptionContainer>
           </Flex>
         ) : (
           <LogoLoader
@@ -65,7 +106,7 @@ export const ProductContainer = ({ product = {}, onPress, direction = 'column' }
           />
         )}
       </TouchableWithoutFeedback>
-    </Flex>
+      <Space height="10px" />
+    </>
   );
 };
-

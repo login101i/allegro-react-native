@@ -12,6 +12,9 @@ const AuthNavigation = () => {
   return (
     <Stack.Navigator mode="modal">
       <Stack.Screen name="AccountScreenLogout" component={AccountScreenLogout} options={{ headerShown: false }} />
+
+      <Stack.Screen name="Register" component={RegisterScreen} />
+      <Stack.Screen name="Logout" component={LogoutScreen} options={{ headerShown: false }} />
       <Stack.Screen
         name="Login"
         component={LoginScreen}
@@ -19,8 +22,6 @@ const AuthNavigation = () => {
           headerRight: () => <Button title="Update count" />
         })}
       />
-      <Stack.Screen name="Register" component={RegisterScreen} />
-      <Stack.Screen name="Logout" component={LogoutScreen} options={{ headerShown: false }} />
     </Stack.Navigator>
   );
 };

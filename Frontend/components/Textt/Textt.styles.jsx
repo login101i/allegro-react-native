@@ -6,7 +6,7 @@ export const TextContainer = styled.Text`
   font-size: ${(props) => props.size}px;
   margin: 0px 5px;
   color: ${(props) => (props.color ? props.color : props.theme.colors.textColor)};
-  font-weight: ${(props) => (props.bold ? '900' : '600')};
+  font-weight: ${(props) => (props.bold ? '700' : '500')};
   white-space: pre-wrap;
   border-width: 100%;
   white-space: ${(props) => (props.wrap ? 'wrap' : 'nowrap')};

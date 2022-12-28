@@ -10,6 +10,8 @@ export const Image = styled.Image`
   object-fit: cover;
   cursor: pointer;
   max-height: 250px;
-  height: ${(props) => (props.size ? props.size + 'px' : 'auto')};
+  height: ${(props) => (props.height ? props.height : '25px')};
+  width: ${(props) => (props.width ? props.width : '0px')};
   margin-left: 2px;
+  object-fit: cover;
 `;

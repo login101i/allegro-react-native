@@ -38,6 +38,7 @@ const WeekOccasions = ({ navigation, filter = '', direction = 'column', keyword 
           ) : (
             <ProductContainer
               product={product.item}
+              productsByKeyword
               onPress={() =>
                 navigation.navigate('ProductDetails', {
                   product: product.item

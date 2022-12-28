@@ -48,7 +48,7 @@ const StartScreen = ({ navigation }) => {
       {isSearchVisible && <SearchInput navigation={navigation} isSearchVisible={isSearchVisible} />}
       <ScrollViewContainer showsVerticalScrollIndicator={false} onScroll={handleScroll}>
         <Header navigation={navigation} />
-        {/* <HeaderTabs /> */}
+        <HeaderTabs />
         {!isSearchVisible && <SearchInput navigation={navigation} isSearchVisible={isSearchVisible} />}
         <Categories />
         <Space />
