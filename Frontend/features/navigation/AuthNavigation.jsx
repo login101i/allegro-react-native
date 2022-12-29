@@ -1,8 +1,7 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import { Button } from 'react-native-paper';
-import { Text } from 'react-native';
-import { LoginScreen } from '../account/LoginScreen/LoginScreen';
+import { LoginScreen } from '../account/LoginScreen';
 import { RegisterScreen } from '../account/RegisterScreen';
 import { LogoutScreen } from '../account/LogoutScreen';
 import AccountScreenLogout from '../account/AccountScreen';
@@ -12,9 +11,6 @@ const AuthNavigation = () => {
   return (
     <Stack.Navigator mode="modal">
       <Stack.Screen name="AccountScreenLogout" component={AccountScreenLogout} options={{ headerShown: false }} />
-
-      <Stack.Screen name="Register" component={RegisterScreen} />
-      <Stack.Screen name="Logout" component={LogoutScreen} options={{ headerShown: false }} />
       <Stack.Screen
         name="Login"
         component={LoginScreen}
@@ -22,6 +18,8 @@ const AuthNavigation = () => {
           headerRight: () => <Button title="Update count" />
         })}
       />
+      <Stack.Screen name="Register" component={RegisterScreen} />
+      <Stack.Screen name="Logout" component={LogoutScreen} options={{ headerShown: false }} />
     </Stack.Navigator>
   );
 };

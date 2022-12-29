@@ -1,15 +1,15 @@
 import { Platform } from "react-native";
-import { COLORS } from "../constants";
+import { colors } from "../infrasctructure/theme";
 export default {
-	text: {
-		color: COLORS.white,
-		fontSize: 16,
-		fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir"
-	},
-	smallText: {
-		color: COLORS.white,
-		fontSize: 12,
-		fontFamily: Platform.OS === "android" ? "Roboto" : "Avenir"
-	},
-	COLORS
+  text: {
+    color: colors.white,
+    fontSize: 16,
+    fontFamily: Platform.OS === 'android' ? 'Roboto' : 'Avenir'
+  },
+  smallText: {
+    color: colors.white,
+    fontSize: 12,
+    fontFamily: Platform.OS === 'android' ? 'Roboto' : 'Avenir'
+  },
+  colors
 };

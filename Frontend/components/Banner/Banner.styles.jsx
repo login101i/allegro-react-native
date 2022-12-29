@@ -32,13 +32,12 @@ export const ImgContainer = styled.View`
 `;
 
 export const Image = styled.Image`
-  // background-image: ${(props) => props.src};
   background-position: center;
   width: auto;
   height: 120px;
   width: 100vw;
   object-fit: cover;
-  animation-name: example;
+  animationkeyframes: example;
   animation-duration: ${(props) => (props.slideIndex ? '10s' : '')};
   animation-iteration-count: infinite;
 

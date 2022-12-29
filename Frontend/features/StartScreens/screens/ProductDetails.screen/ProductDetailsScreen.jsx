@@ -1,14 +1,12 @@
 import React, { useState, useContext, useEffect } from 'react';
-
-import { COLORS } from '../../../../constants';
+import { colors } from '../../../../infrasctructure/theme';
 import Header from '../../components/header/Header';
 import ProductDetailsInfo from '../../components/ProductDetailsInfo';
 import ProductPriceInfo from '../../components/ProductPriceInfo';
 import AddToCart from '../../../../components/AddRemoveFromCart/AddRemoveFromCart';
 // import { Space } from '../../../../components';
-import ModalCart from '../../components/Modal';
+import ModalCart from '../../components/CartModal/ModalCart';
 import { Textt, Flex, AppButton, Slider, Space } from '../../../../components';
-
 import { CartContext } from '../../../../services/cart/CartContext';
 import { ButtonsContainer, CustomScrollView } from './ProductDetailsScreen.styles';
 
@@ -26,11 +24,6 @@ const ProductDetailsScreen = ({ navigation, route }) => {
     addToCart(product, nb);
     setModal(true);
     setResetNumber(1);
-    socket.emit('sendNotification', {
-      senderName: user,
-      receiverName: user,
-      type
-    });
   };
 
   const changeModal = () => {
@@ -63,15 +56,15 @@ const ProductDetailsScreen = ({ navigation, route }) => {
         <Flex space>
           <AppButton
             width="40%"
-            buttonColor={COLORS.white}
+            buttonColor={colors.white}
             onPress={() => console.log('Pressed')}
-            color={COLORS.linkColor}
+            color={colors.linkColor}
             title="Kup teraz"
           />
 
           <AppButton
-            buttonColor={COLORS.allegroColor}
-            color={COLORS.white}
+            buttonColor={colors.allegroColor}
+            color={colors.white}
             onPress={() => addToBasket(product, number, 1)}
             title="Do koszyka"
             width="40%"

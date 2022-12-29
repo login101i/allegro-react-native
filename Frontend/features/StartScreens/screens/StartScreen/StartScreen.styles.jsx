@@ -1,5 +1,4 @@
 import styled from 'styled-components/native';
-import { AppButton } from '../../../../components';
 
 export const ScrollViewContainer = styled.ScrollView`
   position: relative;

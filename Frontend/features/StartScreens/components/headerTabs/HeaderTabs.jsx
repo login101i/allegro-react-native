@@ -1,5 +1,4 @@
 import React from 'react';
-import { Ionicons } from '@expo/vector-icons';
 import { Flex, Textt, ImageComponent, Spacer } from '../../../../components';
 import { TabContainer } from './HeaderTabs.styles';
 import { colors } from '../../../../infrasctructure/theme';

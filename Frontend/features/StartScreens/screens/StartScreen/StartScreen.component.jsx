@@ -3,18 +3,20 @@ import { ScrollView } from 'react-native';
 
 import { Space } from '../../../../components';
 import Header from '../../components/header/Header';
-import { SearchInput } from '../../components/search/SearchInput';
-import Categories from '../../components/categories/Categories';
+import { SearchInput } from '../../components/Search/SearchInput';
+import Categories from '../../components/Categories/Categories';
 import Banner from '../../../../components/Banner/Banner';
 import RoundedCategories from '../../components/RoundedCategories';
-import Timer from '../../components/timer/Timer';
-import WeekOccasions from '../../components/weekOccasions/WeekOccasions';
-import HeaderTabs from '../../components/headerTabs/HeaderTabs';
-import SpecialAdvert from '../../components/specialAdvert/SpecialAdvert';
+import Timer from '../../components/Timer/Timer';
+import WeekOccasions from '../../components/WeekOccasions/WeekOccasions';
+import HeaderTabs from '../../components/HeaderTabs/HeaderTabs';
+import SpecialAdvert from '../../components/SpecialAdvert/SpecialAdvert';
 import { ScrollViewContainer, ContainerView, BannerContainer, SmartBanner, BannerButton } from './StartScreen.styles';
 import SmartBannerImg2 from '../../../../assets/images/smartBanner2.png';
 import { MonetyAllegroAdv } from '../../components/MonetyAllegroAdv/MonetyAllegroAdv';
 import { colors } from '../../../../infrasctructure/theme';
+import { CustomIcon } from '../../../../components';
+import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 
 const StartScreen = ({ navigation }) => {
   const [isPaypalShow, setIsPaypalShow] = useState(true);

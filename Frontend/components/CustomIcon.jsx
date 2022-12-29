@@ -32,22 +32,21 @@ export const CustomIcon = ({ badgeContent, size = 30, icon, color = COLORS.black
   const IconName = icon;
 
   return (
-    <Text>Icon Bottom Tab</Text>
-    // <Icon>
-    //   {badgeContent ? (
-    //     <IconName style={{ fontSize: `${size}px`, color: `${color}` }}>
-    //       {" "}
-    //       <StyledBadge badgeContent={badgeContent} />
-    //     </IconName>
-    //   ) : (
-    //     <IconName
-    //       style={{
-    //         fontSize: `${size}px`,
-    //         color: `${color}`,
-    //         textAlign: "center"
-    //       }}
-    //     />
-    //   )}
-    // </Icon>
+    <Icon>
+      {badgeContent ? (
+        <IconName style={{ fontSize: `${size}px`, color: `${color}` }}>
+          {' '}
+          <StyledBadge badgeContent={badgeContent} />
+        </IconName>
+      ) : (
+        <IconName
+          style={{
+            fontSize: `${size}px`,
+            color: `${color}`,
+            textAlign: 'center'
+          }}
+        />
+      )}
+    </Icon>
   );
 };

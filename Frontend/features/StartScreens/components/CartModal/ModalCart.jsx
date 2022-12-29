@@ -1,43 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components/native';
+import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
-
-import { COLORS } from '../../../constants/theme';
-
-import { ProductContainer } from '../../../components';
-import { Textt, Flex, AppButton } from '../../../components';
-import { ButtonsContainer } from '../screens/ProductDetails.screen/ProductDetailsScreen.styles';
-
-const ModalContainer = styled.View`
-  width: 100%;
-  background: white;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  z-index: 111;
-  background: ${COLORS.white};
-  position: absolute;
-  z-index: 21;
-  min-height: 300px;
-`;
-
-const TitleContainer = styled.View`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: row;
-  text-align: center;
-  width: 100%;
-  position: relative;
-`;
-
-const Button = styled.Pressable`
-  position: absolute;
-  top: 0px;
-  left: 10px;
-  z-index: 112;
-`;
+import { colors } from '../../../../infrasctructure/theme';
+import { ProductContainer } from '../../../../components';
+import { Textt, Flex, AppButton } from '../../../../components';
+import { ButtonsContainer } from '../../screens/ProductDetails.screen/ProductDetailsScreen.styles';
+import { ModalContainer, TitleContainer, Button } from './ModalCart.styles';
 
 const ModalCart = ({ product, modal, changeModal }) => {
   const navigation = useNavigation();
@@ -61,16 +29,16 @@ const ModalCart = ({ product, modal, changeModal }) => {
             <Flex space>
               <AppButton
                 width="40%"
-                buttonColor={COLORS.white}
+                buttonColor={colors.white}
                 onPress={changeModal}
-                color={COLORS.linkColor}
+                color={colors.linkColor}
                 title="Kupuj dalej"
                 uppercase
               />
 
               <AppButton
-                buttonColor={COLORS.allegroColor}
-                color={COLORS.white}
+                buttonColor={colors.allegroColor}
+                color={colors.white}
                 onPress={() => navigation.navigate('Koszyk')}
                 title="Idź do koszyka"
                 width="40%"

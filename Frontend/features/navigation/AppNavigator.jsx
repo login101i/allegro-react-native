@@ -1,46 +1,66 @@
 import React, { useContext } from 'react';
+import styled from 'styled-components/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { colors } from '../../infrasctructure/theme';
 import AuthNavigation from './AuthNavigation';
 import ListingsScreen from '../../screens/ListingsScreen';
 import Basket from '../StartScreens/screens/Basket.screen/Basket.screen';
-import { CustomIcon } from '../../components';
 import StartNavigation from '../../features/navigation/StartNavigation';
 import CreateProductScreen from '../../features/createProduct/CreateProductScreen';
+import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import StarIcon from '@mui/icons-material/Star';
 import PersonIcon from '@mui/icons-material/Person';
 import { CartContext } from '../../services/cart/CartContext';
-import { TabBarIcon } from '../../components';
-import { AccountIcon, CheckoutIcon, HomeIcon, MapIcon, SettingsIcon } from '../../assets/icons/icons';
+import { View, Image } from 'react-native';
+import { Textt } from '../../components';
+import { Badge } from 'react-native-paper';
+
 const Tab = createBottomTabNavigator();
 
 const AppNavigator = () => {
   const { cart, notification } = useContext(CartContext);
 
+  const StyledBadge = styled(Badge)`
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 16px;
+    height: 16px;
+  `;
+  const RelativeContainer = styled.View`
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  `;
+
   const createScreenOptions = ({ route }) => {
     const TAB_ICON = {
-      Start: { icon: HomeIcon },
-      Szukaj: { icon: MapIcon },
-      Koszyk: { icon: CheckoutIcon },
-      Obserwuję: { icon: SettingsIcon },
-      Moje_Allegro: { icon: AccountIcon }
+      Start: HomeIcon,
+      Szukaj: SearchIcon,
+      Koszyk: ShoppingBasketIcon,
+      Obserwuję: StarIcon,
+      Moje_Allegro: PersonIcon
     };
-
-    const iconName = TAB_ICON[route.name].icon;
-    const badgeContent = TAB_ICON[route.name].badgeContent;
-    const userNotification = TAB_ICON[route.name].socket;
+    const IconName = TAB_ICON[route.name];
     return {
       tabBarIcon: ({ focused }) => (
-        <>
-          <TabBarIcon
-            size={27}
-            icon={iconName}
-            color={focused ? colors.allegroColor : colors.darkGray}
-            badgeContent={userNotification?.type}
+        <RelativeContainer>
+          <IconName
+            resizeMode="contain"
+            style={{
+              width: 30,
+              height: 30
+            }}
+            color={focused ? 'primary ' : 'disabled'}
           />
-        </>
+          <Textt size={14} color={focused ? 'primary' : 'disabled'}>
+            {route.name}
+          </Textt>
+          {cart.length !== 0 && route.name === 'Koszyk' && <StyledBadge>{cart.length}</StyledBadge>}
+        </RelativeContainer>
       )
     };
   };
@@ -49,26 +69,27 @@ const AppNavigator = () => {
     <Tab.Navigator
       screenOptions={createScreenOptions}
       tabBarOptions={{
-        showLabel: true,
+        showLabel: false,
         activeTintColor: colors.allegroColor,
         inactiveTintColor: colors.darkGray,
         style: {
-          marginBottom: 5
+          position: 'absolute',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          elevation: 0,
+          backgroundColor: 'white',
+          height: 70,
+          paddingLeft: 7,
+          paddingRight: 7
         }
       }}
     >
-      <Tab.Screen
-        name="Start"
-        component={StartNavigation}
-        options={{
-          headerShown: false,
-          tabBarIcon: ({ focused }) => <TabBarIcon icon={HomeIcon} focused={focused} />
-        }}
-      />
+      <Tab.Screen name="Start" component={StartNavigation} />
+      <Tab.Screen name="Moje_Allegro" component={AuthNavigation} />
       <Tab.Screen name="Szukaj" component={CreateProductScreen} />
       <Tab.Screen name="Koszyk" component={Basket} />
       <Tab.Screen name="Obserwuję" component={ListingsScreen} />
-      <Tab.Screen name="Moje_Allegro" component={AuthNavigation} />
     </Tab.Navigator>
   );
 };

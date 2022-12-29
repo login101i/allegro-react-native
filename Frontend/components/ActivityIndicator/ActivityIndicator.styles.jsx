@@ -1,6 +1,7 @@
 import styled from 'styled-components/native';
+import { ActivityIndicator } from 'react-native-paper';
 
-export const Container = styled.View`
+export const StyledActivityIndicator = styled(ActivityIndicator)`
   width: 100%;
   height: 100%;
   position: absolute;

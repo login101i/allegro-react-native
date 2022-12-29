@@ -1,11 +1,12 @@
 {
   "expo": {
-    "name": "Allegro Mobile",
+    "name": "Allegro_Mobile",
     "slug": "Allegro-Mobile",
     "description": "Allegro mobile jako Twój pierwszy sklep",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "orientation": "portrait",
     "icon": "./assets/favicon.png",
+    "scheme": "demo-allegro-native",
     "splash": {
       "image": "./assets/icon.png",
       "resizeMode": "contain",

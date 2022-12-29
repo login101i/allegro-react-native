@@ -1,18 +1,10 @@
 import React, { useContext } from 'react';
-import { ScrollView, FlatList } from 'react-native';
+import { FlatList } from 'react-native';
 import { ProductContainer } from '../../../../components';
 import { ProductsContext } from '../../../../services/products/ProductsContext';
-import { Flex, BorderAndTitle, Textt } from '../../../../components';
-import { colors } from '../../../../infrasctructure/theme';
-import { ActivityIndicator } from 'react-native-paper';
-import styled from 'styled-components/native';
-import { Divider, Text } from 'react-native-paper';
-
-const CustomActivityIndicator = styled.ActivityIndicator`
-  width: 100px;
-  height: 100px;
-  margin: 40px;
-`;
+import { BorderAndTitle, Textt } from '../../../../components';
+import { CustomActivityIndicator } from '../../../../components';
+import { Divider } from 'react-native-paper';
 
 const WeekOccasions = ({ navigation, filter = '', direction = 'column', keyword = '', productsByKeyword = [] }) => {
   let { products, isLoading } = useContext(ProductsContext);
@@ -48,7 +40,6 @@ const WeekOccasions = ({ navigation, filter = '', direction = 'column', keyword 
           )
         }
       />
-
       <BorderAndTitle title="Zobacz więcej" border />
     </>
   );

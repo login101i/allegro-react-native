@@ -9,27 +9,9 @@ export const CartContextProvider = ({ children }) => {
   const [sum, setSum] = useState(0);
   const [cartStep, setCartStep] = useState(1);
 
-  // socket
-  // const [socket, setSocket] = useState(null);
-
-  // useEffect(() => {
-  //   setSocket(io("http://localhost:5000"));
-  // }, []);
-
-  // socket notification
   const [user, setUser] = useState('defaultUser');
   const [notifications, setNotifications] = useState([]);
 
-  // useEffect(() => {
-  //   socket?.emit('newUser', user);
-  // }, [socket, user]);
-
-  // useEffect(() => {
-  //   socket?.on('getNotification', (data) => {
-  //     setNotifications((prev) => [...prev, data]);
-  //   });
-  // }, [socket]);
-  //
   const saveCart = async (cart) => {
     try {
       const jsonValue = JSON.stringify({ cart: cart });

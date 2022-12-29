@@ -3,15 +3,15 @@ import { StyleSheet, CheckBox, TouchableHighlight } from 'react-native';
 
 import * as Yup from 'yup';
 import { Pressable } from 'react-native';
-import { colors } from '../../../infrasctructure/theme';
-import { AppButton, LogoLoader } from '../../../components';
-import { Flex, Textt, Space } from '../../../components';
-import { AppForm, SubmitButton, AppFormField } from '../../../components/forms';
-import { AuthenticationContext } from '../../../services/authentication/AuthenticationContext';
+import { colors } from '../../infrasctructure/theme';
+import { AppButton, LogoLoader } from '../../components';
+import { Flex, Textt, Space } from '../../components';
+import { AppForm, SubmitButton, AppFormField } from '../../components/forms';
+import { AuthenticationContext } from '../../services/authentication/AuthenticationContext';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import axios from 'axios';
-import { LoginScreenHeader } from './components/LoginScreenHeader';
-import { MainContainer } from './LoginScreen.styles';
+import { LoginScreenHeader } from './LoginScreen/components/LoginScreenHeader';
+import { MainContainer } from './LoginScreen/LoginScreen.styles';
 export const LoginScreen = ({ navigation }) => {
   const [isSelected, setSelection] = useState(false);
   const [isLoading, setIsLoading] = useState(false);

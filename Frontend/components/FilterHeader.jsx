@@ -1,4 +1,3 @@
-import { View, Text } from 'react-native';
 import React from 'react';
 import { Flex, Textt } from '../components';
 import { Ionicons } from '@expo/vector-icons';
@@ -19,7 +18,6 @@ export const FilterHeader = () => {
             sortuj
           </Textt>
         </Flex>
-
         <Ionicons name="md-star" size={25} color={colors.darkGray} />
       </Flex>
     </Flex>

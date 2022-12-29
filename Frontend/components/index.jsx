@@ -20,7 +20,7 @@ import { TabBarIcon } from './TabBarIcon/TabBarIcon';
 import { ListItem } from './ListItem/ListItem';
 import { RoundedCategory } from './RoundedCategory/RoundedCategory';
 import { AppTextInput } from './TextInput/TextInput';
-import { ActivityIndicator } from './ActivityIndicator/ActivityIndicator';
+import { CustomActivityIndicator } from './ActivityIndicator/ActivityIndicator';
 export {
   Flex,
   Textt,
@@ -43,6 +43,6 @@ export {
   TabBarIcon,
   RoundedCategory,
   AppTextInput,
-  ActivityIndicator,
+  CustomActivityIndicator,
   ListItem
 };

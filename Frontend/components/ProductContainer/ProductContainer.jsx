@@ -89,9 +89,9 @@ export const ProductContainer = ({ product = {}, onPress, direction = 'column', 
                   </Flex>
                 </Flex>
               )}
-              {/* <Textt size={8} wrap>
+              <Textt size={8} wrap>
                 {title}
-              </Textt> */}
+              </Textt>
             </DescriptionContainer>
           </Flex>
         ) : (

@@ -1,13 +1,14 @@
 import React, { useState, useContext } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import axios from 'axios';
-import * as Yup from 'yup';
-import { COLORS } from '../../constants';
-import { Flex, LogoLoader, Textt, Space } from '../../components';
+import { Pressable } from 'react-native';
+import { colors } from '../../infrasctructure/theme';
+import { Flex, LogoLoader, Textt } from '../../components';
 import { AppForm, SubmitButton, AppFormField } from '../../components/forms';
 import { AuthenticationContext } from '../../services/authentication/AuthenticationContext';
 import { MainContainer } from './LoginScreen/LoginScreen.styles';
-import { Pressable } from 'react-native';
+import * as Yup from 'yup';
+import axios from 'axios';
+
 export const RegisterScreen = () => {
   const [isLoading, setIsLoading] = useState(false);
   const navigation = useNavigation();
@@ -81,11 +82,11 @@ export const RegisterScreen = () => {
 
           <Textt>Powtórz hasło</Textt>
           <AppFormField name="password" secureTexttEntry autoCapitalize="none" TexttContentType="password" />
-          <SubmitButton title="zarejestruj się" buttonColor={COLORS.backgroundColorFaded} smallLetters="uppercase" />
+          <SubmitButton title="zarejestruj się" buttonColor={colors.backgroundColorFaded} smallLetters="uppercase" />
         </AppForm>
 
         <Pressable onPress={handleLogin}>
-          <Textt title="mam juz konto" color={COLORS.linkColor} />
+          <Textt title="mam juz konto" color={colors.linkColor} />
         </Pressable>
 
         <Textt align wrap>

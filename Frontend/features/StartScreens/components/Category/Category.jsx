@@ -1,34 +1,20 @@
-import React from "react";
-import { StyleSheet, View, TouchableOpacity, Image } from "react-native";
-import styled from "styled-components/native";
+import React from 'react';
+import { TouchableOpacity, Image } from 'react-native';
+import { colors } from '../../../../infrasctructure/theme';
+import { Textt, Flex } from '../../../../components';
 
-import { colors, SIZES } from "../../../infrasctructure/theme";
-import { Textt, Flex } from "../../../components";
+import { CategoryContainer } from './Category.styles';
 
-const CategoryContainer = styled.View`
-height:${(props) => props.height};
-width:${(props) => props.width};
-border-bottom-width:${(props) => props.borderBottomWidth};
-border-bottom-color:${(props) => props.borderBottomColor};
-height:${(props) => props.height}
-diplay:flex;
-flex-direction:${(props) => (props.flexDirection ? "column" : "row")}
-justify-content: flex-start;
-align-items:center;
-margin:0px 1px;
-`;
-
-const Category = ({
+export const Category = ({
   icon,
   title,
   borderBottomColor,
   borderBottomWidth,
   borderLeftColor,
   borderLeftWidth,
-
-  width = "25vw",
-  height = "auto",
-  flexDirection = "column"
+  width = '25vw',
+  height = 'auto',
+  flexDirection = 'column'
 }) => {
   return (
     <TouchableOpacity>
@@ -37,7 +23,7 @@ const Category = ({
         align
         borderBottomColor={borderBottomColor}
         borderBottomWidth={borderBottomWidth}
-        style={{ paddingBottom: "10px", margin: "1px" }}
+        style={{ paddingBottom: '10px', margin: '1px' }}
       >
         <CategoryContainer
           flexDirection={flexDirection}
@@ -64,5 +50,3 @@ const Category = ({
     </TouchableOpacity>
   );
 };
-
-export default Category;

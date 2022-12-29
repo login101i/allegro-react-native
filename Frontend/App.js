@@ -22,21 +22,21 @@ const App = () => {
     fetchData();
   }, []);
 
-  if (isLoading || !areFontsLoaded) {
-    return (
-      <Flex align center flexOne>
-        <LogoLoader
-          source={{
-            uri: 'https://maciejewski.com/wp-content/uploads/allegro.png'
-          }}
-          style={{
-            width: '300px',
-            height: '300px'
-          }}
-        />
-      </Flex>
-    );
-  }
+  // if (isLoading || !areFontsLoaded) {
+  //   return (
+  //     <Flex align center flexOne>
+  //       <LogoLoader
+  //         source={{
+  //           uri: 'https://maciejewski.com/wp-content/uploads/allegro.png'
+  //         }}
+  //         style={{
+  //           width: '300px',
+  //           height: '300px'
+  //         }}
+  //       />
+  //     </Flex>
+  //   );
+  // }
   return (
     <ThemeProvider theme={theme}>
       <ProductContextProvider>

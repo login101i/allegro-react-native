@@ -1,10 +1,15 @@
-/**
- * @format
- */
+import { AppRegistry } from 'react-native';
+import App from './App';
+import { name as appName } from './app.json';
+import { StrictMode } from 'react';
+import { createRoot } from 'react-dom/client';
 
-import { AppRegistry } from "react-native";
-import App from "./App";
-import ProductListScreen from "./screens/ProductListScreen/ProductListScreen";
-import { name as appName } from "./app.json";
+const rootElement = document.getElementById('root');
+const root = createRoot(rootElement);
 
-AppRegistry.registerComponent(appName, () => ProductListScreen);
+root.render(
+  <StrictMode>
+    <App />
+  </StrictMode>
+);
+AppRegistry.registerComponent(appName, () => App);

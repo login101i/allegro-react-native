@@ -23,7 +23,6 @@ const StartNavigation = () => {
         name="SearchOutput"
         component={SearchOutputScreen}
         options={{
-          headerBackTitle: () => <Textt>Hello</Textt>,
           headerRight: () => <HeaderTabs />
         }}
       />

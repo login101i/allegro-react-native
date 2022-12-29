@@ -1,6 +1,6 @@
 import React, { useState, useContext, useEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { Flex, Textt, Space, AppButton, ActivityIndicator, LogoLoader } from '../../components';
+import { Flex, Textt, Space, AppButton, CustomActivityIndicator } from '../../components';
 import { AuthenticationContext } from '../../services/authentication/AuthenticationContext';
 import { MainContainer } from './LoginScreen/LoginScreen.styles';
 import { colors } from '../../infrasctructure/theme';
@@ -43,17 +43,7 @@ export const LogoutScreen = () => {
 
   if (isLoading) {
     return (
-      <MainContainer>
-        <LogoLoader
-          source={{
-            uri: 'https://maciejewski.com/wp-content/uploads/allegro.png'
-          }}
-          style={{
-            width: '300px',
-            height: '300px'
-          }}
-        />
-      </MainContainer>
+      <CustomActivityIndicator/>
     );
   }
   return (

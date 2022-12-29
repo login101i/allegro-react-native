@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import { ProductsContext } from '../services/products/ProductsContext';
 import { FilterHeader, Textt, SafeArea } from '../components';
-import WeekOcasions from '../features/StartScreens/components/weekOccasions/WeekOccasions';
+import WeekOccasions from '../features/StartScreens/components/WeekOccasions/WeekOccasions';
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
 export const SearchOutputScreen = ({ route, currentPage = 1, price = [1, 10000], category = '', rating = 0 }) => {
@@ -29,7 +29,7 @@ export const SearchOutputScreen = ({ route, currentPage = 1, price = [1, 10000],
   return (
     <SafeArea>
       <FilterHeader />
-      <WeekOcasions navigation={navigation} keyword={keyword} productsByKeyword={productsByKeyword} />
+      <WeekOccasions navigation={navigation} keyword={keyword} productsByKeyword={productsByKeyword} />
     </SafeArea>
   );
 };
