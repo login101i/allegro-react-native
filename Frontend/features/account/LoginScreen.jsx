@@ -24,8 +24,8 @@ export const LoginScreen = ({ navigation }) => {
   });
 
   const handleLogin = async (values) => {
+    setIsLoading(true);
     try {
-      setIsLoading(true);
       const { data } = await axios.post(`http://localhost:8000/api/login`, values);
 
       await AsyncStorage.setItem('@auth', JSON.stringify(data));

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { TouchableWithoutFeedback } from 'react-native-gesture-handler';
-import { Text } from 'react-native';
+import { Textt } from '..';
 import { COLORS } from '../../constants';
 import { CartContainer, DetailContainer, StyledImage } from './Card.styles';
 // import { Image } from "react-native-expo-image-cache";
@@ -20,7 +20,7 @@ export const Card = ({ title, subTitle, image, onPress, thumbnailUrl }) => {
         <CartContainer>
           <DetailContainer source={image} />
           <DetailContainer>
-            <Text title={title} subTitle={subTitle} color="purple" />
+            <Textt title={title} subTitle={subTitle} color="purple" />
           </DetailContainer>
         </CartContainer>
       </TouchableWithoutFeedback>

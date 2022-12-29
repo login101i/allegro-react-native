@@ -20,7 +20,6 @@ export const SearchOutputScreen = ({ route, currentPage = 1, price = [1, 10000],
       const link = `http://localhost:8000/api/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gte]=${price[0]}&ratings[gte]=${rating}`;
 
       const { data } = await axios.get(link);
-      console.log('🚀 ~ file: SearchOutputScreen.jsx ~ line 31 ~ searchByKeyword ~ data', data);
       setProductsByKeyword(data.products);
     } catch (err) {
       console.log(err);

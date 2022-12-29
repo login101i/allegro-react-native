@@ -42,9 +42,7 @@ export const LogoutScreen = () => {
   };
 
   if (isLoading) {
-    return (
-      <CustomActivityIndicator/>
-    );
+    return <CustomActivityIndicator />;
   }
   return (
     <MainContainer>
@@ -53,6 +51,9 @@ export const LogoutScreen = () => {
       <Flex center column align width="100%">
         <AppButton title="Wyloguj się" buttonColor={colors.allegroColor} smallLetters="uppercase" onPress={handleLogout} />{' '}
       </Flex>
+      <Textt>Cześć {state.user?.name}</Textt>
+      <Textt>Cześć {state.user?.email}</Textt>
+      <Textt>Jesteś z nami od {state.user?.createdAt.slice(0, 10)}</Textt>
     </MainContainer>
   );
 };

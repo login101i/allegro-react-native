@@ -1,8 +1,10 @@
 import styled from 'styled-components/native';
-import { View, Text, Image, TouchableHighlight } from 'react-native';
 
 export const MainContainer = styled.View`
   margin: 10px;
+  background-color:${(props) => props.theme.colors.white}
+  width:100%;
+  overflow:hidden;
 `;
 
 export const Discount = styled.Text`
@@ -55,7 +57,7 @@ export const GreatPrice = styled.Text`
   font-size: 10px;
 `;
 
-export const Rating = styled.View`
+export const Rating = styled.Text`
   flex-direction: row;
 `;
 export const DescriptionContainer = styled.View`

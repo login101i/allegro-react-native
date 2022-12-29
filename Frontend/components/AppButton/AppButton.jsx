@@ -15,7 +15,6 @@ export const AppButton = ({
   iconName,
   smallLetters,
   fontSize = '30',
-  color = colors.white,
   border,
   width,
   upperCase
@@ -23,8 +22,8 @@ export const AppButton = ({
   return (
     <TouchableOpacity onPress={onPress}>
       <ButtonContainer buttonColor={buttonColor} border={border} width={width}>
-        <MaterialCommunityIcons name={iconName} color="white" size={25} />
-        <Textt color={color} upperCase={upperCase}>
+        <MaterialCommunityIcons name={iconName} color={textColor} size={25} />
+        <Textt color={textColor} upperCase={upperCase}>
           {title}
         </Textt>
       </ButtonContainer>

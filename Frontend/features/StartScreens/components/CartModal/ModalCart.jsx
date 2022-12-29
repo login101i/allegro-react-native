@@ -12,42 +12,42 @@ const ModalCart = ({ product, modal, changeModal }) => {
 
   return (
     <>
-      {modal && (
-        <ModalContainer>
-          <TitleContainer>
-            <Button
-              onPress={() => {
-                changeModal();
-              }}
-            >
-              <Ionicons name="md-basket" size={22} />
-            </Button>
-            <Textt size={16}>Product został dodany do koszyka</Textt>
-          </TitleContainer>
-          <ProductContainer product={product} />
-          <ButtonsContainer>
-            <Flex space>
-              <AppButton
-                width="40%"
-                buttonColor={colors.white}
-                onPress={changeModal}
-                color={colors.linkColor}
-                title="Kupuj dalej"
-                uppercase
-              />
+      <ModalContainer modal={modal}>
+        <TitleContainer>
+          <Button
+            onPress={() => {
+              changeModal();
+            }}
+          >
+            <Ionicons name="md-basket" size={22} />
+          </Button>
+          <Textt size={16}>Product został dodany do koszyka</Textt>
+        </TitleContainer>
+        <ProductContainer product={product} compactImages />
+        <ButtonsContainer>
+          <Flex space>
+            <AppButton
+              title="Kupuj dalej"
+              buttonColor={colors.white}
+              textColor={colors.allegroColor}
+              border={`2px solid orange`}
+              smallLetters="uppercase"
+              onPress={() => changeModal()}
+              width="150px"
+            />
 
-              <AppButton
-                buttonColor={colors.allegroColor}
-                color={colors.white}
-                onPress={() => navigation.navigate('Koszyk')}
-                title="Idź do koszyka"
-                width="40%"
-                uppercase
-              />
-            </Flex>
-          </ButtonsContainer>
-        </ModalContainer>
-      )}
+            <AppButton
+              buttonColor={colors.allegroColor}
+              textColor={colors.white}
+              onPress={() => navigation.navigate('Koszyk')}
+              title="Idź do koszyka"
+              uppercase
+              smallLetters="uppercase"
+              width="150px"
+            />
+          </Flex>
+        </ButtonsContainer>
+      </ModalContainer>
     </>
   );
 };

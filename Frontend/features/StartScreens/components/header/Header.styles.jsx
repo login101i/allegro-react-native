@@ -9,6 +9,6 @@ export const Container = styled.View`
 export const StyledOpacity = styled(TouchableOpacity)`
   width: auto;
   height: 30px;
-  tintcolor: ${colors.lightGray};
+  tint-color: ${colors.lightGray};
   margin-left: 25px;
 `;

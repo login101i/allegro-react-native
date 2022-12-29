@@ -3,7 +3,7 @@ import { StyleSheet, View, Image, Text } from 'react-native';
 
 import ListItem from '../components/ListItem/ListItem';
 import ListItemSeparator from '../components/ListItemSeparator';
-import { COLORS } from '../constants';
+import { colors } from '../infrasctructure/theme';
 import Icon from '../components/Icon';
 import Screen from './Screen';
 import AppText from '../components/AppText';
@@ -17,14 +17,14 @@ const menuItems = [
     title: 'My Listings',
     icon: {
       name: 'format-list-bulleted',
-      backgroundColor: COLORS.primary
+      backgroundColor: colors.primary
     }
   },
   {
     title: 'My Messages',
     icon: {
       name: 'email',
-      backgroundColor: COLORS.secondary
+      backgroundColor: colors.secondary
     },
     targetScreen: 'tutaj route'
   }
@@ -35,7 +35,7 @@ function AccountScreenLogout({ navigation }) {
     <Screen>
       <View style={styles.flexRow}>
         <AppText title="Moje allegro" textColor="white" />
-        <Icon name={'facebook'} textColor={COLORS.lightGrey} />
+        <Icon name={'facebook'} textColor={colors.lightGrey} />
       </View>
       <Text>Nawigacja zakupy lokalnie konto</Text>
       <Image source={Banner} style={styles.banner} />
@@ -48,7 +48,7 @@ function AccountScreenLogout({ navigation }) {
         </SimpleText>
         <AppButton
           title="zaloguj się"
-          buttonColor={COLORS.allegroColor}
+          buttonColor={colors.allegroColor}
           smallLetters="uppercase"
           onPress={() => navigation.navigate(routes.LOGIN)}
         />

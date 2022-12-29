@@ -3,7 +3,7 @@ import styled from 'styled-components/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { colors } from '../../infrasctructure/theme';
 import AuthNavigation from './AuthNavigation';
-import ListingsScreen from '../../screens/ListingsScreen';
+import ListingsScreen from '../../screens/ListingScreen/ListingsScreen';
 import Basket from '../StartScreens/screens/Basket.screen/Basket.screen';
 import StartNavigation from '../../features/navigation/StartNavigation';
 import CreateProductScreen from '../../features/createProduct/CreateProductScreen';

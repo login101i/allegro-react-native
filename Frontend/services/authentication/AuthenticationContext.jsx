@@ -8,7 +8,7 @@ export const AuthenticationContextProvider = ({ children }) => {
     user: null,
     isFetching: false,
     error: false,
-    token: ''
+    token: '',
   });
 
   useEffect(() => {

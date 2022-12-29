@@ -2,10 +2,10 @@ import React, { useEffect, useRef } from 'react';
 import SimpleImageSlider from 'react-simple-image-slider';
 import { CustomImage, ImageContainer } from './Slider.styles.jsx';
 import { SafeArea } from '../SafeArea/SafeArea.jsx';
+import { ScrollView } from 'react-native';
 
 export const Slider = ({ images, setCountSlider }) => {
   var imagesArray = [];
-
   for (var i = 0; i < images.length; i++) {
     imagesArray.push({ url: images[i].url });
   }
@@ -16,12 +16,15 @@ export const Slider = ({ images, setCountSlider }) => {
   };
 
   return (
-    <SafeArea horizontal showsHorizontalScrollIndicator={false} onScroll={handleScroll} scrollEventThrottle={32}>
+    <ScrollView horizontal showsHorizontalScrollIndicator={false} onScroll={handleScroll} scrollEventThrottle={32}>
       {imagesArray.map((image) => (
         <ImageContainer key={image.url}>
-          <CustomImage source={image.url} />
+          <CustomImage
+            source={image.url}
+
+          />
         </ImageContainer>
       ))}
-    </SafeArea>
+    </ScrollView>
   );
 };

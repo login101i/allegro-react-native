@@ -6,7 +6,6 @@ export const CustomImage = styled(Image)`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: green;
   width: 70%;
   height: 400px;
   object-fit: contain;
