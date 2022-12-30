@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 
 export const Container = styled.View`
   position: absolute;
-  top: calc(100vh - 120px);
+  bottom: 70px;
   z-index: 99;
   right: ${(props) => (props.payPalMove ? '-140px' : props.isPaypalShow ? '0px' : '-400px')};
   transition: 0.6s ease-in-out;

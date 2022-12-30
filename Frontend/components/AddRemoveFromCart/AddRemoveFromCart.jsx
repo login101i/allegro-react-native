@@ -8,9 +8,10 @@ import { Button } from 'react-native';
 import { FlexCenter, MainContainer, Container, BorderView, InputBorderView, StyledIcon, Input } from './AddRemoveFromCart.styles';
 import { CartContext } from '../../services/cart/CartContext';
 
-const AddRemoveFromCart = ({ product = null, func = () => null, resetNumber = 1, orderedNumber }) => {
+const AddRemoveFromCart = ({ product = null, func = () => null, resetNumber = 1, orderedNumber, calculateSum }) => {
   const [number, setNumber] = useState(orderedNumber || 1);
   const [itemsCart, setItemsCart] = useState();
+  const { addToCart, removeFromCart } = useContext(CartContext);
 
   useEffect(() => {
     func(number);
@@ -30,11 +31,13 @@ const AddRemoveFromCart = ({ product = null, func = () => null, resetNumber = 1,
   const minus = () => {
     if (number === 0) return;
     setNumber(number - 1);
+    calculateSum && removeFromCart(product);
   };
 
   const plus = () => {
     if (number === product.stock) return;
-    setNumber(number + 1);
+    setNumber((prev) => prev + 1);
+    calculateSum && addToCart(product, number);
   };
 
   return (

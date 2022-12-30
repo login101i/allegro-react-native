@@ -9,7 +9,7 @@ export const ModalContainer = styled.View`
   background-color: ${colors.white};
   position: absolute;
   z-index: 121;
-  min-height: 450px;
+  min-height: 400px;
   transition: 0.5s all ease-in-out;
 `;
 

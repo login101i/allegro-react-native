@@ -2,14 +2,8 @@ import styled from 'styled-components/native';
 
 export const ScrollViewContainer = styled.ScrollView`
   position: relative;
-`;
-export const ContainerView = styled.View`
-  display: flex;
-  flex: 1;
-  color: black;
-  height: 100%;
-  background-color: ${(props) => props.theme.colors.white};
-  padding-top: 10px;
+  height: 100vh;
+  background-color: white;
 `;
 
 export const BannerContainer = styled.View`
@@ -18,6 +12,7 @@ export const BannerContainer = styled.View`
   height: auto;
   margin-top: 36px;
   justify-content: center;
+  margin-bottom: 70px;
 `;
 
 export const SmartBanner = styled.Image`

@@ -1,16 +1,13 @@
 import React, { useState, useEffect, createContext } from 'react';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-// import { io } from 'socket.io-client';
 
 export const CartContext = createContext();
 
 export const CartContextProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
-  const [sum, setSum] = useState(0);
+  const [cartSum, setCartSum] = useState(0);
   const [cartStep, setCartStep] = useState(1);
-
   const [user, setUser] = useState('defaultUser');
-  const [notifications, setNotifications] = useState([]);
 
   const saveCart = async (cart) => {
     try {
@@ -23,32 +20,48 @@ export const CartContextProvider = ({ children }) => {
 
   useEffect(() => {
     if (!cart.length) {
-      setSum(0);
+      setCartSum(0);
       return;
     }
     calculateSum(cart);
     saveCart();
   }, [cart]);
 
+  useEffect(() => {}, [excludeProduct]);
+
   const add = (item, ilosc) => {
-    setCart([...cart, { item: item, ile: ilosc }]);
+    if (cart.map(({ item }) => item._id).includes(item._id)) {
+      const productIndex = cart.findIndex((cartItem) => cartItem.item._id === item._id);
+      cart[productIndex].ile += 1;
+      setCart([...cart]);
+    } else {
+      setCart([...cart, { item: item, ile: ilosc }]);
+    }
   };
 
   const remove = (item) => {
     if (cart.length === 0) {
-      setSum(0);
+      setCartSum(0);
       return;
     }
-    cart.splice(0, 1);
-    const newCart = cart;
-
-    setCart(newCart);
+    if (cart.map(({ item }) => item._id).includes(item._id)) {
+      const productIndex = cart.findIndex((cartItem) => cartItem.item._id === item._id);
+      cart[productIndex].ile -= 1;
+      setCart([...cart]);
+    }
   };
 
   const removeProduct = (itemToRemove) => {
-    const newCart = cart.filter((product) => product.item.name !== itemToRemove.name);
+    const newCart = cart.filter((product) => product.item._id !== itemToRemove._id);
     setCart(newCart);
-    console.log(newCart);
+  };
+  const excludeProduct = (itemToExclude) => {
+    if (!itemToExclude) {
+      calculateSum(cart);
+    } else {
+      const newCart = cart.filter((product) => product.item._id !== itemToExclude._id);
+      calculateSum(newCart);
+    }
   };
 
   const clear = () => {
@@ -58,11 +71,11 @@ export const CartContextProvider = ({ children }) => {
   const calculateSum = (cartItems) => {
     let newSum = 0;
     cartItems.map((item) => {
-      const price = item.price;
+      const price = item.item.price;
       const qty = item.ile;
       const itemSum = price * qty;
       newSum += itemSum;
-      setSum(newSum.toFixed(2));
+      setCartSum(newSum.toFixed(2));
     });
   };
 
@@ -75,13 +88,15 @@ export const CartContextProvider = ({ children }) => {
     <CartContext.Provider
       value={{
         cart,
-        sum,
+        cartSum,
         user,
         cartStep,
         addToCart: add,
         removeFromCart: remove,
         clearCart: clear,
         removeProduct,
+        excludeProduct,
+        calculateSum,
         addCartStep: handleCartStep
       }}
     >

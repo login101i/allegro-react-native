@@ -24,10 +24,17 @@ const AppNavigator = () => {
 
   const StyledBadge = styled(Badge)`
     position: absolute;
-    top: -10px;
-    right: -10px;
-    width: 16px;
-    height: 16px;
+    top: 0px;
+    right: 0px;
+    width: 20px;
+    height: 20px;
+    background-color: ${colors.allegroColor};
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   `;
   const RelativeContainer = styled.View`
     position: relative;
@@ -85,7 +92,7 @@ const AppNavigator = () => {
         }
       }}
     >
-      <Tab.Screen name="Start" component={StartNavigation} />
+      <Tab.Screen name="Start" component={StartNavigation} options={{ unmountOnBlur: true }} />
       <Tab.Screen name="Moje_Allegro" component={AuthNavigation} />
       <Tab.Screen name="Szukaj" component={CreateProductScreen} />
       <Tab.Screen name="Koszyk" component={Basket} />

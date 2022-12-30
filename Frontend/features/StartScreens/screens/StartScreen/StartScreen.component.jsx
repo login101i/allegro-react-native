@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import { ScrollView } from 'react-native';
-
 import { Space } from '../../../../components';
 import Header from '../../components/header/Header';
 import { SearchInput } from '../../components/Search/SearchInput';
@@ -11,16 +9,15 @@ import Timer from '../../components/Timer/Timer';
 import WeekOccasions from '../../components/WeekOccasions/WeekOccasions';
 import HeaderTabs from '../../components/HeaderTabs/HeaderTabs';
 import SpecialAdvert from '../../components/SpecialAdvert/SpecialAdvert';
-import { ScrollViewContainer, ContainerView, BannerContainer, SmartBanner, BannerButton } from './StartScreen.styles';
+import { ScrollViewContainer, BannerContainer, SmartBanner, BannerButton } from './StartScreen.styles';
 import SmartBannerImg2 from '../../../../assets/images/smartBanner2.png';
 import { MonetyAllegroAdv } from '../../components/MonetyAllegroAdv/MonetyAllegroAdv';
 import { colors } from '../../../../infrasctructure/theme';
-import { CustomIcon } from '../../../../components';
-import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
+
 
 const StartScreen = ({ navigation }) => {
   const [isPaypalShow, setIsPaypalShow] = useState(true);
-  const [payPalMove, setPaypalMove] = useState(false);
+  const [payPalMove, setPaypalMove] = useState(true);
   const [isSearchVisible, setIsSearchVisible] = useState(null);
 
   const handlePayPalMove = () => {
@@ -32,27 +29,30 @@ const StartScreen = ({ navigation }) => {
   function handleScroll(event) {
     setPaypalMove(false);
     setIsPaypalShow(true);
-
-    if (event.nativeEvent.contentOffset.y < 80) {
-      setIsSearchVisible(false);
+    if (event.nativeEvent.contentOffset.y < 20) {
+      setPaypalMove((prev) => true);
     }
-    if (event.nativeEvent.contentOffset.y >= 201) {
-      setPaypalMove(true);
-      setIsSearchVisible(true);
+    if (event.nativeEvent.contentOffset.y < 80) {
+      setIsSearchVisible((prev) => false);
+    }
+    if (event.nativeEvent.contentOffset.y >= 200) {
+      setIsSearchVisible((prev) => true);
+    }
+    if (event.nativeEvent.contentOffset.y >= 600) {
+      setPaypalMove((prev) => true);
     }
     if (event.nativeEvent.contentOffset.y >= 700) {
-      setPaypalMove(false);
-      setIsPaypalShow(false);
+      setPaypalMove((prev) => false);
+      setIsPaypalShow((prev) => false);
     }
   }
 
   return (
-    <ContainerView>
-      {isSearchVisible && <SearchInput navigation={navigation} isSearchVisible={isSearchVisible} />}
-      <ScrollViewContainer showsVerticalScrollIndicator={false} onScroll={handleScroll}>
+    <>
+      <ScrollViewContainer showsVerticalScrollIndicator={false} onScroll={handleScroll} scrollEventThrottle={16}>
         <Header navigation={navigation} />
         <HeaderTabs />
-        {!isSearchVisible && <SearchInput navigation={navigation} isSearchVisible={isSearchVisible} />}
+        <SearchInput navigation={navigation} isSearchVisible={isSearchVisible} />
         <Categories />
         <Space backgroundColor={colors.lightGray} />
         <Banner />
@@ -71,7 +71,7 @@ const StartScreen = ({ navigation }) => {
         </BannerContainer>
       </ScrollViewContainer>
       <MonetyAllegroAdv isPaypalShow={isPaypalShow} handlePayPalMove={handlePayPalMove} payPalMove={payPalMove} />
-    </ContainerView>
+    </>
   );
 };
 

@@ -15,15 +15,35 @@ const ProductDetailsScreen = ({ navigation, route }) => {
   const [countSlider, setCountSlider] = useState(0);
   const [resetNumber, setResetNumber] = useState();
   const [modal, setModal] = useState(false);
+  const [isProductInCart, setIsProductInCart] = useState(false);
 
   const { product } = route.params;
+  const { addToCart, cart, user } = useContext(CartContext);
 
-  const { addToCart, socket, user } = useContext(CartContext);
 
-  const addToBasket = (product, nb, type) => {
-    addToCart(product, nb);
-    setModal(true);
+  useEffect(() => {
+    const checkProductInCart = () => {
+      // if (!cart.length) return;
+      const productInCart = cart.map(({ item }) => item._id).includes(product._id);
+      setIsProductInCart(productInCart);
+    };
+    checkProductInCart();
+  }, [cart]);
+
+  const handleAddToBasket = () => {
+    if (isProductInCart) {
+      navigation.navigate('Koszyk');
+    } else {
+      addToCart(product, number);
+      setModal(true);
+      setResetNumber(1);
+    }
+  };
+
+  const handleToCart = () => {
+    addToCart(product, number);
     setResetNumber(1);
+    navigation.navigate('Koszyk');
   };
 
   const changeModal = () => {
@@ -31,10 +51,6 @@ const ProductDetailsScreen = ({ navigation, route }) => {
     const random = Math.random();
     setResetNumber(random);
   };
-
-  useEffect(() => {
-    console.log(countSlider);
-  }, [countSlider]);
 
   return (
     <MainContainer>
@@ -65,17 +81,17 @@ const ProductDetailsScreen = ({ navigation, route }) => {
             textColor={colors.allegroColor}
             border={`2px solid orange`}
             smallLetters="uppercase"
-            onPress={() => addToBasket(product, number, 1)}
+            onPress={handleToCart}
             width="150px"
           />
           <AppButton
             color={colors.white}
-            title="Do koszyka"
+            title={isProductInCart ? 'Produkt w koszyku' : 'Do koszyka'}
             buttonColor={colors.allegroColor}
             border={`2px solid ${colors.allegroColor}`}
             textColor={colors.white}
             smallLetters="uppercase"
-            onPress={() => addToBasket(product, number, 1)}
+            onPress={handleAddToBasket}
             width="150px"
           />
         </Flex>

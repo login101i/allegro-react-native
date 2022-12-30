@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Searchbar } from 'react-native-paper';
 import { SearchContainer } from './SearchInput.styles';
 
-export const SearchInput = ({ navigation }) => {
+export const SearchInput = ({ navigation, isSearchVisible }) => {
   const [searchKeyword, setSearchKeyword] = useState('');
 
   const handleSearch = () => {
@@ -14,7 +14,7 @@ export const SearchInput = ({ navigation }) => {
   };
 
   return (
-    <SearchContainer>
+    <SearchContainer isSearchVisible={isSearchVisible}>
       <Searchbar
         icon={'heart'}
         placeholder="Czego szukasz?"

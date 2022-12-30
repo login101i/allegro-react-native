@@ -4,12 +4,14 @@ export const MainContainer = styled.View`
   height: 100vh;
 `;
 export const CustomScrollView = styled.ScrollView`
-  background-color: ${(props) => (props.modal ? 'grey' : 'white')};
+  background-color: white;
   opacity: 0.8;
+  z-index: 2;
+  filter: ${(props) => (props.modal ? 'blur(3px)' : 'none')};
 `;
 export const ButtonsContainer = styled.View`
   position: absolute;
-  bottom: 80px;
+  bottom: 90px;
   left: 0%;
   right: 0px;
   z-index: 30;

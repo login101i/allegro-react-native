@@ -11,7 +11,8 @@ import {
   DescriptionContainer,
   MainContainer
 } from './ProductContainer.styles';
-import Image from '../../assets/images/smart.png';
+import SmartImage from '../../assets/images/smart.png';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 export const ProductContainer = ({ product = {}, onPress, direction = 'column', compactImages }) => {
   const {
@@ -34,6 +35,15 @@ export const ProductContainer = ({ product = {}, onPress, direction = 'column', 
 
   const date = new Date();
   let hour = date.getHours();
+
+  const addStar = (ratings) => {
+    var array = [];
+    for (var i = 0; i < ratings; i++) {
+      array = [...array, i];
+    }
+
+    return array;
+  };
 
   return (
     <MainContainer>
@@ -58,6 +68,12 @@ export const ProductContainer = ({ product = {}, onPress, direction = 'column', 
                     {title}
                   </Textt>
                   <Rating>
+                    {addStar(ratingArray).map((star) => (
+                      <Ionicons name="star" color={colors.allegroColor} key={Math.random()} size={17} />
+                    ))}
+                    {addStar(remainStars).map((star) => (
+                      <Ionicons name="star" color={colors.gradarkGrayyColor} key={Math.random()} size={17} />
+                    ))}
                     {ratingArray.map((_, i) => (
                       <Textt key={`star-${i}`}>x</Textt>
                     ))}
@@ -79,7 +95,7 @@ export const ProductContainer = ({ product = {}, onPress, direction = 'column', 
                   <Textt size={16} bold>
                     {price} zł
                   </Textt>
-                  <ImageComponent img={Image} width="90px" />
+                  <ImageComponent img={SmartImage} width="90px" />
                 </Flex>
 
                 <Textt />
