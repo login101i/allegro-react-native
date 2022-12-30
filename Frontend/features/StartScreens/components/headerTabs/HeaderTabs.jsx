@@ -6,7 +6,7 @@ import { headerTabInfo } from '../../../../infrasctructure/data';
 
 const HeaderTabs = () => {
   return (
-    <Flex flexEnd>
+    <Flex center>
       {headerTabInfo.map((tab) => (
         <TabContainer backgroundColor={tab.backgroundColor} key={tab.title}>
           <Textt color={colors.lightGray} textAlign>

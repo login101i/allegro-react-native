@@ -26,7 +26,7 @@ export const LoginScreen = ({ navigation }) => {
   const handleLogin = async (values) => {
     setIsLoading(true);
     try {
-      const { data } = await axios.post(`http://localhost:8000/api/login`, values);
+      const { data } = await axios.post(`http://192.168.43.35:8000/api/login`, values);
 
       await AsyncStorage.setItem('@auth', JSON.stringify(data));
       setTimeout(() => {
@@ -103,12 +103,18 @@ export const LoginScreen = ({ navigation }) => {
           <AppFormField color={colors.white} name="password" secureTexttEntry autoCapitalize="none" TexttContentType="password" />
 
           <Space height="50px" />
-          <SubmitButton color={colors.white} title="zaloguj się" buttonColor={colors.backgroundColorFaded} smallLetters="uppercase" />
+          <SubmitButton textColor={colors.white} title="zaloguj się" buttonColor={colors.backgroundColorFaded} smallLetters="uppercase" />
         </AppForm>
 
         <Textt>lub</Textt>
-        <AppButton color={colors.white} iconName="facebook" title="Zaloguj się przez Facebook" buttonColor={colors.fbColor} />
-        <AppButton color={colors.white} iconName="google" title="Zaloguj się przez Google" />
+        <AppButton
+          color={colors.white}
+          textColor={colors.white}
+          iconName="facebook"
+          title="Zaloguj się przez Facebook"
+          buttonColor={colors.fbColor}
+        />
+        <AppButton color={colors.white} textColor={colors.white} iconName="google" title="Zaloguj się przez Google" />
 
         <Space height="20px" />
         <Flex space>

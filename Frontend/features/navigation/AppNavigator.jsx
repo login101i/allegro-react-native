@@ -6,7 +6,8 @@ import AuthNavigation from './AuthNavigation';
 import ListingsScreen from '../../screens/ListingScreen/ListingsScreen';
 import Basket from '../StartScreens/screens/Basket.screen/Basket.screen';
 import StartNavigation from '../../features/navigation/StartNavigation';
-import CreateProductScreen from '../../features/createProduct/CreateProductScreen';
+import CreateProductScreen from '../searchForProduct/Search.screen';
+import SearchNavigation from './SearchNavigator';
 import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
@@ -16,6 +17,7 @@ import { CartContext } from '../../services/cart/CartContext';
 import { View, Image } from 'react-native';
 import { Textt } from '../../components';
 import { Badge } from 'react-native-paper';
+import SearchNavigator from './SearchNavigator';
 
 const Tab = createBottomTabNavigator();
 
@@ -48,7 +50,7 @@ const AppNavigator = () => {
       Start: HomeIcon,
       Szukaj: SearchIcon,
       Koszyk: ShoppingBasketIcon,
-      Obserwuję: StarIcon,
+      Obserwowane: StarIcon,
       Moje_Allegro: PersonIcon
     };
     const IconName = TAB_ICON[route.name];
@@ -59,11 +61,11 @@ const AppNavigator = () => {
             resizeMode="contain"
             style={{
               width: 30,
-              height: 30
+              height: 30,
+              color: focused ? colors.allegroColor : colors.darkGray
             }}
-            color={focused ? 'primary ' : 'disabled'}
           />
-          <Textt size={14} color={focused ? 'primary' : 'disabled'}>
+          <Textt size={12} color={focused ? colors.allegroColor : colors.backgroundColor}>
             {route.name}
           </Textt>
           {cart.length !== 0 && route.name === 'Koszyk' && <StyledBadge>{cart.length}</StyledBadge>}
@@ -93,10 +95,10 @@ const AppNavigator = () => {
       }}
     >
       <Tab.Screen name="Start" component={StartNavigation} options={{ unmountOnBlur: true }} />
-      <Tab.Screen name="Moje_Allegro" component={AuthNavigation} />
-      <Tab.Screen name="Szukaj" component={CreateProductScreen} />
+      <Tab.Screen name="Szukaj" component={SearchNavigator} />
       <Tab.Screen name="Koszyk" component={Basket} />
-      <Tab.Screen name="Obserwuję" component={ListingsScreen} />
+      <Tab.Screen name="Obserwowane" component={ListingsScreen} />
+      <Tab.Screen name="Moje_Allegro" component={AuthNavigation} />
     </Tab.Navigator>
   );
 };

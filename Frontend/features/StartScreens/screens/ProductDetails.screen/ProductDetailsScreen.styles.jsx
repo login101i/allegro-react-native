@@ -1,7 +1,7 @@
 import styled from 'styled-components/native';
 
 export const MainContainer = styled.View`
-  height: 100vh;
+  height: calc(100vh - 60px);
 `;
 export const CustomScrollView = styled.ScrollView`
   background-color: white;

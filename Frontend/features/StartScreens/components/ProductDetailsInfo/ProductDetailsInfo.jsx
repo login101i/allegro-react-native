@@ -19,7 +19,7 @@ const ProductDetailsInfo = ({ product, countSlider }) => {
   const handleFavouriteProducts = async (productId, userId) => {
     setIsLoading(true);
     try {
-      const { data } = await axios.post(`http://localhost:8000/api/addfavouriteproduct`, { productId, userId });
+      const { data } = await axios.post(`http://192.168.43.35:8000/api/addfavouriteproduct`, { productId, userId });
       console.log(data);
       setTimeout(() => {
         setIsLoading(false);

@@ -17,7 +17,7 @@ export const SearchOutputScreen = ({ route, currentPage = 1, price = [1, 10000],
 
   const searchByKeyword = async () => {
     try {
-      const link = `http://localhost:8000/api/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gte]=${price[0]}&ratings[gte]=${rating}`;
+      const link = `http://192.168.43.35:8000/api/products?keyword=${keyword}&page=${currentPage}&price[lte]=${price[1]}&price[gte]=${price[0]}&ratings[gte]=${rating}`;
 
       const { data } = await axios.get(link);
       setProductsByKeyword(data.products);

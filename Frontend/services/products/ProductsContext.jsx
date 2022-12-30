@@ -10,7 +10,7 @@ export const ProductContextProvider = ({ children }) => {
   const fetchProducts = async () => {
     try {
       setIsLoading(true);
-      const { data } = await axios.get('http://localhost:8000/api/products');
+      const { data } = await axios.get('http://192.168.43.35:8000/api/products');
       setProducts(data.products);
       setIsLoading(false);
     } catch (err) {

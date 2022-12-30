@@ -14,7 +14,6 @@ import SmartBannerImg2 from '../../../../assets/images/smartBanner2.png';
 import { MonetyAllegroAdv } from '../../components/MonetyAllegroAdv/MonetyAllegroAdv';
 import { colors } from '../../../../infrasctructure/theme';
 
-
 const StartScreen = ({ navigation }) => {
   const [isPaypalShow, setIsPaypalShow] = useState(true);
   const [payPalMove, setPaypalMove] = useState(true);

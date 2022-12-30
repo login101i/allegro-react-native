@@ -24,7 +24,7 @@ export const RegisterScreen = () => {
   const handleRegisterUser = async (values) => {
     try {
       setIsLoading(true);
-      const { data } = await axios.post(`http://localhost:8000/api/register`, values);
+      const { data } = await axios.post(`http://192.168.43.35:8000/api/register`, values);
       setIsLoading(false);
       navigation.navigate('Login');
     } catch (err) {

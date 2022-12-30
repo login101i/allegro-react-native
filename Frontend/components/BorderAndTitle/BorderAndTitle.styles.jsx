@@ -20,4 +20,8 @@ export const SpanText = styled.Text`
   cursor: pointer;
   text-align: center;
   font-size: 15px;
+  font-weight: 600;
+  background-color: ${(props) => props.theme.colors.white};
+  min-height: 30px;
+  width: 100%;
 `;

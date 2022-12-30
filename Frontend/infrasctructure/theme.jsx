@@ -6,7 +6,7 @@ export const colors = {
   secondary: '#5D2DFD', // Dark purple
 
   white: 'white',
-  black: '#000000',
+  black: 'black',
   blackSpace: '#242423',
   red2: '#961d33',
   gray: '#a3a2a2',

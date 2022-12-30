@@ -22,7 +22,7 @@ export const LogoutScreen = () => {
   const handleLogout = async () => {
     try {
       setIsLoading(true);
-      const { data } = await axios.get(`http://localhost:8000/api/logout`);
+      const { data } = await axios.get(`http://192.168.43.35:8000/api/logout`);
       console.log(data);
       await AsyncStorage.removeItem('@auth');
 

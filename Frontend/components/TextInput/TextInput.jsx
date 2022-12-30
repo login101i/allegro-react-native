@@ -2,10 +2,10 @@ import React from 'react';
 import { StyleSheet, Text, View, TextInput, Platform, Keyboard } from 'react-native';
 
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { COLORS } from '../../constants';
+import { colors } from '../../infrasctructure/theme';
 import defaultStyles from '../../config/styles';
 
-export const AppTextInput = ({ icon, color = COLORS.white, size = 44, width = '100%', title, ...otherProps }) => {
+export const AppTextInput = ({ icon, color = colors.white, size = 44, width = '100%', title, ...otherProps }) => {
   return (
     <View style={[styles.container, { width }]}>
       {icon && <MaterialCommunityIcons style={styles.icon} name={icon} color={color} size={size} />}
@@ -23,7 +23,7 @@ const styles = StyleSheet.create({
     height: 40,
     padding: 2,
     marginVertical: 2,
-    borderBottomColor: COLORS.black,
+    borderBottomColor: colors.black,
     borderBottomWidth: 2
   },
   icon: {

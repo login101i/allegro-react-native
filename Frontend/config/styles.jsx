@@ -1,5 +1,5 @@
-import { Platform } from "react-native";
-import { colors } from "../infrasctructure/theme";
+import { Platform } from 'react-native';
+import { colors } from '../infrasctructure/theme';
 export default {
   text: {
     color: colors.white,
